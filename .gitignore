@@ -3,9 +3,11 @@ www/
 loader/
 
 *~
+uni-*.tgz
 *.sw[mnpcod]
 *.log
 *.lock
+*-lock.json
 *.tmp
 *.tmp.*
 log.txt

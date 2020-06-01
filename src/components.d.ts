@@ -7,6 +7,20 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UniLocMenu {
+        "menuState": string;
+        "translateState": string;
+        "urlState": string;
+    }
+    interface UniLocMenuWrap {
+        "menuState": string;
+        "translateState": string;
+        "urlState": string;
+    }
+    interface UniTranslate {
+        "end": string;
+        "start": string;
+        "state": string;
+        "type": string;
     }
 }
 declare global {
@@ -16,15 +30,45 @@ declare global {
         prototype: HTMLUniLocMenuElement;
         new (): HTMLUniLocMenuElement;
     };
+    interface HTMLUniLocMenuWrapElement extends Components.UniLocMenuWrap, HTMLStencilElement {
+    }
+    var HTMLUniLocMenuWrapElement: {
+        prototype: HTMLUniLocMenuWrapElement;
+        new (): HTMLUniLocMenuWrapElement;
+    };
+    interface HTMLUniTranslateElement extends Components.UniTranslate, HTMLStencilElement {
+    }
+    var HTMLUniTranslateElement: {
+        prototype: HTMLUniTranslateElement;
+        new (): HTMLUniTranslateElement;
+    };
     interface HTMLElementTagNameMap {
         "uni-loc-menu": HTMLUniLocMenuElement;
+        "uni-loc-menu-wrap": HTMLUniLocMenuWrapElement;
+        "uni-translate": HTMLUniTranslateElement;
     }
 }
 declare namespace LocalJSX {
     interface UniLocMenu {
+        "menuState"?: string;
+        "translateState"?: string;
+        "urlState"?: string;
+    }
+    interface UniLocMenuWrap {
+        "menuState"?: string;
+        "translateState"?: string;
+        "urlState"?: string;
+    }
+    interface UniTranslate {
+        "end"?: string;
+        "start"?: string;
+        "state"?: string;
+        "type"?: string;
     }
     interface IntrinsicElements {
         "uni-loc-menu": UniLocMenu;
+        "uni-loc-menu-wrap": UniLocMenuWrap;
+        "uni-translate": UniTranslate;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +76,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "uni-loc-menu": LocalJSX.UniLocMenu & JSXBase.HTMLAttributes<HTMLUniLocMenuElement>;
+            "uni-loc-menu-wrap": LocalJSX.UniLocMenuWrap & JSXBase.HTMLAttributes<HTMLUniLocMenuWrapElement>;
+            "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
         }
     }
 }
