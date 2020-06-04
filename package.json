@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@uni/adk": "file:../adk/uni-adk-0.0.1.tgz",
-    "@uni/common": "file:../!common/uni-common-0.0.4.tgz",
-    "@uni/mat": "file:../mat/uni-mat-0.0.3.tgz"
+    "@uni/common": "file:../!common/uni-common-0.0.1.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.1.tgz"
   },
   "devDependencies": {
     "@stencil/core": "1.13.0",

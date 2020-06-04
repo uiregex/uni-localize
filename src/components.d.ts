@@ -6,12 +6,23 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface UniLocMenu {
-        "menuState": string;
-        "translateState": string;
-        "urlState": string;
+    interface UniFlag {
+        "alt": string;
+        "square": boolean;
+        "src": string;
     }
-    interface UniLocMenuWrap {
+    interface UniFlagEn {
+    }
+    interface UniLangMenu {
+        "activeState": string;
+        "flag": string;
+        "langs": string;
+        "menuState": string;
+        "name": string;
+        "translateState": string;
+        "translation": string;
+    }
+    interface UniLangMenuWrap {
         "menuState": string;
         "translateState": string;
         "urlState": string;
@@ -24,17 +35,29 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLUniLocMenuElement extends Components.UniLocMenu, HTMLStencilElement {
+    interface HTMLUniFlagElement extends Components.UniFlag, HTMLStencilElement {
     }
-    var HTMLUniLocMenuElement: {
-        prototype: HTMLUniLocMenuElement;
-        new (): HTMLUniLocMenuElement;
+    var HTMLUniFlagElement: {
+        prototype: HTMLUniFlagElement;
+        new (): HTMLUniFlagElement;
     };
-    interface HTMLUniLocMenuWrapElement extends Components.UniLocMenuWrap, HTMLStencilElement {
+    interface HTMLUniFlagEnElement extends Components.UniFlagEn, HTMLStencilElement {
     }
-    var HTMLUniLocMenuWrapElement: {
-        prototype: HTMLUniLocMenuWrapElement;
-        new (): HTMLUniLocMenuWrapElement;
+    var HTMLUniFlagEnElement: {
+        prototype: HTMLUniFlagEnElement;
+        new (): HTMLUniFlagEnElement;
+    };
+    interface HTMLUniLangMenuElement extends Components.UniLangMenu, HTMLStencilElement {
+    }
+    var HTMLUniLangMenuElement: {
+        prototype: HTMLUniLangMenuElement;
+        new (): HTMLUniLangMenuElement;
+    };
+    interface HTMLUniLangMenuWrapElement extends Components.UniLangMenuWrap, HTMLStencilElement {
+    }
+    var HTMLUniLangMenuWrapElement: {
+        prototype: HTMLUniLangMenuWrapElement;
+        new (): HTMLUniLangMenuWrapElement;
     };
     interface HTMLUniTranslateElement extends Components.UniTranslate, HTMLStencilElement {
     }
@@ -43,18 +66,31 @@ declare global {
         new (): HTMLUniTranslateElement;
     };
     interface HTMLElementTagNameMap {
-        "uni-loc-menu": HTMLUniLocMenuElement;
-        "uni-loc-menu-wrap": HTMLUniLocMenuWrapElement;
+        "uni-flag": HTMLUniFlagElement;
+        "uni-flag-en": HTMLUniFlagEnElement;
+        "uni-lang-menu": HTMLUniLangMenuElement;
+        "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
         "uni-translate": HTMLUniTranslateElement;
     }
 }
 declare namespace LocalJSX {
-    interface UniLocMenu {
-        "menuState"?: string;
-        "translateState"?: string;
-        "urlState"?: string;
+    interface UniFlag {
+        "alt"?: string;
+        "square"?: boolean;
+        "src"?: string;
     }
-    interface UniLocMenuWrap {
+    interface UniFlagEn {
+    }
+    interface UniLangMenu {
+        "activeState"?: string;
+        "flag"?: string;
+        "langs"?: string;
+        "menuState"?: string;
+        "name"?: string;
+        "translateState"?: string;
+        "translation"?: string;
+    }
+    interface UniLangMenuWrap {
         "menuState"?: string;
         "translateState"?: string;
         "urlState"?: string;
@@ -66,8 +102,10 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
-        "uni-loc-menu": UniLocMenu;
-        "uni-loc-menu-wrap": UniLocMenuWrap;
+        "uni-flag": UniFlag;
+        "uni-flag-en": UniFlagEn;
+        "uni-lang-menu": UniLangMenu;
+        "uni-lang-menu-wrap": UniLangMenuWrap;
         "uni-translate": UniTranslate;
     }
 }
@@ -75,8 +113,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "uni-loc-menu": LocalJSX.UniLocMenu & JSXBase.HTMLAttributes<HTMLUniLocMenuElement>;
-            "uni-loc-menu-wrap": LocalJSX.UniLocMenuWrap & JSXBase.HTMLAttributes<HTMLUniLocMenuWrapElement>;
+            "uni-flag": LocalJSX.UniFlag & JSXBase.HTMLAttributes<HTMLUniFlagElement>;
+            "uni-flag-en": LocalJSX.UniFlagEn & JSXBase.HTMLAttributes<HTMLUniFlagEnElement>;
+            "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
+            "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
         }
     }

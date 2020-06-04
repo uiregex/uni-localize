@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.uni-flag img {
+  margin-right: 5px;
+  margin-bottom: -2px;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.uni-flag.square img {
+  height: 1em;
+  width: 1em;
+}
+
+/*.uni-flag img:before {*/
+/*  content: "\00a0";*/
+/*}*/

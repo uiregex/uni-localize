@@ -1,9 +1,7 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop, VNode } from '@stencil/core';
 
-@Component({ tag: 'uni-loc-menu-wrap' })
-export class UniLocMenuWrapComponent implements ComponentInterface {
-  @Element() el!: HTMLElement;
-
+@Component({ tag: 'uni-lang-menu-wrap' })
+export class UniLangMenuWrapComponent implements ComponentInterface {
   @Prop() menuState = 'loc.menu.opened';
 
   @Prop() urlState = 'loc.menu.url';
@@ -24,7 +22,7 @@ export class UniLocMenuWrapComponent implements ComponentInterface {
         </uni-store>
 
         <uni-event name="uniLoadSuccess" stop>
-          <uni-store type="session" event="uniLoadSuccess" state={this.translateState}>
+          <uni-store type="session" event="uniLoadSuccess" state={this.translateState} clean>
             <uni-store type="session" state={this.urlState} target="uni-load" prop="url">
               <uni-load active/>
             </uni-store>
