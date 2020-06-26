@@ -18,7 +18,7 @@ export class UniTranslateComponent implements ComponentInterface {
     const replaceProps = { start, end }
 
     return (
-      <uni-store {...props} target="uni-replace" prop="state">
+      <uni-store active {...props} target="uni-replace" prop="state">
         <uni-replace {...replaceProps}>
           <slot/>
         </uni-replace>

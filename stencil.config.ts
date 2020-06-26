@@ -33,7 +33,7 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-      // empty: true
+      empty: true
     },
     {
       type: 'docs-readme'

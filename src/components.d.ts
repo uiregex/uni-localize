@@ -11,16 +11,12 @@ export namespace Components {
         "square": boolean;
         "src": string;
     }
-    interface UniFlagEn {
-    }
     interface UniLangMenu {
+        "activeLang": string;
         "activeState": string;
-        "flag": string;
-        "langs": string;
+        "languages": string;
         "menuState": string;
-        "name": string;
         "translateState": string;
-        "translation": string;
     }
     interface UniLangMenuWrap {
         "menuState": string;
@@ -40,12 +36,6 @@ declare global {
     var HTMLUniFlagElement: {
         prototype: HTMLUniFlagElement;
         new (): HTMLUniFlagElement;
-    };
-    interface HTMLUniFlagEnElement extends Components.UniFlagEn, HTMLStencilElement {
-    }
-    var HTMLUniFlagEnElement: {
-        prototype: HTMLUniFlagEnElement;
-        new (): HTMLUniFlagEnElement;
     };
     interface HTMLUniLangMenuElement extends Components.UniLangMenu, HTMLStencilElement {
     }
@@ -67,7 +57,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "uni-flag": HTMLUniFlagElement;
-        "uni-flag-en": HTMLUniFlagEnElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
         "uni-translate": HTMLUniTranslateElement;
@@ -79,16 +68,12 @@ declare namespace LocalJSX {
         "square"?: boolean;
         "src"?: string;
     }
-    interface UniFlagEn {
-    }
     interface UniLangMenu {
+        "activeLang"?: string;
         "activeState"?: string;
-        "flag"?: string;
-        "langs"?: string;
+        "languages"?: string;
         "menuState"?: string;
-        "name"?: string;
         "translateState"?: string;
-        "translation"?: string;
     }
     interface UniLangMenuWrap {
         "menuState"?: string;
@@ -103,7 +88,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "uni-flag": UniFlag;
-        "uni-flag-en": UniFlagEn;
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-wrap": UniLangMenuWrap;
         "uni-translate": UniTranslate;
@@ -114,7 +98,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "uni-flag": LocalJSX.UniFlag & JSXBase.HTMLAttributes<HTMLUniFlagElement>;
-            "uni-flag-en": LocalJSX.UniFlagEn & JSXBase.HTMLAttributes<HTMLUniFlagEnElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;

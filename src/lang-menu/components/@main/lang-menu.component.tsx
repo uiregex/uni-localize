@@ -1,8 +1,9 @@
-import { Component, ComponentInterface, h, Host, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, State, VNode } from '@stencil/core';
 
 import { uniLoad } from '@uni/adk';
 
 interface UniLangMenuList {
+  lang: string;
   name: string;
   flag?: string;
   translation: string;
@@ -10,11 +11,11 @@ interface UniLangMenuList {
 
 @Component({ tag: 'uni-lang-menu' })
 export class UniLangMenuComponent implements ComponentInterface {
-  @Prop() name: string;
+  @Element() el!: HTMLElement;
 
-  @Prop() flag: string;
+  @Prop() languages: string;
 
-  @Prop() translation: string;
+  @Prop() activeLang: string;
 
   @Prop() menuState = 'loc.menu.opened';
 
@@ -22,36 +23,41 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop() translateState = 'loc.translate';
 
-  @Prop() langs: string;
-
   @State() list: UniLangMenuList[] = [];
 
+  @State() lang: UniLangMenuList;
+
+  connectedCallback() {
+    this.el['package'] = 'loc';
+  }
+
   componentDidLoad(): void {
-    if (this.langs) {
-      uniLoad(this.langs, 'json')
-        .then((data: UniLangMenuList[]) => this.list = data);
+    if (this.languages) {
+      uniLoad(this.languages, 'json')
+        .then((data: UniLangMenuList[]) => {
+          this.list = data;
+          this.lang = data.filter((item: UniLangMenuList): boolean => item.lang === this.activeLang)[0];
+        });
     }
   }
 
   render(): VNode {
-    const { name, flag, translation, activeState, list } = this;
+    const { activeState, list, lang } = this;
 
     return (
       <Host>
-        <uni-icons-mat/>
+        <uni-store active init type="session" state={activeState} value={lang}/>
 
-        <uni-store type="session" state={activeState} value={{ name, flag, translation }} init/>
-
-        <uni-store event="click" state={this.menuState}>
-          <uni-store state={this.menuState} target="uni-menu-surface-mat" prop="opened">
+        <uni-store active event="click" state={this.menuState}>
+          <uni-store active state={this.menuState} target="uni-menu-surface-mat" prop="opened">
             <div class="mdc-menu-surface--anchor">
               <uni-button kind="outlined">
-                <uni-store type="session" state={this.activeState + '.flag'} target="uni-flag" prop="src">
-                  <uni-flag></uni-flag>
+                <uni-store active type="session" state={`${activeState}.flag`} target="uni-flag" prop="src">
+                  <uni-flag/>
                 </uni-store>
 
                 <uni-button-label>
-                  <uni-store type="session" state={this.activeState} target="uni-replace" prop="state">
+                  <uni-store active type="session" state={activeState} target="uni-replace" prop="state">
                     <uni-replace>name</uni-replace>
                   </uni-store>
                 </uni-button-label>
@@ -62,12 +68,16 @@ export class UniLangMenuComponent implements ComponentInterface {
               <uni-menu-surface-mat>
                 <uni-list-mat>
                   {list.map((item) =>
-                    <uni-store type="session" event="click" state={activeState} value={item}>
+                    <uni-router-link params={`lang=${item.lang}`}>
                       <uni-list-item-mat>
-                        {item.flag ? <uni-flag src={item.flag}/> : <i></i>}
+                        {item.flag ? <uni-flag src={item.flag}/> : <i/>}
                         {item.name}
                       </uni-list-item-mat>
-                    </uni-store>
+
+                      <uni-route params={`lang=${item.lang}`}>
+                        <uni-store type="session" state={activeState} value={item}/>
+                      </uni-route>
+                    </uni-router-link>
                   )}
                 </uni-list-mat>
               </uni-menu-surface-mat>
@@ -75,10 +85,10 @@ export class UniLangMenuComponent implements ComponentInterface {
           </uni-store>
         </uni-store>
 
-        <uni-event name="uniLoadSuccess" stop>
-          <uni-store type="session" event="uniLoadSuccess" state={this.translateState} clean>
-            <uni-store type="session" state={this.activeState + '.translation'} target="uni-load" prop="url">
-              <uni-load active></uni-load>
+        <uni-event stop name="uniLoadSuccess">
+          <uni-store active clean type="session" event="uniLoadSuccess" state={this.translateState}>
+            <uni-store active type="session" state={`${activeState}.translation`} target="uni-load" prop="url">
+              <uni-load active/>
             </uni-store>
           </uni-store>
         </uni-event>
