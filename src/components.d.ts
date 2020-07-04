@@ -12,11 +12,13 @@ export namespace Components {
         "src": string;
     }
     interface UniLangMenu {
-        "activeLang": string;
         "activeState": string;
+        "init": string;
         "languages": string;
         "menuState": string;
+        "routing": boolean;
         "translateState": string;
+        "type": string;
     }
     interface UniLangMenuWrap {
         "menuState": string;
@@ -69,11 +71,13 @@ declare namespace LocalJSX {
         "src"?: string;
     }
     interface UniLangMenu {
-        "activeLang"?: string;
         "activeState"?: string;
+        "init"?: string;
         "languages"?: string;
         "menuState"?: string;
+        "routing"?: boolean;
         "translateState"?: string;
+        "type"?: string;
     }
     interface UniLangMenuWrap {
         "menuState"?: string;
