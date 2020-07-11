@@ -7,7 +7,6 @@ export const config: Config = {
   buildEs5: false,
   enableCache: false,
   excludeUnusedDependencies: true,
-  preamble: 'test',
   extras: {
     cssVarsShim: false,
     dynamicImportShim: false,
