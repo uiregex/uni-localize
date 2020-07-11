@@ -10,7 +10,8 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/uiwebkit/uiwebkit.js",
+  "unpkg": "dist/loc/loc.esm.js",
+  "jsdelivr": "dist/loc/loc.esm.js",
   "files": [
     "dist/",
     "loader/"

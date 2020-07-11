@@ -2,12 +2,8 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State, VNode } f
 
 import { uniLoad } from '@uni/adk';
 
-interface UniLangMenuItem {
-  lang: string;
-  name: string;
-  flag?: string;
-  translation: string;
-}
+import { uniLocWatermark } from '../../../watermark';
+import { UniLangMenuItem } from '../../models';
 
 @Component({ tag: 'uni-lang-menu' })
 export class UniLangMenuComponent implements ComponentInterface {
@@ -31,8 +27,8 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @State() lang: UniLangMenuItem;
 
-  connectedCallback() {
-    this.el['package'] = 'loc';
+  connectedCallback(): void {
+    uniLocWatermark(this.el);
   }
 
   componentDidLoad(): void {

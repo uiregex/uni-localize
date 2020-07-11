@@ -5,13 +5,25 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property         | Attribute         | Description | Type      | Default                 |
+| ---------------- | ----------------- | ----------- | --------- | ----------------------- |
+| `activeState`    | `active-state`    |             | `string`  | `'app.loc.menu.active'` |
+| `init`           | `init`            |             | `string`  | `undefined`             |
+| `languages`      | `languages`       |             | `string`  | `undefined`             |
+| `menuState`      | `menu-state`      |             | `string`  | `'app.loc.menu.opened'` |
+| `routing`        | `routing`         |             | `boolean` | `undefined`             |
+| `translateState` | `translate-state` |             | `string`  | `'app.loc.translate'`   |
+| `type`           | `type`            |             | `string`  | `undefined`             |
+
+
 ## Dependencies
 
 ### Depends on
 
-- uni-icons-mat
 - uni-store
-- uni-icon-button-mat
+- [uni-flag](../../../flag/components/@main)
 - uni-menu-surface-mat
 - uni-list-mat
 - uni-list-item-mat
@@ -21,16 +33,14 @@
 ### Graph
 ```mermaid
 graph TD;
-  uni-loc-menu --> uni-icons-mat
-  uni-loc-menu --> uni-store
-  uni-loc-menu --> uni-icon-button-mat
-  uni-loc-menu --> uni-menu-surface-mat
-  uni-loc-menu --> uni-list-mat
-  uni-loc-menu --> uni-list-item-mat
-  uni-loc-menu --> uni-event
-  uni-loc-menu --> uni-load
-  uni-icon-button-mat --> uni-icon-mat
-  style uni-loc-menu fill:#f9f,stroke:#333,stroke-width:4px
+  uni-lang-menu --> uni-store
+  uni-lang-menu --> uni-flag
+  uni-lang-menu --> uni-menu-surface-mat
+  uni-lang-menu --> uni-list-mat
+  uni-lang-menu --> uni-list-item-mat
+  uni-lang-menu --> uni-event
+  uni-lang-menu --> uni-load
+  style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

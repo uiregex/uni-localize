@@ -1,12 +1,20 @@
-import { Component, ComponentInterface, h, Host, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, VNode } from '@stencil/core';
+
+import { uniLocWatermark } from '../../../watermark';
 
 @Component({ tag: 'uni-lang-menu-wrap' })
 export class UniLangMenuWrapComponent implements ComponentInterface {
+  @Element() el!: HTMLElement;
+
   @Prop() menuState = 'loc.menu.opened';
 
   @Prop() urlState = 'loc.menu.url';
 
   @Prop() translateState = 'loc.translate';
+
+  connectedCallback(): void {
+    uniLocWatermark(this.el);
+  }
 
   render(): VNode {
     return (
