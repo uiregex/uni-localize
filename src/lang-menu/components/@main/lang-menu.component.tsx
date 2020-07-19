@@ -47,6 +47,7 @@ export class UniLangMenuComponent implements ComponentInterface {
 
     return lang ? (
         <Host>
+          <uni-button-layout-mat hidden/>
           <uni-store active init type="session" state={activeState} value={lang}/>
 
           <uni-store active event="click" state={this.menuState}>
