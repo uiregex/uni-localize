@@ -8,13 +8,13 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop() type = 'session';
 
-  @Prop() state = 'loc.translate';
+  @Prop() state = 'app.loc.translate';
 
   @Prop() start: string = '{{ ';
 
   @Prop() end: string = ' }}';
 
-  connectedCallback(): void {
+  componentDidLoad(): void {
     uniLocWatermark(this.el);
   }
 

@@ -25,6 +25,8 @@ export namespace Components {
         "translateState": string;
         "urlState": string;
     }
+    interface UniLicenseLoc {
+    }
     interface UniTranslate {
         "end": string;
         "start": string;
@@ -51,6 +53,12 @@ declare global {
         prototype: HTMLUniLangMenuWrapElement;
         new (): HTMLUniLangMenuWrapElement;
     };
+    interface HTMLUniLicenseLocElement extends Components.UniLicenseLoc, HTMLStencilElement {
+    }
+    var HTMLUniLicenseLocElement: {
+        prototype: HTMLUniLicenseLocElement;
+        new (): HTMLUniLicenseLocElement;
+    };
     interface HTMLUniTranslateElement extends Components.UniTranslate, HTMLStencilElement {
     }
     var HTMLUniTranslateElement: {
@@ -61,6 +69,7 @@ declare global {
         "uni-flag": HTMLUniFlagElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
+        "uni-license-loc": HTMLUniLicenseLocElement;
         "uni-translate": HTMLUniTranslateElement;
     }
 }
@@ -84,6 +93,8 @@ declare namespace LocalJSX {
         "translateState"?: string;
         "urlState"?: string;
     }
+    interface UniLicenseLoc {
+    }
     interface UniTranslate {
         "end"?: string;
         "start"?: string;
@@ -94,6 +105,7 @@ declare namespace LocalJSX {
         "uni-flag": UniFlag;
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-wrap": UniLangMenuWrap;
+        "uni-license-loc": UniLicenseLoc;
         "uni-translate": UniTranslate;
     }
 }
@@ -104,6 +116,7 @@ declare module "@stencil/core" {
             "uni-flag": LocalJSX.UniFlag & JSXBase.HTMLAttributes<HTMLUniFlagElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
+            "uni-license-loc": LocalJSX.UniLicenseLoc & JSXBase.HTMLAttributes<HTMLUniLicenseLocElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
         }
     }

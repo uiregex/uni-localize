@@ -1,6 +1,6 @@
 {
   "name": "@uni/loc",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "Commercial",
   "description": "Uni Localization Kit",
   "main": "dist/index.js",
@@ -18,21 +18,23 @@
   ],
   "scripts": {
     "build:dev": "stencil build --dev --watch",
-    "build:prod": "stencil build --watch",
+    "build:prod": "stencil build",
     "build:docs": "stencil build --docs",
     "serve:dev": "stencil build --dev --watch --serve --no-open",
+    "serve:prod": "stencil build --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@uni/adk": "file:../adk/uni-adk-0.0.1.tgz",
-    "@uni/common": "file:../!common/uni-common-0.0.1.tgz",
-    "@uni/mat": "file:../mat/uni-mat-0.0.1.tgz"
+    "@uni/common": "file:../!common/uni-common-0.0.15.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.14.tgz",
+    "@uni/adk": "file:../adk/uni-adk-0.0.12.tgz"
   },
   "devDependencies": {
-    "@stencil/core": "1.13.0",
-    "@stencil/sass": "1.3.1",
-    "prettier": "1.19.1"
+    "@stencil/core": "1.16.2",
+    "@stencil/sass": "1.3.2",
+    "prettier": "1.19.1",
+    "rollup-plugin-cleanup": "3.1.1"
   }
 }

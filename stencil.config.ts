@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 // import { sass } from '@stencil/sass';
+import cleanup from 'rollup-plugin-cleanup';
 
 export const config: Config = {
   namespace: 'loc',
@@ -21,14 +22,17 @@ export const config: Config = {
     // logRequests: true,
     openBrowser: false,
     reloadStrategy: 'pageReload',
-    port: 7777
+    port: 4444
   },
-  // plugins: [sass()],
-  bundles: [
-    { components: [ 'uni-store', 'uni-event', 'uni-load' ] },
-    { components: [ 'uni-icons-mat', 'uni-icon-mat', 'uni-icon-button-mat' ] },
-    { components: [ 'uni-list-mat', 'uni-list-item-mat' ] }
+  plugins: [
+    // sass()
+    cleanup({ comments: 'none' })
   ],
+  // bundles: [
+  // { components: [ 'uni-store', 'uni-event', 'uni-load' ] },
+  // { components: [ 'uni-icon-button-mat' ] },
+  // { components: [ 'uni-list-mat', 'uni-list-item-mat' ] }
+  // ],
   outputTargets: [
     {
       type: 'dist',

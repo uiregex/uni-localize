@@ -12,7 +12,7 @@ export class UniLangMenuWrapComponent implements ComponentInterface {
 
   @Prop() translateState = 'loc.translate';
 
-  connectedCallback(): void {
+  componentDidLoad(): void {
     uniLocWatermark(this.el);
   }
 

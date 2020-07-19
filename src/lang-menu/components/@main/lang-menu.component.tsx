@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, VNode } from '@stencil/core';
 
-import { uniLoad } from '@uni/adk';
+import { uniLoad, UniResponse } from '@uni/adk';
 
 import { uniLocWatermark } from '../../../watermark';
 import { UniLangMenuItem } from '../../models';
@@ -27,13 +27,14 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @State() lang: UniLangMenuItem;
 
-  connectedCallback(): void {
-    uniLocWatermark(this.el);
-  }
-
   componentDidLoad(): void {
+    uniLocWatermark(this.el);
+
     if (this.languages) {
-      uniLoad(this.languages, 'json')
+      uniLoad(this.languages, 'json' as UniResponse, {
+        // mode: 'no-cors',
+        // credentials: 'include'
+      })
         .then((data: UniLangMenuItem[] = []) => {
           this.list = data;
           this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.init)[0] || data[0];
@@ -51,25 +52,27 @@ export class UniLangMenuComponent implements ComponentInterface {
           <uni-store active event="click" state={this.menuState}>
             <uni-store active state={this.menuState} target="uni-menu-surface-mat" prop="opened">
               <div class="mdc-menu-surface--anchor">
-                <uni-button kind="outlined">
+                <uni-button-mat kind="outlined">
                   <uni-store active type="session" state={`${activeState}.flag`} target="uni-flag" prop="src">
                     <uni-flag/>
                   </uni-store>
 
-                  <uni-button-label>
+                  <uni-button-label-mat>
                     <uni-store active type="session" state={activeState} target="uni-replace" prop="state">
-                      <uni-replace>name</uni-replace>
+                      <uni-replace style={{ color: '#333', 'text-transform': 'none' }}>name</uni-replace>
                     </uni-store>
-                  </uni-button-label>
+                  </uni-button-label-mat>
 
-                  <uni-button-icon>arrow_drop_down</uni-button-icon>
-                </uni-button>
+                  <uni-button-icon-mat>
+                    <uni-icon-arrow-drop-down-mat/>
+                  </uni-button-icon-mat>
+                </uni-button-mat>
 
                 <uni-menu-surface-mat>
                   <uni-list-mat>
                     {list.map((item) =>
                       <uni-store active={!routing} type="session" event="click" state={activeState} value={item}>
-                        <uni-router-link params={routing ? `lang=${item.lang}` : ''}>
+                        <uni-route-link params={routing ? `lang=${item.lang}` : ''}>
                           <uni-list-item-mat>
                             {item.flag ? <uni-flag src={item.flag}/> : <i/>}
                             {item.name}
@@ -78,7 +81,7 @@ export class UniLangMenuComponent implements ComponentInterface {
                           <uni-route params={routing ? `lang=${item.lang}` : ''}>
                             <uni-store type="session" state={activeState} value={item}/>
                           </uni-route>
-                        </uni-router-link>
+                        </uni-route-link>
                       </uni-store>
                     )}
                   </uni-list-mat>
