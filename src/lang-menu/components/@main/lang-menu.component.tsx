@@ -1,14 +1,11 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop, State, VNode } from '@stencil/core';
 
-import { uniLoad, UniResponse } from '@uni/adk';
+import { uniWatermark, uniLoad, UniResponse } from '@uni/common';
 
-import { uniLocWatermark } from '../../../watermark';
 import { UniLangMenuItem } from '../../models';
 
 @Component({ tag: 'uni-lang-menu' })
 export class UniLangMenuComponent implements ComponentInterface {
-  @Element() el!: HTMLElement;
-
   @Prop() init: string;
 
   @Prop() languages: string;
@@ -28,7 +25,7 @@ export class UniLangMenuComponent implements ComponentInterface {
   @State() lang: UniLangMenuItem;
 
   componentDidLoad(): void {
-    uniLocWatermark(this.el);
+    uniWatermark('uni-lang-menu', 'innerText');
 
     if (this.languages) {
       uniLoad(this.languages, 'json' as UniResponse, {

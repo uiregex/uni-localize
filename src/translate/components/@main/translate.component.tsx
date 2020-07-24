@@ -1,11 +1,9 @@
-import { Component, ComponentInterface, Element, h, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
+import { uniWatermark } from '@uni/common';
 
-import { uniLocWatermark } from '../../../watermark';
 
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
-  @Element() el!: HTMLElement;
-
   @Prop() type = 'session';
 
   @Prop() state = 'app.loc.translate';
@@ -15,7 +13,7 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop() end: string = ' }}';
 
   componentDidLoad(): void {
-    uniLocWatermark(this.el);
+    uniWatermark('uni-translate', 'switch');
   }
 
   render(): VNode {
