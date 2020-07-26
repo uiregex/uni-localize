@@ -8,14 +8,47 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UniFlag {
         "alt": string;
-        "square": boolean;
+        "rounded": boolean;
         "src": string;
+        "svg": string;
+    }
+    interface UniFlagCn {
+        "rounded": boolean;
+    }
+    interface UniFlagCnShadow {
+        "rounded": boolean;
+    }
+    interface UniFlagEn {
+        "rounded": boolean;
+    }
+    interface UniFlagEnShadow {
+        "rounded": boolean;
+    }
+    interface UniFlagRu {
+        "rounded": boolean;
+    }
+    interface UniFlagRuShadow {
+        "rounded": boolean;
+    }
+    interface UniFlagShadow {
+        "alt": string;
+        "rounded": boolean;
+        "src": string;
+        "svg": string;
+    }
+    interface UniFlagUs {
+        "rounded": boolean;
+    }
+    interface UniFlagUsShadow {
+        "rounded": boolean;
     }
     interface UniLangMenu {
         "activeState": string;
         "init": string;
         "languages": string;
         "menuState": string;
+        "mini": boolean;
+        "rounded": boolean;
         "routing": boolean;
         "translateState": string;
         "type": string;
@@ -39,6 +72,60 @@ declare global {
         prototype: HTMLUniFlagElement;
         new (): HTMLUniFlagElement;
     };
+    interface HTMLUniFlagCnElement extends Components.UniFlagCn, HTMLStencilElement {
+    }
+    var HTMLUniFlagCnElement: {
+        prototype: HTMLUniFlagCnElement;
+        new (): HTMLUniFlagCnElement;
+    };
+    interface HTMLUniFlagCnShadowElement extends Components.UniFlagCnShadow, HTMLStencilElement {
+    }
+    var HTMLUniFlagCnShadowElement: {
+        prototype: HTMLUniFlagCnShadowElement;
+        new (): HTMLUniFlagCnShadowElement;
+    };
+    interface HTMLUniFlagEnElement extends Components.UniFlagEn, HTMLStencilElement {
+    }
+    var HTMLUniFlagEnElement: {
+        prototype: HTMLUniFlagEnElement;
+        new (): HTMLUniFlagEnElement;
+    };
+    interface HTMLUniFlagEnShadowElement extends Components.UniFlagEnShadow, HTMLStencilElement {
+    }
+    var HTMLUniFlagEnShadowElement: {
+        prototype: HTMLUniFlagEnShadowElement;
+        new (): HTMLUniFlagEnShadowElement;
+    };
+    interface HTMLUniFlagRuElement extends Components.UniFlagRu, HTMLStencilElement {
+    }
+    var HTMLUniFlagRuElement: {
+        prototype: HTMLUniFlagRuElement;
+        new (): HTMLUniFlagRuElement;
+    };
+    interface HTMLUniFlagRuShadowElement extends Components.UniFlagRuShadow, HTMLStencilElement {
+    }
+    var HTMLUniFlagRuShadowElement: {
+        prototype: HTMLUniFlagRuShadowElement;
+        new (): HTMLUniFlagRuShadowElement;
+    };
+    interface HTMLUniFlagShadowElement extends Components.UniFlagShadow, HTMLStencilElement {
+    }
+    var HTMLUniFlagShadowElement: {
+        prototype: HTMLUniFlagShadowElement;
+        new (): HTMLUniFlagShadowElement;
+    };
+    interface HTMLUniFlagUsElement extends Components.UniFlagUs, HTMLStencilElement {
+    }
+    var HTMLUniFlagUsElement: {
+        prototype: HTMLUniFlagUsElement;
+        new (): HTMLUniFlagUsElement;
+    };
+    interface HTMLUniFlagUsShadowElement extends Components.UniFlagUsShadow, HTMLStencilElement {
+    }
+    var HTMLUniFlagUsShadowElement: {
+        prototype: HTMLUniFlagUsShadowElement;
+        new (): HTMLUniFlagUsShadowElement;
+    };
     interface HTMLUniLangMenuElement extends Components.UniLangMenu, HTMLStencilElement {
     }
     var HTMLUniLangMenuElement: {
@@ -59,6 +146,15 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "uni-flag": HTMLUniFlagElement;
+        "uni-flag-cn": HTMLUniFlagCnElement;
+        "uni-flag-cn-shadow": HTMLUniFlagCnShadowElement;
+        "uni-flag-en": HTMLUniFlagEnElement;
+        "uni-flag-en-shadow": HTMLUniFlagEnShadowElement;
+        "uni-flag-ru": HTMLUniFlagRuElement;
+        "uni-flag-ru-shadow": HTMLUniFlagRuShadowElement;
+        "uni-flag-shadow": HTMLUniFlagShadowElement;
+        "uni-flag-us": HTMLUniFlagUsElement;
+        "uni-flag-us-shadow": HTMLUniFlagUsShadowElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
         "uni-translate": HTMLUniTranslateElement;
@@ -67,14 +163,47 @@ declare global {
 declare namespace LocalJSX {
     interface UniFlag {
         "alt"?: string;
-        "square"?: boolean;
+        "rounded"?: boolean;
         "src"?: string;
+        "svg"?: string;
+    }
+    interface UniFlagCn {
+        "rounded"?: boolean;
+    }
+    interface UniFlagCnShadow {
+        "rounded"?: boolean;
+    }
+    interface UniFlagEn {
+        "rounded"?: boolean;
+    }
+    interface UniFlagEnShadow {
+        "rounded"?: boolean;
+    }
+    interface UniFlagRu {
+        "rounded"?: boolean;
+    }
+    interface UniFlagRuShadow {
+        "rounded"?: boolean;
+    }
+    interface UniFlagShadow {
+        "alt"?: string;
+        "rounded"?: boolean;
+        "src"?: string;
+        "svg"?: string;
+    }
+    interface UniFlagUs {
+        "rounded"?: boolean;
+    }
+    interface UniFlagUsShadow {
+        "rounded"?: boolean;
     }
     interface UniLangMenu {
         "activeState"?: string;
         "init"?: string;
         "languages"?: string;
         "menuState"?: string;
+        "mini"?: boolean;
+        "rounded"?: boolean;
         "routing"?: boolean;
         "translateState"?: string;
         "type"?: string;
@@ -92,6 +221,15 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "uni-flag": UniFlag;
+        "uni-flag-cn": UniFlagCn;
+        "uni-flag-cn-shadow": UniFlagCnShadow;
+        "uni-flag-en": UniFlagEn;
+        "uni-flag-en-shadow": UniFlagEnShadow;
+        "uni-flag-ru": UniFlagRu;
+        "uni-flag-ru-shadow": UniFlagRuShadow;
+        "uni-flag-shadow": UniFlagShadow;
+        "uni-flag-us": UniFlagUs;
+        "uni-flag-us-shadow": UniFlagUsShadow;
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-wrap": UniLangMenuWrap;
         "uni-translate": UniTranslate;
@@ -102,6 +240,15 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "uni-flag": LocalJSX.UniFlag & JSXBase.HTMLAttributes<HTMLUniFlagElement>;
+            "uni-flag-cn": LocalJSX.UniFlagCn & JSXBase.HTMLAttributes<HTMLUniFlagCnElement>;
+            "uni-flag-cn-shadow": LocalJSX.UniFlagCnShadow & JSXBase.HTMLAttributes<HTMLUniFlagCnShadowElement>;
+            "uni-flag-en": LocalJSX.UniFlagEn & JSXBase.HTMLAttributes<HTMLUniFlagEnElement>;
+            "uni-flag-en-shadow": LocalJSX.UniFlagEnShadow & JSXBase.HTMLAttributes<HTMLUniFlagEnShadowElement>;
+            "uni-flag-ru": LocalJSX.UniFlagRu & JSXBase.HTMLAttributes<HTMLUniFlagRuElement>;
+            "uni-flag-ru-shadow": LocalJSX.UniFlagRuShadow & JSXBase.HTMLAttributes<HTMLUniFlagRuShadowElement>;
+            "uni-flag-shadow": LocalJSX.UniFlagShadow & JSXBase.HTMLAttributes<HTMLUniFlagShadowElement>;
+            "uni-flag-us": LocalJSX.UniFlagUs & JSXBase.HTMLAttributes<HTMLUniFlagUsElement>;
+            "uni-flag-us-shadow": LocalJSX.UniFlagUsShadow & JSXBase.HTMLAttributes<HTMLUniFlagUsShadowElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;

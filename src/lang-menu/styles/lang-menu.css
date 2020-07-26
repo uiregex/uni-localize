@@ -1,0 +1,17 @@
+.uni-lang-menu .mdc-button {
+  min-width: 0;
+}
+
+.uni-lang-menu .mdc-button .mdc-button__icon {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+.uni-lang-menu .mdc-button__icon+.mdc-button__label {
+  margin-left: 5px;
+}
+
+/*.uni-lang-menu .mdc-button__label+.mdc-button__icon {*/
+/*  margin-left: 0;*/
+/*}*/

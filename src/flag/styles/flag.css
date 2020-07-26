@@ -1,16 +1,7 @@
-@charset "UTF-8";
-.uni-flag img {
-  margin-right: 5px;
-  margin-bottom: -2px;
-  border: 1px solid #888;
-  border-radius: 2px;
+.uni-flag {
+  box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
 }
 
-.uni-flag.square img {
-  height: 1em;
-  width: 1em;
+.uni-flag.rounded {
+  border-radius: 50%;
 }
-
-/*.uni-flag img:before {*/
-/*  content: "\00a0";*/
-/*}*/

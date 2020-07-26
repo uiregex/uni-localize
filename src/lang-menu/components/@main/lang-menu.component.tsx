@@ -4,13 +4,20 @@ import { uniWatermark, uniLoad, UniResponse } from '@uni/common';
 
 import { UniLangMenuItem } from '../../models';
 
-@Component({ tag: 'uni-lang-menu' })
+@Component({
+  tag: 'uni-lang-menu',
+  styleUrl: '../../styles/lang-menu.css'
+})
 export class UniLangMenuComponent implements ComponentInterface {
   @Prop() init: string;
 
   @Prop() languages: string;
 
   @Prop() type: string; // add types
+
+  @Prop() mini: boolean;
+
+  @Prop() rounded: boolean;
 
   @Prop() routing: boolean;
 
@@ -40,7 +47,7 @@ export class UniLangMenuComponent implements ComponentInterface {
   }
 
   render(): VNode {
-    const { routing, activeState, list, lang } = this;
+    const { mini, rounded, routing, activeState, list, lang } = this;
 
     return lang ? (
         <Host>
@@ -49,17 +56,21 @@ export class UniLangMenuComponent implements ComponentInterface {
 
           <uni-store active event="click" state={this.menuState}>
             <uni-store active state={this.menuState} target="uni-menu-surface-mat" prop="opened">
-              <div class="mdc-menu-surface--anchor">
-                <uni-button-mat kind="outlined">
-                  <uni-store active type="session" state={`${activeState}.flag`} target="uni-flag" prop="src">
-                    <uni-flag/>
-                  </uni-store>
+              <div class="mdc-menu-surface--anchor uni-lang-menu">
+                <uni-button-mat>
+                  <uni-button-icon-mat>
+                    <uni-store active type="session" state={`${activeState}.flag`} target="uni-flag" prop="svg">
+                      <uni-store active type="session" state={`${activeState}.flagSrc`} target="uni-flag" prop="src">
+                        <uni-flag rounded={rounded}/>
+                      </uni-store>
+                    </uni-store>
+                  </uni-button-icon-mat>
 
-                  <uni-button-label-mat>
+                  {mini ? '' : <uni-button-label-mat>
                     <uni-store active type="session" state={activeState} target="uni-replace" prop="state">
                       <uni-replace style={{ color: '#333', 'text-transform': 'none' }}>name</uni-replace>
                     </uni-store>
-                  </uni-button-label-mat>
+                  </uni-button-label-mat>}
 
                   <uni-button-icon-mat>
                     <uni-icon-arrow-drop-down-mat/>
@@ -72,8 +83,8 @@ export class UniLangMenuComponent implements ComponentInterface {
                       <uni-store active={!routing} type="session" event="click" state={activeState} value={item}>
                         <uni-route-link params={routing ? `lang=${item.lang}` : ''}>
                           <uni-list-item-mat>
-                            {item.flag ? <uni-flag src={item.flag}/> : <i/>}
-                            {item.name}
+                            <uni-flag src={item.flagSrc} rounded={rounded}>{item.flag}</uni-flag>
+                            <span style={{ 'margin-left': '5px' }}>{item.name}</span>
                           </uni-list-item-mat>
 
                           <uni-route params={routing ? `lang=${item.lang}` : ''}>
@@ -100,3 +111,16 @@ export class UniLangMenuComponent implements ComponentInterface {
       : '';
   }
 }
+
+// function uniSwitchFlag(name: string, src: string) {
+//   switch(name) {
+//     case 'en':
+//       return <uni-flag-us/>;
+//     case 'cn':
+//       return <uni-flag-cn/>;
+//     case 'ru':
+//       return <uni-flag-ru/>;
+//     default:
+//       return src ? <uni-flag src={src} /> : <i/>;
+//   }
+// }
