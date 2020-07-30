@@ -83,7 +83,7 @@ export class UniLangMenuComponent implements ComponentInterface {
                       <uni-store active={!routing} type="session" event="click" state={activeState} value={item}>
                         <uni-route-link params={routing ? `lang=${item.lang}` : ''}>
                           <uni-list-item-mat>
-                            <uni-flag src={item.flagSrc} rounded={rounded}>{item.flag}</uni-flag>
+                            <uni-flag src={item.flagSrc} svg={item.flag} rounded={rounded}/>
                             <span style={{ 'margin-left': '5px' }}>{item.name}</span>
                           </uni-list-item-mat>
 

@@ -1,27 +1,23 @@
 import { h, VNode } from '@stencil/core';
 
-import { UniObject, UniTemplate } from '@uni/common';
+import { UniHostTemplate, UniObject, UniTemplate } from '@uni/common';
 
+import { UniFlag } from '../../models';
 import { uniFlagCnSvg } from './cn';
 import { uniFlagEnSvg } from './en';
 import { uniFlagRuSvg } from './ru';
 import { uniFlagUsSvg } from './us';
 
-interface UniFlag {
-  src: string;
-  alt: string;
-  svg: string;
-  rounded: boolean;
-}
-
-export function uniFlag({ src, alt, svg, rounded }: UniFlag): VNode {
+export function uniFlag({ src, alt, svg, rounded, shadow }: UniFlag): VNode {
   const classes = { 'uni-flag': true, rounded };
 
-  return UniTemplate(src ? <img src={src} alt={alt}/> : uniSwitchFlag(svg, classes));
+  return shadow
+    ? UniTemplate(src ? <img src={src} alt={alt}/> : uniSwitchFlag(svg, classes))
+    : UniHostTemplate({ classes }, src ? <img src={src} alt={alt}/> : uniSwitchFlag(svg)
+  );
 }
 
-
-export function uniSwitchFlag(svg: string, classes: UniObject<boolean>): VNode {
+function uniSwitchFlag(svg: string, classes?: UniObject<boolean>): VNode {
   switch (svg) {
     case 'cn':
       return uniFlagCnSvg(classes);

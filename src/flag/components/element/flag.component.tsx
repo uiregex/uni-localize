@@ -5,11 +5,10 @@ import { uniWatermark } from '@uni/common';
 import { uniFlag } from '../../utils';
 
 @Component({
-  tag: 'uni-flag-shadow',
-  styleUrl: '../../styles/flag-shadow.css',
-  shadow: true
+  tag: 'uni-flag',
+  styleUrl: '../../styles/flag.css'
 })
-export class UniFlagShadowComponent implements ComponentInterface {
+export class UniFlagComponent implements ComponentInterface {
   @Prop() svg: string;
 
   @Prop() src: string;
@@ -19,12 +18,12 @@ export class UniFlagShadowComponent implements ComponentInterface {
   @Prop() rounded: boolean;
 
   componentDidLoad(): void {
-    uniWatermark('uni-flag-shadow', 'window');
+    uniWatermark('uni-flag', 'window');
   }
 
   render(): VNode {
     const { svg, src, alt, rounded } = this;
 
-    return uniFlag({ src, alt, svg, rounded, shadow: true });
+    return uniFlag({ src, alt, svg, rounded });
   }
 }

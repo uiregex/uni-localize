@@ -2,7 +2,7 @@ import { h, VNode } from '@stencil/core';
 
 import { UniObject, UniTemplate } from '@uni/common';
 
-export function uniFlagUsSvg(classes: UniObject<boolean>): VNode {
+export function uniFlagUsSvg(classes?: UniObject<boolean>): VNode {
   return UniTemplate(
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512" class={classes}>
       <g fill-rule="evenodd">
