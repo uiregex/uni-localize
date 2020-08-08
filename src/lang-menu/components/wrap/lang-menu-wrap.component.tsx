@@ -1,38 +1,30 @@
-import { Component, ComponentInterface, h, Host, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
 import { uniWatermark } from '@uni/common';
+import { UniStoreType } from '@uni/udk';
 
-@Component({ tag: 'uni-lang-menu-wrap' })
+import { UniLangMenuWrapTemplate } from '../../utils';
+
+@Component({
+  tag: 'uni-lang-menu-wrap',
+  styleUrl: '../../styles/lang-menu.css'
+})
 export class UniLangMenuWrapComponent implements ComponentInterface {
-  @Prop() menuState = 'loc.menu.opened';
+  @Prop() type: UniStoreType = 'session';
 
-  @Prop() urlState = 'loc.menu.url';
+  @Prop() menuState = 'app.loc.menu.opened';
 
-  @Prop() translateState = 'loc.translate';
+  @Prop() activeState = 'app.loc.menu.active';
+
+  @Prop() translateState = 'app.loc.translate';
 
   componentDidLoad(): void {
     uniWatermark('uni-lang-menu-wrap', 'innerHTML');
   }
 
   render(): VNode {
-    return (
-      <Host>
-        <uni-store active type="session" event="click" state={this.menuState}>
-          <uni-store active type="session" state={this.menuState} target="uni-menu-surface-mat" prop="opened">
-            <div class="mdc-menu-surface--anchor">
-              <slot/>
-            </div>
-          </uni-store>
-        </uni-store>
+    const { type, menuState, activeState, translateState } = this;
 
-        <uni-event stop name="uniLoadSuccess">
-          <uni-store active clean type="session" event="uniLoadSuccess" state={this.translateState} >
-            <uni-store active type="session" state={this.urlState} target="uni-load" prop="url">
-              <uni-load active/>
-            </uni-store>
-          </uni-store>
-        </uni-event>
-      </Host>
-    );
+    return UniLangMenuWrapTemplate({ type, menuState, activeState, translateState }, <slot/>);
   }
 }

@@ -2,7 +2,8 @@ import { Component, ComponentInterface, Prop, VNode } from '@stencil/core';
 
 import { uniWatermark } from '@uni/common';
 
-import { uniFlag } from '../../utils';
+import { UniFlagName } from '../../models';
+import { UniFlagShadowTemplate } from '../../utils';
 
 @Component({
   tag: 'uni-flag-shadow',
@@ -10,11 +11,11 @@ import { uniFlag } from '../../utils';
   shadow: true
 })
 export class UniFlagShadowComponent implements ComponentInterface {
-  @Prop() svg: string;
-
   @Prop() src: string;
 
   @Prop() alt: string = 'flag';
+
+  @Prop() name: UniFlagName;
 
   @Prop() rounded: boolean;
 
@@ -23,8 +24,9 @@ export class UniFlagShadowComponent implements ComponentInterface {
   }
 
   render(): VNode {
-    const { svg, src, alt, rounded } = this;
+    const { src, alt, name, rounded } = this;
+    const classes = { 'uni-flag': true, rounded };
 
-    return uniFlag({ src, alt, svg, rounded, shadow: true });
+    return UniFlagShadowTemplate({ src, alt, name, classes });
   }
 }

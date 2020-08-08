@@ -7,30 +7,35 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type      | Default                 |
-| ---------------- | ----------------- | ----------- | --------- | ----------------------- |
-| `activeState`    | `active-state`    |             | `string`  | `'app.loc.menu.active'` |
-| `init`           | `init`            |             | `string`  | `undefined`             |
-| `languages`      | `languages`       |             | `string`  | `undefined`             |
-| `menuState`      | `menu-state`      |             | `string`  | `'app.loc.menu.opened'` |
-| `routing`        | `routing`         |             | `boolean` | `undefined`             |
-| `translateState` | `translate-state` |             | `string`  | `'app.loc.translate'`   |
-| `type`           | `type`            |             | `string`  | `undefined`             |
+| Property         | Attribute         | Description | Type                               | Default                 |
+| ---------------- | ----------------- | ----------- | ---------------------------------- | ----------------------- |
+| `activeState`    | `active-state`    |             | `string`                           | `'app.loc.menu.active'` |
+| `languages`      | `languages`       |             | `string`                           | `undefined`             |
+| `menuState`      | `menu-state`      |             | `string`                           | `'app.loc.menu.opened'` |
+| `mini`           | `mini`            |             | `boolean`                          | `undefined`             |
+| `rounded`        | `rounded`         |             | `boolean`                          | `undefined`             |
+| `route`          | `route`           |             | `string`                           | `'lang'`                |
+| `routing`        | `routing`         |             | `boolean`                          | `undefined`             |
+| `select`         | `select`          |             | `string`                           | `undefined`             |
+| `translateState` | `translate-state` |             | `string`                           | `'app.loc.translate'`   |
+| `type`           | `type`            |             | `"local" \| "memory" \| "session"` | `'session'`             |
 
 
 ## Dependencies
 
 ### Depends on
 
+- uni-button-layout-mat
 - uni-store
 - uni-button-mat
-- [uni-flag](../../../flag/components/@main)
+- uni-button-icon-mat
+- [uni-flag](../../../flag/components/element)
 - uni-button-label-mat
 - uni-replace
-- uni-button-icon-mat
 - uni-icon-arrow-drop-down-mat
 - uni-menu-surface-mat
 - uni-list-mat
+- uni-route-link
 - uni-list-item-mat
 - uni-route
 - uni-event
@@ -39,15 +44,17 @@
 ### Graph
 ```mermaid
 graph TD;
+  uni-lang-menu --> uni-button-layout-mat
   uni-lang-menu --> uni-store
   uni-lang-menu --> uni-button-mat
+  uni-lang-menu --> uni-button-icon-mat
   uni-lang-menu --> uni-flag
   uni-lang-menu --> uni-button-label-mat
   uni-lang-menu --> uni-replace
-  uni-lang-menu --> uni-button-icon-mat
   uni-lang-menu --> uni-icon-arrow-drop-down-mat
   uni-lang-menu --> uni-menu-surface-mat
   uni-lang-menu --> uni-list-mat
+  uni-lang-menu --> uni-route-link
   uni-lang-menu --> uni-list-item-mat
   uni-lang-menu --> uni-route
   uni-lang-menu --> uni-event

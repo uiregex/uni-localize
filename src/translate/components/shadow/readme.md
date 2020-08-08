@@ -1,4 +1,4 @@
-# uni-translate
+# uni-translate-shadow
 
 
 
@@ -25,9 +25,9 @@
 ### Graph
 ```mermaid
 graph TD;
-  uni-translate --> uni-store
-  uni-translate --> uni-replace
-  style uni-translate fill:#f9f,stroke:#333,stroke-width:4px
+  uni-translate-shadow --> uni-store
+  uni-translate-shadow --> uni-replace
+  style uni-translate-shadow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

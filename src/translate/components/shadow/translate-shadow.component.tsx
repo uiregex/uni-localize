@@ -5,8 +5,11 @@ import { UniStoreType } from '@uni/udk';
 
 import { UniTranslateTemplate } from '../../utils';
 
-@Component({ tag: 'uni-translate' })
-export class UniTranslateComponent implements ComponentInterface {
+@Component({
+  tag: 'uni-translate-shadow',
+  shadow: true
+})
+export class UniTranslateShadowComponent implements ComponentInterface {
   @Prop() type: UniStoreType = 'session';
 
   @Prop() state = 'app.loc.translate';

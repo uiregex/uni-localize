@@ -3,13 +3,14 @@ import { Component, ComponentInterface, h, Prop, State, VNode } from '@stencil/c
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../../models';
-import { uniLangMenuInit, UniLangMenuTemplate, UniLangMenuWrapTemplate } from '../../utils';
+import { UniLangMenuTemplate, uniLangMenuInit, UniLangMenuWrapTemplate } from '../../utils';
 
 @Component({
-  tag: 'uni-lang-menu',
-  styleUrl: '../../styles/lang-menu.css'
+  tag: 'uni-lang-menu-shadow',
+  styleUrl: '../../styles/lang-menu.css',
+  shadow: true
 })
-export class UniLangMenuComponent implements ComponentInterface {
+export class UniLangMenuShadowComponent implements ComponentInterface {
   @Prop() mini: boolean;
 
   @Prop() rounded: boolean;

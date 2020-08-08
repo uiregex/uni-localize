@@ -1,7 +1,7 @@
-export interface UniFlag {
+import { UniClasses } from '@uni/common';
+
+export interface UniFlag extends UniClasses {
   src: string;
   alt: string;
-  svg: string;
-  rounded: boolean;
-  shadow?: boolean;
+  name: string;
 }

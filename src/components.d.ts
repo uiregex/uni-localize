@@ -5,43 +5,65 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { UniFlagName } from "./flag/models";
+import { UniStoreType } from "@uni/udk";
 export namespace Components {
     interface UniFlag {
         "alt": string;
+        "name": UniFlagName;
         "rounded": boolean;
         "src": string;
-        "svg": string;
     }
     interface UniFlagShadow {
         "alt": string;
+        "name": UniFlagName;
         "rounded": boolean;
         "src": string;
-        "svg": string;
     }
     interface UniFlagWrap {
         "rounded": boolean;
     }
     interface UniLangMenu {
         "activeState": string;
-        "init": string;
         "languages": string;
         "menuState": string;
         "mini": boolean;
         "rounded": boolean;
+        "route": string;
         "routing": boolean;
+        "select": string;
         "translateState": string;
-        "type": string;
+        "type": UniStoreType;
+    }
+    interface UniLangMenuShadow {
+        "activeState": string;
+        "languages": string;
+        "menuState": string;
+        "mini": boolean;
+        "rounded": boolean;
+        "route": string;
+        "routing": boolean;
+        "select": string;
+        "translateState": string;
+        "type": UniStoreType;
     }
     interface UniLangMenuWrap {
+        "activeState": string;
         "menuState": string;
         "translateState": string;
-        "urlState": string;
+        "type": UniStoreType;
     }
     interface UniTranslate {
         "end": string;
         "start": string;
         "state": string;
-        "type": string;
+        "type": UniStoreType;
+    }
+    interface UniTranslateShadow {
+        "end": string;
+        "start": string;
+        "state": string;
+        "type": UniStoreType;
     }
 }
 declare global {
@@ -69,6 +91,12 @@ declare global {
         prototype: HTMLUniLangMenuElement;
         new (): HTMLUniLangMenuElement;
     };
+    interface HTMLUniLangMenuShadowElement extends Components.UniLangMenuShadow, HTMLStencilElement {
+    }
+    var HTMLUniLangMenuShadowElement: {
+        prototype: HTMLUniLangMenuShadowElement;
+        new (): HTMLUniLangMenuShadowElement;
+    };
     interface HTMLUniLangMenuWrapElement extends Components.UniLangMenuWrap, HTMLStencilElement {
     }
     var HTMLUniLangMenuWrapElement: {
@@ -81,60 +109,90 @@ declare global {
         prototype: HTMLUniTranslateElement;
         new (): HTMLUniTranslateElement;
     };
+    interface HTMLUniTranslateShadowElement extends Components.UniTranslateShadow, HTMLStencilElement {
+    }
+    var HTMLUniTranslateShadowElement: {
+        prototype: HTMLUniTranslateShadowElement;
+        new (): HTMLUniTranslateShadowElement;
+    };
     interface HTMLElementTagNameMap {
         "uni-flag": HTMLUniFlagElement;
         "uni-flag-shadow": HTMLUniFlagShadowElement;
         "uni-flag-wrap": HTMLUniFlagWrapElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
+        "uni-lang-menu-shadow": HTMLUniLangMenuShadowElement;
         "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
         "uni-translate": HTMLUniTranslateElement;
+        "uni-translate-shadow": HTMLUniTranslateShadowElement;
     }
 }
 declare namespace LocalJSX {
     interface UniFlag {
         "alt"?: string;
+        "name"?: UniFlagName;
         "rounded"?: boolean;
         "src"?: string;
-        "svg"?: string;
     }
     interface UniFlagShadow {
         "alt"?: string;
+        "name"?: UniFlagName;
         "rounded"?: boolean;
         "src"?: string;
-        "svg"?: string;
     }
     interface UniFlagWrap {
         "rounded"?: boolean;
     }
     interface UniLangMenu {
         "activeState"?: string;
-        "init"?: string;
         "languages"?: string;
         "menuState"?: string;
         "mini"?: boolean;
         "rounded"?: boolean;
+        "route"?: string;
         "routing"?: boolean;
+        "select"?: string;
         "translateState"?: string;
-        "type"?: string;
+        "type"?: UniStoreType;
+    }
+    interface UniLangMenuShadow {
+        "activeState"?: string;
+        "languages"?: string;
+        "menuState"?: string;
+        "mini"?: boolean;
+        "rounded"?: boolean;
+        "route"?: string;
+        "routing"?: boolean;
+        "select"?: string;
+        "translateState"?: string;
+        "type"?: UniStoreType;
     }
     interface UniLangMenuWrap {
+        "activeState"?: string;
         "menuState"?: string;
         "translateState"?: string;
-        "urlState"?: string;
+        "type"?: UniStoreType;
     }
     interface UniTranslate {
         "end"?: string;
         "start"?: string;
         "state"?: string;
-        "type"?: string;
+        "type"?: UniStoreType;
+    }
+    interface UniTranslateShadow {
+        "end"?: string;
+        "start"?: string;
+        "state"?: string;
+        "type"?: UniStoreType;
     }
     interface IntrinsicElements {
         "uni-flag": UniFlag;
         "uni-flag-shadow": UniFlagShadow;
         "uni-flag-wrap": UniFlagWrap;
         "uni-lang-menu": UniLangMenu;
+        "uni-lang-menu-shadow": UniLangMenuShadow;
         "uni-lang-menu-wrap": UniLangMenuWrap;
         "uni-translate": UniTranslate;
+        "uni-translate-shadow": UniTranslateShadow;
     }
 }
 export { LocalJSX as JSX };
@@ -145,8 +203,10 @@ declare module "@stencil/core" {
             "uni-flag-shadow": LocalJSX.UniFlagShadow & JSXBase.HTMLAttributes<HTMLUniFlagShadowElement>;
             "uni-flag-wrap": LocalJSX.UniFlagWrap & JSXBase.HTMLAttributes<HTMLUniFlagWrapElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
+            "uni-lang-menu-shadow": LocalJSX.UniLangMenuShadow & JSXBase.HTMLAttributes<HTMLUniLangMenuShadowElement>;
             "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
+            "uni-translate-shadow": LocalJSX.UniTranslateShadow & JSXBase.HTMLAttributes<HTMLUniTranslateShadowElement>;
         }
     }
 }

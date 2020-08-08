@@ -7,17 +7,19 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type     | Default             |
-| ---------------- | ----------------- | ----------- | -------- | ------------------- |
-| `menuState`      | `menu-state`      |             | `string` | `'loc.menu.opened'` |
-| `translateState` | `translate-state` |             | `string` | `'loc.translate'`   |
-| `urlState`       | `url-state`       |             | `string` | `'loc.menu.url'`    |
+| Property         | Attribute         | Description | Type                               | Default                 |
+| ---------------- | ----------------- | ----------- | ---------------------------------- | ----------------------- |
+| `activeState`    | `active-state`    |             | `string`                           | `'app.loc.menu.active'` |
+| `menuState`      | `menu-state`      |             | `string`                           | `'app.loc.menu.opened'` |
+| `translateState` | `translate-state` |             | `string`                           | `'app.loc.translate'`   |
+| `type`           | `type`            |             | `"local" \| "memory" \| "session"` | `'session'`             |
 
 
 ## Dependencies
 
 ### Depends on
 
+- uni-button-layout-mat
 - uni-store
 - uni-event
 - uni-load
@@ -25,6 +27,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  uni-lang-menu-wrap --> uni-button-layout-mat
   uni-lang-menu-wrap --> uni-store
   uni-lang-menu-wrap --> uni-event
   uni-lang-menu-wrap --> uni-load
