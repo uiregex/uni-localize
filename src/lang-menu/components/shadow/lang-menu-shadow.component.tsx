@@ -51,6 +51,10 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
     return lang
       ? UniLangMenuWrapTemplate({ type, menuState, activeState, translateState }, template)
-      : <slot/>;
+      : (
+        <uni-component>
+          <slot/>
+        </uni-component>
+      );
   }
 }

@@ -3,7 +3,7 @@ import { h, VNode } from '@stencil/core';
 export const UniLangMenuTemplate =
   function({ type, mini, rounded, routing, route, activeState, list, lang }): VNode {
     return (
-      <div class="mdc-menu-surface--anchor uni-lang-menu">
+      <uni-component class="mdc-menu-surface--anchor uni-lang-menu">
         <uni-store active init type={type} state={activeState} value={lang}/>
 
         <uni-button-mat>
@@ -44,6 +44,6 @@ export const UniLangMenuTemplate =
             )}
           </uni-list-mat>
         </uni-menu-surface-mat>
-      </div>
+      </uni-component>
     );
   };

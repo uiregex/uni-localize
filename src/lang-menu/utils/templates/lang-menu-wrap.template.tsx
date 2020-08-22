@@ -1,10 +1,8 @@
-import { h, Host, VNode } from '@stencil/core';
-
-import { UniTemplate } from '@uni/common';
+import { h, VNode } from '@stencil/core';
 
 export const UniLangMenuWrapTemplate = function({ type, menuState, activeState, translateState }, template: VNode): VNode {
-  return UniTemplate(
-    <Host>
+  return (
+    <uni-component>
       <uni-button-layout-mat hidden/>
 
       <uni-store active event="click" state={menuState}>
@@ -20,6 +18,6 @@ export const UniLangMenuWrapTemplate = function({ type, menuState, activeState, 
           </uni-store>
         </uni-store>
       </uni-event>
-    </Host>
+    </uni-component>
   );
 };
