@@ -25,44 +25,52 @@ export namespace Components {
     }
     interface UniLangMenu {
         "activeState": string;
+        "feature": string;
         "languages": string;
-        "menuState": string;
         "mini": boolean;
         "rounded": boolean;
         "route": string;
         "routing": boolean;
         "select": string;
+        "separator": string;
         "translateState": string;
         "type": UniStoreType;
     }
     interface UniLangMenuShadow {
         "activeState": string;
+        "feature": string;
         "languages": string;
-        "menuState": string;
         "mini": boolean;
         "rounded": boolean;
         "route": string;
         "routing": boolean;
         "select": string;
+        "separator": string;
         "translateState": string;
         "type": UniStoreType;
     }
     interface UniLangMenuWrap {
         "activeState": string;
-        "menuState": string;
+        "feature": string;
+        "separator": string;
         "translateState": string;
         "type": UniStoreType;
     }
     interface UniTranslate {
         "end": string;
+        "feature": string;
+        "path": string;
+        "separator": string;
         "start": string;
-        "state": string;
         "type": UniStoreType;
+        "update": boolean;
     }
     interface UniTranslateShadow {
         "end": string;
+        "feature": string;
+        "path": string;
+        "separator": string;
         "start": string;
-        "state": string;
         "type": UniStoreType;
     }
 }
@@ -144,44 +152,52 @@ declare namespace LocalJSX {
     }
     interface UniLangMenu {
         "activeState"?: string;
+        "feature"?: string;
         "languages"?: string;
-        "menuState"?: string;
         "mini"?: boolean;
         "rounded"?: boolean;
         "route"?: string;
         "routing"?: boolean;
         "select"?: string;
+        "separator"?: string;
         "translateState"?: string;
         "type"?: UniStoreType;
     }
     interface UniLangMenuShadow {
         "activeState"?: string;
+        "feature"?: string;
         "languages"?: string;
-        "menuState"?: string;
         "mini"?: boolean;
         "rounded"?: boolean;
         "route"?: string;
         "routing"?: boolean;
         "select"?: string;
+        "separator"?: string;
         "translateState"?: string;
         "type"?: UniStoreType;
     }
     interface UniLangMenuWrap {
         "activeState"?: string;
-        "menuState"?: string;
+        "feature"?: string;
+        "separator"?: string;
         "translateState"?: string;
         "type"?: UniStoreType;
     }
     interface UniTranslate {
         "end"?: string;
+        "feature"?: string;
+        "path"?: string;
+        "separator"?: string;
         "start"?: string;
-        "state"?: string;
         "type"?: UniStoreType;
+        "update"?: boolean;
     }
     interface UniTranslateShadow {
         "end"?: string;
+        "feature"?: string;
+        "path"?: string;
+        "separator"?: string;
         "start"?: string;
-        "state"?: string;
         "type"?: UniStoreType;
     }
     interface IntrinsicElements {

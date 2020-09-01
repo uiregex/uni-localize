@@ -9,8 +9,8 @@
 }
 
 .uni-lang-menu .mdc-button__label,
-.uni-lang-menu uni-menu-surface-mat uni-text {
-  margin-left: 5px;
+.uni-lang-menu .mdc-menu-surface uni-text {
+  margin-left: .5em;
 }
 
 .uni-lang-menu-label {

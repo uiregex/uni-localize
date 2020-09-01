@@ -1,30 +1,32 @@
 import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { UniLangMenuWrapTemplate } from '../../utils';
+import { uniLangMenuWrapInit } from '../../utils/lang-menu-wrap.init';
+import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
 
 @Component({
   tag: 'uni-lang-menu-wrap',
   styleUrl: '../../styles/lang-menu.css'
 })
 export class UniLangMenuWrapComponent implements ComponentInterface {
-  @Prop() type: UniStoreType = 'session';
+  @Prop() feature: string = 'uni.store';
 
-  @Prop() menuState = 'app.loc.menu.opened';
+  @Prop() separator: string = '.';
+
+  @Prop() type: UniStoreType = 'session';
 
   @Prop() activeState = 'app.loc.menu.active';
 
   @Prop() translateState = 'app.loc.translate';
 
   componentDidLoad(): void {
-    uniWatermark('uni-lang-menu-wrap', 'innerHTML');
+    uniLangMenuWrapInit();
   }
 
   render(): VNode {
-    const { type, menuState, activeState, translateState } = this;
+    const { feature, separator, type, activeState, translateState } = this;
 
-    return UniLangMenuWrapTemplate({ type, menuState, activeState, translateState }, <slot/>);
+    return UniLangMenuWrapTemplate({ feature, separator, type, activeState, translateState }, <slot/>);
   }
 }

@@ -1,32 +1,36 @@
 import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { UniTranslateTemplate } from '../../utils';
+import { uniTranslateShadowInit } from '../../utils/translate-shadow.init';
+import { UniTranslateTemplate } from '../../utils/translate.template';
 
 @Component({
   tag: 'uni-translate-shadow',
   shadow: true
 })
 export class UniTranslateShadowComponent implements ComponentInterface {
-  @Prop() type: UniStoreType = 'session';
+  @Prop() feature: string = 'uni.store';
 
-  @Prop() state = 'app.loc.translate';
+  @Prop() separator: string = '.';
+
+  @Prop() type: UniStoreType;
+
+  @Prop() path = 'app.loc.translate';
 
   @Prop() start: string = '{{ ';
 
   @Prop() end: string = ' }}';
 
   componentDidLoad(): void {
-    uniWatermark('uni-translate', 'switch');
+    uniTranslateShadowInit();
   }
 
   render(): VNode {
-    const { type, state, start, end } = this;
-    const props = { type, state };
+    const { feature, separator, type, path, start, end } = this;
+    const storeProps = { feature, separator, type, path };
     const replaceProps = { start, end };
 
-    return UniTranslateTemplate({ props, replaceProps }, <slot/>);
+    return UniTranslateTemplate({ storeProps, replaceProps }, <slot/>);
   }
 }

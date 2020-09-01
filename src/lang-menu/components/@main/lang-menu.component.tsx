@@ -1,43 +1,46 @@
-import { Component, ComponentInterface, h, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, Prop, State, VNode } from '@stencil/core';
 
+import { UniHostTemplate } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../../models';
-import { uniLangMenuInit, UniLangMenuTemplate, UniLangMenuWrapTemplate } from '../../utils';
+import { uniLangMenuInit } from '../../utils/lang-menu.init';
+import { UniLangMenuTemplate } from '../../utils/lang-menu.template';
+import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
 
 @Component({
   tag: 'uni-lang-menu',
   styleUrl: '../../styles/lang-menu.css'
 })
 export class UniLangMenuComponent implements ComponentInterface {
-  @Prop() mini: boolean;
+  @Prop({ reflect: true }) mini: boolean;
 
-  @Prop() rounded: boolean;
+  @Prop({ reflect: true }) rounded: boolean;
 
-  @Prop() routing: boolean;
+  @Prop({ reflect: true }) routing: boolean;
 
-  @Prop() route: string = 'lang';
+  @Prop({ reflect: true }) route: string = 'lang';
 
-  @Prop() select: string;
+  @Prop({ reflect: true }) select: string;
 
-  @Prop() languages: string;
+  @Prop({ reflect: true }) languages: string;
 
-  @Prop() type: UniStoreType = 'session';
+  @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop() menuState = 'app.loc.menu.opened';
+  @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop() activeState = 'app.loc.menu.active';
+  @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
-  @Prop() translateState = 'app.loc.translate';
+  @Prop({ reflect: true }) activeState = 'app.loc.menu.active';
+
+  @Prop({ reflect: true }) translateState = 'app.loc.translate';
 
   @State() list: UniLangMenuItem[] = [];
 
   @State() lang: UniLangMenuItem;
 
   componentDidLoad(): void {
-    const { type, menuState, languages } = this;
-
-    uniLangMenuInit({ type, menuState, languages })
+    uniLangMenuInit(this.languages)
       .then((data: UniLangMenuItem[] = []) => {
         this.list = data;
         this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
@@ -45,15 +48,11 @@ export class UniLangMenuComponent implements ComponentInterface {
   }
 
   render(): VNode {
-    const { type, mini, rounded, routing, route, menuState, activeState, translateState, list, lang } = this;
+    const { feature, separator, type, mini, rounded, routing, route, activeState, translateState, list, lang } = this;
     const template = UniLangMenuTemplate({ type, mini, rounded, routing, route, activeState, list, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ type, menuState, activeState, translateState }, template)
-      : (
-        <uni-component>
-          <slot/>
-        </uni-component>
-      );
+      ? UniLangMenuWrapTemplate({ feature, separator, type, activeState, translateState }, template)
+      : UniHostTemplate({});
   }
 }

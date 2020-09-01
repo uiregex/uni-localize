@@ -1,29 +1,44 @@
-import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Prop, VNode, Watch } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { UniTranslateTemplate } from '../../utils';
+import { uniTranslateInit } from '../../utils/translate.init';
+import { UniTranslateTemplate } from '../../utils/translate.template';
 
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
-  @Prop() type: UniStoreType = 'session';
+  @Element() el!: HTMLElement;
 
-  @Prop() state = 'app.loc.translate';
+  @Prop({ reflect: true, mutable: true }) update: boolean = false;
 
-  @Prop() start: string = '{{ ';
+  @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop() end: string = ' }}';
+  @Prop({ reflect: true }) separator: string = '.';
+
+  @Prop({ reflect: true }) type: UniStoreType = 'memory';
+
+  @Prop({ reflect: true }) path = 'app.loc.translate';
+
+  @Prop({ reflect: true }) start: string = '{{ ';
+
+  @Prop({ reflect: true }) end: string = ' }}';
+
+  @Watch('update')
+  updateWatcher(newValue: boolean) {
+    if (newValue) {
+      setTimeout(() => this.update = false, 300);
+    }
+  }
 
   componentDidLoad(): void {
-    uniWatermark('uni-translate', 'switch');
+    uniTranslateInit();
   }
 
   render(): VNode {
-    const { type, state, start, end } = this;
-    const props = { type, state };
-    const replaceProps = { start, end };
+    const { feature, separator, type, path, update, start, end } = this;
+    const storeProps = { feature, separator, type, path };
+    const replaceProps = { update, start, end };
 
-    return UniTranslateTemplate({ props, replaceProps }, <slot/>);
+    return UniTranslateTemplate({ storeProps, replaceProps }, <slot/>);
   }
 }

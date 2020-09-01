@@ -27,7 +27,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@uni/common": "file:../!common/uni-common-0.0.20.tgz",
+    "@uni/common": "file:../../common/uni-common-0.0.25.tgz",
     "@uni/mat": "file:../mat/uni-mat-0.0.18.tgz",
     "@uni/udk": "file:../udk/uni-udk-0.0.18.tgz"
   },
