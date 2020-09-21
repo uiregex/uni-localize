@@ -58,6 +58,7 @@ graph TD;
   uni-lang-menu-shadow --> uni-button-layout-mat
   uni-lang-menu-shadow --> uni-event
   uni-lang-menu-shadow --> uni-load
+  uni-list-item-mat --> uni-list-item-ripple-mat
   style uni-lang-menu-shadow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

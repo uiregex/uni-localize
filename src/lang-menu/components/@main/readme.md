@@ -58,6 +58,7 @@ graph TD;
   uni-lang-menu --> uni-button-layout-mat
   uni-lang-menu --> uni-event
   uni-lang-menu --> uni-load
+  uni-list-item-mat --> uni-list-item-ripple-mat
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

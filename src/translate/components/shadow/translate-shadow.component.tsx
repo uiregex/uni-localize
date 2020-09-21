@@ -10,27 +10,30 @@ import { UniTranslateTemplate } from '../../utils/translate.template';
   shadow: true
 })
 export class UniTranslateShadowComponent implements ComponentInterface {
-  @Prop() feature: string = 'uni.store';
+  @Prop({ reflect: true }) active: boolean = false;
 
-  @Prop() separator: string = '.';
+  @Prop({ reflect: true, mutable: true }) refresh: boolean = false;
 
-  @Prop() type: UniStoreType;
+  @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop() path = 'app.loc.translate';
+  @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop() start: string = '{{ ';
+  @Prop({ reflect: true }) type: UniStoreType;
 
-  @Prop() end: string = ' }}';
+  @Prop({ reflect: true }) path = 'app.loc.translate';
+
+  @Prop({ reflect: true }) start: string = '{{ ';
+
+  @Prop({ reflect: true }) end: string = ' }}';
 
   componentDidLoad(): void {
     uniTranslateShadowInit();
   }
 
   render(): VNode {
-    const { feature, separator, type, path, start, end } = this;
-    const storeProps = { feature, separator, type, path };
-    const replaceProps = { start, end };
+    const { active, refresh, feature, separator, type, path, start, end } = this;
+    const props = { active, refresh, feature, separator, type, path,  start, end };
 
-    return UniTranslateTemplate({ storeProps, replaceProps }, <slot/>);
+    return UniTranslateTemplate({ props }, <slot/>);
   }
 }
