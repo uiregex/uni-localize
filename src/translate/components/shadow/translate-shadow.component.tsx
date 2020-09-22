@@ -22,9 +22,9 @@ export class UniTranslateShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) path = 'app.loc.translate';
 
-  @Prop({ reflect: true }) start: string = '{{ ';
+  @Prop({ reflect: true }) start: string = '{{';
 
-  @Prop({ reflect: true }) end: string = ' }}';
+  @Prop({ reflect: true }) end: string = '}}';
 
   componentDidLoad(): void {
     uniTranslateShadowInit();
