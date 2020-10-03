@@ -29,12 +29,14 @@
 - uni-store
 - uni-button-mat
 - uni-button-icon-mat
+- uni-store-event-get
 - [uni-flag](../../../flag/components/element)
 - uni-button-label-mat
+- uni-text
 - uni-icon-arrow-drop-down-mat
 - uni-menu-surface-mat
 - uni-list-mat
-- uni-route-link
+- uni-store-event-set
 - uni-list-item-mat
 - uni-route
 - uni-button-layout-mat
@@ -47,17 +49,23 @@ graph TD;
   uni-lang-menu --> uni-store
   uni-lang-menu --> uni-button-mat
   uni-lang-menu --> uni-button-icon-mat
+  uni-lang-menu --> uni-store-event-get
   uni-lang-menu --> uni-flag
   uni-lang-menu --> uni-button-label-mat
+  uni-lang-menu --> uni-text
   uni-lang-menu --> uni-icon-arrow-drop-down-mat
   uni-lang-menu --> uni-menu-surface-mat
   uni-lang-menu --> uni-list-mat
-  uni-lang-menu --> uni-route-link
+  uni-lang-menu --> uni-store-event-set
   uni-lang-menu --> uni-list-item-mat
   uni-lang-menu --> uni-route
   uni-lang-menu --> uni-button-layout-mat
   uni-lang-menu --> uni-event
   uni-lang-menu --> uni-load
+  uni-store-event-get --> uni-event
+  uni-store-event-get --> uni-store
+  uni-store-event-set --> uni-event
+  uni-store-event-set --> uni-store
   uni-list-item-mat --> uni-list-item-ripple-mat
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

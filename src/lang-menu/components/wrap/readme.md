@@ -22,6 +22,8 @@
 
 - uni-button-layout-mat
 - uni-event
+- uni-store-event-set
+- uni-store-event-get
 - uni-load
 
 ### Graph
@@ -29,7 +31,13 @@
 graph TD;
   uni-lang-menu-wrap --> uni-button-layout-mat
   uni-lang-menu-wrap --> uni-event
+  uni-lang-menu-wrap --> uni-store-event-set
+  uni-lang-menu-wrap --> uni-store-event-get
   uni-lang-menu-wrap --> uni-load
+  uni-store-event-set --> uni-event
+  uni-store-event-set --> uni-store
+  uni-store-event-get --> uni-event
+  uni-store-event-get --> uni-store
   style uni-lang-menu-wrap fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

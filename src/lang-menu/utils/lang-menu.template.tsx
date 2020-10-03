@@ -45,12 +45,12 @@ export const UniLangMenuTemplate =
                 prop="active"
                 stop={true}
               >
-                <uni-route-link params={routing ? `${route}=${item.lang}` : ''}>
+                <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
                   <uni-list-item-mat>
                     <uni-flag src={item.flagSrc} name={item.flag} rounded={rounded}/>
                     <uni-text content={item.name}/>
                   </uni-list-item-mat>
-                </uni-route-link>
+                </uni-router-link>
               </uni-store-event-set>
 
               <uni-route params={routing ? `${route}=${item.lang}` : ''}>
