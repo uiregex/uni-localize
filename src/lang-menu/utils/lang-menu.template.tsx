@@ -4,7 +4,7 @@ export const UniLangMenuTemplate =
   function({ type, mini, rounded, routing, route, activeState, list, lang }): VNode {
     return (
       <div class="mdc-menu-surface--anchor uni-lang-menu">
-        <uni-store active={true} init={true} type={type} path={activeState} state={lang}/>
+        <uni-store-set active={true} init={true} type={type} path={activeState} state={lang}/>
 
         <uni-button-mat>
           <uni-button-icon-mat>
@@ -22,9 +22,9 @@ export const UniLangMenuTemplate =
           </uni-button-icon-mat>
 
           {mini ? '' : <uni-button-label-mat>
-            <uni-store active={true} type={type} path={`${activeState}.name`} target="uni-text" prop="content">
+            <uni-store-get active={true} type={type} path={`${activeState}.name`} target="uni-text" prop="content">
               <uni-text class="uni-lang-menu-label"/>
-            </uni-store>
+            </uni-store-get>
           </uni-button-label-mat>}
 
           <uni-button-icon-mat>
@@ -41,7 +41,7 @@ export const UniLangMenuTemplate =
                 type={type}
                 path={activeState}
                 state={item}
-                target="uni-store"
+                target="uni-store-set"
                 prop="active"
                 stop={true}
               >
@@ -54,7 +54,7 @@ export const UniLangMenuTemplate =
               </uni-store-event-set>
 
               <uni-route params={routing ? `${route}=${item.lang}` : ''}>
-                <uni-store type={type} path={activeState} state={item}/>
+                <uni-store-set type={type} path={activeState} state={item}/>
               </uni-route>
             </uni-list-mat>
           )}

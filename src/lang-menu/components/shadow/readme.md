@@ -37,6 +37,7 @@
 - uni-menu-surface-mat
 - uni-list-mat
 - uni-store-event-set
+- uni-router-link
 - uni-list-item-mat
 - uni-route
 - uni-button-layout-mat
@@ -57,6 +58,7 @@ graph TD;
   uni-lang-menu-shadow --> uni-menu-surface-mat
   uni-lang-menu-shadow --> uni-list-mat
   uni-lang-menu-shadow --> uni-store-event-set
+  uni-lang-menu-shadow --> uni-router-link
   uni-lang-menu-shadow --> uni-list-item-mat
   uni-lang-menu-shadow --> uni-route
   uni-lang-menu-shadow --> uni-button-layout-mat
