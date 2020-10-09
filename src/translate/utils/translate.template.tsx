@@ -16,7 +16,7 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
       prop="state"
     >
       <uni-replace
-        active={refresh}
+        refresh={refresh}
         start={start}
         end={end}
       >
