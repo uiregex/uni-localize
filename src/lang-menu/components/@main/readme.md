@@ -26,7 +26,6 @@
 
 ### Depends on
 
-- uni-store
 - uni-button-mat
 - uni-button-icon-mat
 - uni-store-event-get
@@ -47,7 +46,6 @@
 ### Graph
 ```mermaid
 graph TD;
-  uni-lang-menu --> uni-store
   uni-lang-menu --> uni-button-mat
   uni-lang-menu --> uni-button-icon-mat
   uni-lang-menu --> uni-store-event-get
