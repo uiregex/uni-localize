@@ -2,9 +2,9 @@
   "name": "@uni/loc",
   "version": "0.0.0",
   "license": "Commercial",
-  "description": "Uni Localization Kit",
+  "description": "Uni Localization",
   "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
+  "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.js",
   "es2017": "dist/esm/index.js",
   "jsnext:main": "dist/esm/index.js",
@@ -20,22 +20,21 @@
   "scripts": {
     "build:dev": "stencil build --dev --watch",
     "build:prod": "stencil build",
-    "build:docs": "stencil build --docs",
     "serve:dev": "stencil build --dev --watch --serve --no-open",
     "serve:prod": "stencil build --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "pack": "npm pack"
   },
   "dependencies": {
-    "@uni/common": "file:../../common/uni-common-0.0.28.tgz",
-    "@uni/mat": "file:../../kits/mat/uni-mat-0.0.20.tgz",
-    "@uni/udk": "file:../../kits/udk/uni-udk-0.0.19.tgz"
+    "@uni/common": "file:../../common/uni-common-0.0.29.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.24.tgz",
+    "@uni/udk": "file:../udk/uni-udk-0.0.20.tgz"
   },
   "devDependencies": {
-    "@stencil/core": "2.0.3",
-    "@stencil/sass": "1.3.2",
-    "prettier": "1.19.1",
-    "rollup-plugin-cleanup": "3.1.1"
+    "@stencil/core": "2.3.0",
+    "@stencil/sass": "1.4.0",
+    "rollup-plugin-cleanup": "3.2.1"
   }
 }

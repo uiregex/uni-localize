@@ -1,31 +1,41 @@
 import { Config } from '@stencil/core';
 // import { sass } from '@stencil/sass';
+
 import cleanup from 'rollup-plugin-cleanup';
 
 export const config: Config = {
   namespace: 'loc',
-  taskQueue: 'async',
-  buildEs5: false,
+  buildEs5: 'prod',
   enableCache: false,
-  excludeUnusedDependencies: true,
+  taskQueue: 'async',
   extras: {
-    cssVarsShim: false,
-    dynamicImportShim: false,
-    safari10: false,
-    scriptDataOpts: false,
-    shadowDomShim: false,
-    slotChildNodesFix: true,
     appendChildSlotFix: true,
-    cloneNodeFix: true
+    cloneNodeFix: true,
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    safari10: true,
+    scriptDataOpts: false,
+    shadowDomShim: true,
+    initializeNextTick: true,
+    slotChildNodesFix: true,
+    tagNameTransform: true,
+  },
+  hydratedFlag: {
+    name: `hydrated`,
+    selector: 'class',
+    property: `visibility`,
+    initialValue: `hidden`,
+    hydratedValue: `inherit`,
   },
   devServer: {
-    // logRequests: true,
+    port: 5555,
     openBrowser: false,
     reloadStrategy: 'pageReload',
-    port: 4444
+    // experimentalDevModules: true,
+    // logRequests: true,
   },
   plugins: [
-    // sass()
+    // sass({ includePaths: ['./node_modules'] }),
     cleanup({ comments: 'none' })
   ],
   // bundles: [
@@ -37,14 +47,22 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-      empty: true
+      polyfills: true,
+      empty: true,
     },
     {
-      type: 'docs-readme'
+      type: 'dist-custom-elements-bundle',
+      empty: true,
+    },
+    {
+      type: 'docs-readme',
+      footer: '*Powered by [UiWebKit](https://uiwebkit.com/)*',
+      dependencies: true,
+      // strict: true,
     },
     {
       type: 'www',
-      serviceWorker: null // disable service workers
-    }
+      serviceWorker: null, // disable service workers
+    },
   ]
 };
