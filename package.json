@@ -30,7 +30,7 @@
   "dependencies": {
     "@uni/common": "file:../../common/uni-common-0.0.29.tgz",
     "@uni/mat": "file:../mat/uni-mat-0.0.24.tgz",
-    "@uni/udk": "file:../udk/uni-udk-0.0.20.tgz"
+    "@uni/udk": "file:../udk/uni-udk-0.0.21.tgz"
   },
   "devDependencies": {
     "@stencil/core": "2.3.0",

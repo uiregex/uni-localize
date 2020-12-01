@@ -13,6 +13,7 @@ import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
   styleUrl: '../../styles/lang-menu.css'
 })
 export class UniLangMenuComponent implements ComponentInterface {
+
   @Prop({ reflect: true }) mini: boolean;
 
   @Prop({ reflect: true }) rounded: boolean;

@@ -20,7 +20,6 @@
 
 ### Depends on
 
-- uni-button-layout-mat
 - uni-event
 - uni-store-event-set
 - uni-store-event-get
@@ -29,18 +28,17 @@
 ### Graph
 ```mermaid
 graph TD;
-  uni-lang-menu-wrap --> uni-button-layout-mat
   uni-lang-menu-wrap --> uni-event
   uni-lang-menu-wrap --> uni-store-event-set
   uni-lang-menu-wrap --> uni-store-event-get
   uni-lang-menu-wrap --> uni-load
   uni-store-event-set --> uni-event
-  uni-store-event-set --> uni-store
+  uni-store-event-set --> uni-store-set
   uni-store-event-get --> uni-event
-  uni-store-event-get --> uni-store
+  uni-store-event-get --> uni-store-get
   style uni-lang-menu-wrap fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Powered by [UiWebKit](https://uiwebkit.com/)*

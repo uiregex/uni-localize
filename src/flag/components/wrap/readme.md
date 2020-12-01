@@ -14,4 +14,4 @@
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Powered by [UiWebKit](https://uiwebkit.com/)*

@@ -32,10 +32,10 @@ graph TD;
   uni-translate-shadow --> uni-store-event-get
   uni-translate-shadow --> uni-replace
   uni-store-event-get --> uni-event
-  uni-store-event-get --> uni-store
+  uni-store-event-get --> uni-store-get
   style uni-translate-shadow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Powered by [UiWebKit](https://uiwebkit.com/)*

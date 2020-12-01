@@ -31,17 +31,17 @@
 - uni-store-event-get
 - [uni-flag](../../../flag/components/element)
 - uni-button-label-mat
+- uni-store-get
 - uni-text
-- uni-icon-arrow-drop-down-mat
 - uni-menu-surface-mat
 - uni-list-mat
 - uni-store-event-set
 - uni-router-link
 - uni-list-item-mat
 - uni-route
-- uni-button-layout-mat
 - uni-event
 - uni-load
+- uni-store-set
 
 ### Graph
 ```mermaid
@@ -51,25 +51,25 @@ graph TD;
   uni-lang-menu --> uni-store-event-get
   uni-lang-menu --> uni-flag
   uni-lang-menu --> uni-button-label-mat
+  uni-lang-menu --> uni-store-get
   uni-lang-menu --> uni-text
-  uni-lang-menu --> uni-icon-arrow-drop-down-mat
   uni-lang-menu --> uni-menu-surface-mat
   uni-lang-menu --> uni-list-mat
   uni-lang-menu --> uni-store-event-set
   uni-lang-menu --> uni-router-link
   uni-lang-menu --> uni-list-item-mat
   uni-lang-menu --> uni-route
-  uni-lang-menu --> uni-button-layout-mat
   uni-lang-menu --> uni-event
   uni-lang-menu --> uni-load
+  uni-lang-menu --> uni-store-set
   uni-store-event-get --> uni-event
-  uni-store-event-get --> uni-store
+  uni-store-event-get --> uni-store-get
   uni-store-event-set --> uni-event
-  uni-store-event-set --> uni-store
+  uni-store-event-set --> uni-store-set
   uni-list-item-mat --> uni-list-item-ripple-mat
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+*Powered by [UiWebKit](https://uiwebkit.com/)*
