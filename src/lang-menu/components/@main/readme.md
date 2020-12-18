@@ -26,6 +26,7 @@
 
 ### Depends on
 
+- uni-store-set
 - uni-button-mat
 - uni-button-icon-mat
 - uni-store-event-get
@@ -40,12 +41,12 @@
 - uni-list-item-mat
 - uni-route
 - uni-event
-- uni-load
-- uni-store-set
+- uni-store-load
 
 ### Graph
 ```mermaid
 graph TD;
+  uni-lang-menu --> uni-store-set
   uni-lang-menu --> uni-button-mat
   uni-lang-menu --> uni-button-icon-mat
   uni-lang-menu --> uni-store-event-get
@@ -60,13 +61,15 @@ graph TD;
   uni-lang-menu --> uni-list-item-mat
   uni-lang-menu --> uni-route
   uni-lang-menu --> uni-event
-  uni-lang-menu --> uni-load
-  uni-lang-menu --> uni-store-set
+  uni-lang-menu --> uni-store-load
   uni-store-event-get --> uni-event
   uni-store-event-get --> uni-store-get
   uni-store-event-set --> uni-event
   uni-store-event-set --> uni-store-set
   uni-list-item-mat --> uni-list-item-ripple-mat
+  uni-store-load --> uni-event
+  uni-store-load --> uni-store-set
+  uni-store-load --> uni-load
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

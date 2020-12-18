@@ -10,7 +10,7 @@ export function uniLangMenuInit(languages: string): Promise<UniLangMenuItem[]> {
       // mode: 'no-cors',
       // credentials: 'include'
     })
-    : new Promise(null);
+    : new Promise(() => null);
 }
 
 

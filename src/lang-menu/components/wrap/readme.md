@@ -21,21 +21,20 @@
 ### Depends on
 
 - uni-event
-- uni-store-event-set
 - uni-store-event-get
-- uni-load
+- uni-store-load
 
 ### Graph
 ```mermaid
 graph TD;
   uni-lang-menu-wrap --> uni-event
-  uni-lang-menu-wrap --> uni-store-event-set
   uni-lang-menu-wrap --> uni-store-event-get
-  uni-lang-menu-wrap --> uni-load
-  uni-store-event-set --> uni-event
-  uni-store-event-set --> uni-store-set
+  uni-lang-menu-wrap --> uni-store-load
   uni-store-event-get --> uni-event
   uni-store-event-get --> uni-store-get
+  uni-store-load --> uni-event
+  uni-store-load --> uni-store-set
+  uni-store-load --> uni-load
   style uni-lang-menu-wrap fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

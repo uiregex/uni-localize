@@ -40,6 +40,15 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @State() lang: UniLangMenuItem;
 
+  // @Watch('languages')
+  // onLanguagesChange(newValue: string): void {
+  //   uniLangMenuInit(newValue)
+  //     .then((data: UniLangMenuItem[] = []) => {
+  //       this.list = data;
+  //       this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
+  //     });
+  // }
+
   componentDidLoad(): void {
     uniLangMenuInit(this.languages)
       .then((data: UniLangMenuItem[] = []) => {
