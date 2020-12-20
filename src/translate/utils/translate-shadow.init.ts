@@ -1,5 +1,5 @@
 import { uniWatermark } from '@uni/common';
 
 export function uniTranslateShadowInit() {
-  uniWatermark('uni-translate', 'switch');
+  uniWatermark('uni-translate', 'get');
 }

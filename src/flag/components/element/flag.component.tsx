@@ -19,7 +19,7 @@ export class UniFlagComponent implements ComponentInterface {
   @Prop() rounded: boolean;
 
   componentDidLoad(): void {
-    uniWatermark('uni-flag', 'window');
+    uniWatermark('uni-flag', 'map');
   }
 
   render(): VNode {

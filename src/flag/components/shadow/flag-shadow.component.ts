@@ -20,7 +20,7 @@ export class UniFlagShadowComponent implements ComponentInterface {
   @Prop() rounded: boolean;
 
   componentDidLoad(): void {
-    uniWatermark('uni-flag-shadow', 'window');
+    uniWatermark('uni-flag-shadow', 'set');
   }
 
   render(): VNode {

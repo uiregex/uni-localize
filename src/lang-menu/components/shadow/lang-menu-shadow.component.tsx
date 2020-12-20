@@ -6,7 +6,7 @@ import { UniLangMenuItem } from '../../models';
 import { uniLangMenuInit } from '../../utils/lang-menu.init';
 import { UniLangMenuTemplate } from '../../utils/lang-menu.template';
 import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
-import { UniHostTemplate } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 
 @Component({
   tag: 'uni-lang-menu-shadow',
@@ -41,6 +41,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
   @State() lang: UniLangMenuItem;
 
   componentDidLoad(): void {
+    uniWatermark('uni-lang-menu-shadow', 'input');
+
     uniLangMenuInit(this.languages)
       .then((data: UniLangMenuItem[] = []) => {
         this.list = data;

@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Prop, State, VNode } from '@stencil/core';
 
-import { UniHostTemplate } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../../models';
@@ -50,6 +50,8 @@ export class UniLangMenuComponent implements ComponentInterface {
   // }
 
   componentDidLoad(): void {
+    uniWatermark('uni-lang-menu', 'output');
+
     uniLangMenuInit(this.languages)
       .then((data: UniLangMenuItem[] = []) => {
         this.list = data;
