@@ -1,2 +1,4 @@
-import '@uni/udk';
-import '@uni/mat';
+export { Components, JSX } from './components';
+
+// import '@uni/mat';
+// import '@uni/udk';

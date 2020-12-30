@@ -20,21 +20,12 @@
 
 ### Depends on
 
-- uni-event
-- uni-store-event-get
-- uni-store-load
+- [uni-loc](../../../loc)
 
 ### Graph
 ```mermaid
 graph TD;
-  uni-lang-menu-wrap --> uni-event
-  uni-lang-menu-wrap --> uni-store-event-get
-  uni-lang-menu-wrap --> uni-store-load
-  uni-store-event-get --> uni-event
-  uni-store-event-get --> uni-store-get
-  uni-store-load --> uni-event
-  uni-store-load --> uni-store-set
-  uni-store-load --> uni-load
+  uni-lang-menu-wrap --> uni-loc
   style uni-lang-menu-wrap fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

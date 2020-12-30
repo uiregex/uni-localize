@@ -1,31 +1,45 @@
-import { h, VNode } from '@stencil/core';
+import { h, Host, VNode } from '@stencil/core';
 
-import { Fragment, UniTemplate } from '@uni/common';
+import { UniTemplate } from '@uni/common';
 
 export const UniLangMenuWrapTemplate = function(
   { feature, separator, type, activeState, translateState },
   template: VNode,
 ): VNode {
-  const props = { feature, separator, type };
-
   return UniTemplate(
-    <Fragment>
-      <uni-button-layout-mat hidden={true} />
+    <Host>
+      <uni-loc/>
 
-      <uni-event active={true} listen="click" target="uni-menu-surface-mat" prop="opened" stop={true}>
+      <uni-event-loc
+        active={true}
+        listen="click"
+        target="uni-menu-surface-mat-loc"
+        prop="opened"
+        stop={true}
+      >
         {template}
-      </uni-event>
+      </uni-event-loc>
 
-      <uni-store-event-get active={true} {...props} path={`${activeState}.translation`} target="uni-load" prop="url">
-        <uni-store-load
+      <uni-store-event-get-loc
+        suf={'loc'}
+        active={true}
+        feature={feature}
+        type={type}
+        separator={separator}
+        path={`${activeState}.translation`}
+        target="uni-store-load-loc"
+        prop="url"
+      >
+        <uni-store-load-loc
+          suf={'loc'}
           active={true}
           clean={true}
-          listen="uniLoadSuccess"
-          {...props}
+          feature={feature}
+          type={type}
+          separator={separator}
           path={translateState}
-          stop={true}
           />
-      </uni-store-event-get>
-    </Fragment>,
+      </uni-store-event-get-loc>
+    </Host>,
   );
 };
