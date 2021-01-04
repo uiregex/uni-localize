@@ -19,6 +19,21 @@
 | `type`      | `type`      |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
 
+## Dependencies
+
+### Depends on
+
+- uni-store-event-get
+- uni-replace
+
+### Graph
+```mermaid
+graph TD;
+  uni-translate --> uni-store-event-get
+  uni-translate --> uni-replace
+  style uni-translate fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Powered by [UiWebKit](https://uiwebkit.com/)*

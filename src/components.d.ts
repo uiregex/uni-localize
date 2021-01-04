@@ -52,11 +52,10 @@ export namespace Components {
     interface UniLangMenuWrap {
         "activeState": string;
         "feature": string;
+        "routing": boolean;
         "separator": string;
         "translateState": string;
         "type": UniStoreType;
-    }
-    interface UniLoc {
     }
     interface UniTranslate {
         "active": boolean;
@@ -116,12 +115,6 @@ declare global {
         prototype: HTMLUniLangMenuWrapElement;
         new (): HTMLUniLangMenuWrapElement;
     };
-    interface HTMLUniLocElement extends Components.UniLoc, HTMLStencilElement {
-    }
-    var HTMLUniLocElement: {
-        prototype: HTMLUniLocElement;
-        new (): HTMLUniLocElement;
-    };
     interface HTMLUniTranslateElement extends Components.UniTranslate, HTMLStencilElement {
     }
     var HTMLUniTranslateElement: {
@@ -141,7 +134,6 @@ declare global {
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-shadow": HTMLUniLangMenuShadowElement;
         "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
-        "uni-loc": HTMLUniLocElement;
         "uni-translate": HTMLUniTranslateElement;
         "uni-translate-shadow": HTMLUniTranslateShadowElement;
     }
@@ -191,11 +183,10 @@ declare namespace LocalJSX {
     interface UniLangMenuWrap {
         "activeState"?: string;
         "feature"?: string;
+        "routing"?: boolean;
         "separator"?: string;
         "translateState"?: string;
         "type"?: UniStoreType;
-    }
-    interface UniLoc {
     }
     interface UniTranslate {
         "active"?: boolean;
@@ -224,7 +215,6 @@ declare namespace LocalJSX {
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-shadow": UniLangMenuShadow;
         "uni-lang-menu-wrap": UniLangMenuWrap;
-        "uni-loc": UniLoc;
         "uni-translate": UniTranslate;
         "uni-translate-shadow": UniTranslateShadow;
     }
@@ -239,7 +229,6 @@ declare module "@stencil/core" {
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-shadow": LocalJSX.UniLangMenuShadow & JSXBase.HTMLAttributes<HTMLUniLangMenuShadowElement>;
             "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
-            "uni-loc": LocalJSX.UniLoc & JSXBase.HTMLAttributes<HTMLUniLocElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
             "uni-translate-shadow": LocalJSX.UniTranslateShadow & JSXBase.HTMLAttributes<HTMLUniTranslateShadowElement>;
         }

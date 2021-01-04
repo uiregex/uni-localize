@@ -14,27 +14,28 @@ import { UniHostTemplate, uniWatermark } from '@uni/common';
   shadow: true
 })
 export class UniLangMenuShadowComponent implements ComponentInterface {
-  @Prop() mini: boolean;
 
-  @Prop() rounded: boolean;
+  @Prop({ reflect: true }) mini: boolean = false;
 
-  @Prop() routing: boolean;
+  @Prop({ reflect: true }) rounded: boolean = false;
 
-  @Prop() route: string = 'lang';
+  @Prop({ reflect: true }) routing: boolean = false;
 
-  @Prop() select: string;
+  @Prop({ reflect: true }) route: string = 'lang';
 
-  @Prop() languages: string;
+  @Prop({ reflect: true }) select: string;
 
-  @Prop() feature: string = 'uni.store';
+  @Prop({ reflect: true }) languages: string;
 
-  @Prop() separator: string = '.';
+  @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop() type: UniStoreType = 'session';
+  @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop() activeState = 'app.loc.menu.active';
+  @Prop({ reflect: true }) type: UniStoreType = 'session';
 
-  @Prop() translateState = 'app.loc.translate';
+  @Prop({ reflect: true }) activeState = 'app.loc.menu.active';
+
+  @Prop({ reflect: true }) translateState = 'app.loc.translate';
 
   @State() list: UniLangMenuItem[] = [];
 
@@ -55,7 +56,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
     const template = UniLangMenuTemplate({ type, mini, rounded, routing, route, activeState, list, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ feature, separator, type, activeState, translateState }, template)
+      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, template)
       : UniHostTemplate({}, <slot/>);
   }
 }

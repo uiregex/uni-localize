@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 // import { sass } from '@stencil/sass';
 
 import cleanup from 'rollup-plugin-cleanup';
+import { inlineSvg } from 'stencil-inline-svg';
 
 export const config: Config = {
   namespace: 'loc',
@@ -36,7 +37,8 @@ export const config: Config = {
   },
   plugins: [
     // sass({ includePaths: ['./node_modules'] }),
-    cleanup({ comments: 'none' })
+    cleanup({ comments: 'none' }),
+    inlineSvg()
   ],
   // bundles: [
   // { components: [ 'uni-store', 'uni-event', 'uni-load' ] },

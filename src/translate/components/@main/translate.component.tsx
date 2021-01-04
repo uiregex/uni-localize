@@ -7,6 +7,7 @@ import { UniTranslateTemplate } from '../../utils/translate.template';
 
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
+
   @Prop({ reflect: true }) active: boolean = false;
 
   @Prop({ reflect: true, mutable: true }) refresh: boolean = false;

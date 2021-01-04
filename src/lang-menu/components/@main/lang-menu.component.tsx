@@ -14,11 +14,11 @@ import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
 })
 export class UniLangMenuComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) mini: boolean;
+  @Prop({ reflect: true }) mini: boolean = false;
 
-  @Prop({ reflect: true }) rounded: boolean;
+  @Prop({ reflect: true }) rounded: boolean = false;
 
-  @Prop({ reflect: true }) routing: boolean;
+  @Prop({ reflect: true }) routing: boolean = false;
 
   @Prop({ reflect: true }) route: string = 'lang';
 
@@ -64,7 +64,7 @@ export class UniLangMenuComponent implements ComponentInterface {
     const template = UniLangMenuTemplate({ type, mini, rounded, routing, route, activeState, list, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ feature, separator, type, activeState, translateState }, template)
+      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, template)
       : UniHostTemplate({});
   }
 }

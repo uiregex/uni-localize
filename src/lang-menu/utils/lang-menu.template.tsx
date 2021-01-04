@@ -4,8 +4,7 @@ export const UniLangMenuTemplate =
   function({ type, mini, rounded, routing, route, activeState, list, lang }): VNode {
     return (
       <div class="mdc-menu-surface--anchor uni-lang-menu">
-        <uni-store-set-loc
-          suf={'loc'}
+        <uni-store-set
           active={true}
           init={true}
           type={type}
@@ -13,18 +12,16 @@ export const UniLangMenuTemplate =
           state={lang}
         />
 
-        <uni-button-mat-loc per={'loc'}>
-          <uni-button-icon-mat-loc>
-            <uni-store-event-get-loc
-              suf={'loc'}
+        <uni-button-mat>
+          <uni-button-icon-mat>
+            <uni-store-event-get
               active={true}
               type={type}
               path={`${activeState}.flag`}
               target="uni-flag"
               prop="name"
             >
-              <uni-store-event-get-loc
-                suf={'loc'}
+              <uni-store-event-get
                 active={true}
                 type={type}
                 path={`${activeState}.flagSrc`}
@@ -32,53 +29,59 @@ export const UniLangMenuTemplate =
                 prop="src"
               >
                 <uni-flag rounded={rounded} />
-              </uni-store-event-get-loc>
-            </uni-store-event-get-loc>
-          </uni-button-icon-mat-loc>
+              </uni-store-event-get>
+            </uni-store-event-get>
+          </uni-button-icon-mat>
 
-          {mini ? '' : <uni-button-label-mat-loc>
-            <uni-store-event-get-loc
-              suf={'loc'}
+          {mini ? '' : <uni-button-label-mat>
+            <uni-store-event-get
               active={true}
               type={type}
               path={`${activeState}.name`}
-              target="uni-text-loc"
+              target="uni-text"
               prop="content"
             >
-              <uni-text-loc class="uni-lang-menu-label" />
-            </uni-store-event-get-loc>
-          </uni-button-label-mat-loc>}
+              <uni-text class="uni-lang-menu-label" />
+            </uni-store-event-get>
+          </uni-button-label-mat>}
 
-          <uni-button-icon-mat-loc>
+          <uni-button-icon-mat>
             <uni-mat-f-arrow-drop-down />
-          </uni-button-icon-mat-loc>
-        </uni-button-mat-loc>
+          </uni-button-icon-mat>
+        </uni-button-mat>
 
-        <uni-menu-surface-mat-loc>
+        <uni-menu-surface-mat>
           {list.map((item) =>
-            <uni-list-mat-loc>
-              <uni-store-event-set-loc
-                suf={'loc'}
+            <uni-list-mat>
+              <uni-store-event-set
                 active={!routing}
                 listen="click"
                 type={type}
                 path={activeState}
                 state={item}
               >
-                <uni-router-link-loc suf={'loc'} params={routing ? `${route}=${item.lang}` : ''}>
-                  <uni-list-item-mat-loc>
-                    <uni-flag src={item.flagSrc} name={item.flag} rounded={rounded} />
-                    <uni-text-loc content={item.name} />
-                  </uni-list-item-mat-loc>
-                </uni-router-link-loc>
-              </uni-store-event-set-loc>
+                <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
+                  <uni-list-item-mat>
+                    <uni-flag
+                      src={item.flagSrc}
+                      name={item.flag}
+                      rounded={rounded}
+                    />
+                    <uni-text content={item.name} />
+                  </uni-list-item-mat>
+                </uni-router-link>
+              </uni-store-event-set>
 
-              <uni-route-loc params={routing ? `${route}=${item.lang}` : ''}>
-                <uni-store-set-loc suf={'loc'} type={type} path={activeState} state={item} />
-              </uni-route-loc>
-            </uni-list-mat-loc>,
+              <uni-route params={routing ? `${route}=${item.lang}` : ''}>
+                <uni-store-set
+                  type={type}
+                  path={activeState}
+                  state={item}
+                />
+              </uni-route>
+            </uni-list-mat>,
           )}
-        </uni-menu-surface-mat-loc>
+        </uni-menu-surface-mat>
       </div>
     );
   };

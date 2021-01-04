@@ -10,23 +10,26 @@ import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
   styleUrl: '../../styles/lang-menu.css'
 })
 export class UniLangMenuWrapComponent implements ComponentInterface {
-  @Prop() feature: string = 'uni.store';
 
-  @Prop() separator: string = '.';
+  @Prop({ reflect: true }) routing: boolean = false;
 
-  @Prop() type: UniStoreType = 'session';
+  @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop() activeState = 'app.loc.menu.active';
+  @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop() translateState = 'app.loc.translate';
+  @Prop({ reflect: true }) type: UniStoreType = 'session';
+
+  @Prop({ reflect: true }) activeState = 'app.loc.menu.active';
+
+  @Prop({ reflect: true }) translateState = 'app.loc.translate';
 
   componentDidLoad(): void {
     uniLangMenuWrapInit();
   }
 
   render(): VNode {
-    const { feature, separator, type, activeState, translateState } = this;
+    const { routing, feature, separator, type, activeState, translateState } = this;
 
-    return UniLangMenuWrapTemplate({ feature, separator, type, activeState, translateState }, <slot/>);
+    return UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, <slot/>);
   }
 }

@@ -10,13 +10,14 @@ import { UniFlagTemplate } from '../../utils';
   styleUrl: '../../styles/flag.css'
 })
 export class UniFlagComponent implements ComponentInterface {
-  @Prop() src: string;
 
-  @Prop() alt: string = 'flag';
+  @Prop({reflect: true}) src: string;
 
-  @Prop() name: UniFlagName;
+  @Prop({reflect: true}) alt: string = 'flag';
 
-  @Prop() rounded: boolean;
+  @Prop({reflect: true}) name: UniFlagName;
+
+  @Prop({reflect: true}) rounded: boolean;
 
   componentDidLoad(): void {
     uniWatermark('uni-flag', 'map');
