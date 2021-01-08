@@ -17,7 +17,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) mini: boolean = false;
 
-  @Prop({ reflect: true }) rounded: boolean = false;
+  @Prop({ reflect: true }) round: boolean = false;
 
   @Prop({ reflect: true }) routing: boolean = false;
 
@@ -52,8 +52,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
   }
 
   render(): VNode {
-    const { feature, separator, type, mini, rounded, routing, route, activeState, translateState, list, lang } = this;
-    const template = UniLangMenuTemplate({ type, mini, rounded, routing, route, activeState, list, lang });
+    const { feature, separator, type, mini, round, routing, route, activeState, translateState, list, lang } = this;
+    const template = UniLangMenuTemplate({ type, mini, round, routing, route, activeState, list, lang });
 
     return lang
       ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, template)

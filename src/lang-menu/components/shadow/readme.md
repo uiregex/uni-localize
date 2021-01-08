@@ -13,7 +13,7 @@
 | `feature`        | `feature`         |             | `string`                           | `'uni.store'`           |
 | `languages`      | `languages`       |             | `string`                           | `undefined`             |
 | `mini`           | `mini`            |             | `boolean`                          | `false`                 |
-| `rounded`        | `rounded`         |             | `boolean`                          | `false`                 |
+| `round`          | `round`           |             | `boolean`                          | `false`                 |
 | `route`          | `route`           |             | `string`                           | `'lang'`                |
 | `routing`        | `routing`         |             | `boolean`                          | `false`                 |
 | `select`         | `select`          |             | `string`                           | `undefined`             |
@@ -30,7 +30,7 @@
 - uni-button-mat
 - uni-button-icon-mat
 - uni-store-event-get
-- [uni-flag](../../../flag/components/element)
+- uni-flag
 - uni-button-label-mat
 - uni-text
 - uni-mat-f-arrow-drop-down

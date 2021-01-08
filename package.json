@@ -4,7 +4,7 @@
   "license": "CC-BY-4.0",
   "description": "Uni Localization",
   "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
+  "module": "dist/index.js",
   "es2015": "dist/esm/index.js",
   "es2017": "dist/esm/index.js",
   "jsnext:main": "dist/esm/index.js",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@stencil/core": "2.3.0",
-    "@uni/icn": "file:../icn/uiwebkit-icn-0.0.14.tgz",
+    "@uiwebkit/icn": "file:../icn/uiwebkit-icn-0.0.14.tgz",
     "@uni/common": "file:../../common/uni-common-0.0.29.tgz",
     "@uni/mat": "file:../mat/uni-mat-0.0.29.tgz",
     "@uni/udk": "file:../udk/uni-udk-0.0.49.tgz"

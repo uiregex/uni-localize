@@ -1,7 +1,7 @@
 import { h, VNode } from '@stencil/core';
 
 export const UniLangMenuTemplate =
-  function({ type, mini, rounded, routing, route, activeState, list, lang }): VNode {
+  function({ type, mini, round, routing, route, activeState, list, lang }): VNode {
     return (
       <div class="mdc-menu-surface--anchor uni-lang-menu">
         <uni-store-set
@@ -21,15 +21,15 @@ export const UniLangMenuTemplate =
               target="uni-flag"
               prop="name"
             >
-              <uni-store-event-get
-                active={true}
-                type={type}
-                path={`${activeState}.flagSrc`}
-                target="uni-flag"
-                prop="src"
-              >
-                <uni-flag rounded={rounded} />
-              </uni-store-event-get>
+              {/*<uni-store-event-get*/}
+              {/*  active={true}*/}
+              {/*  type={type}*/}
+              {/*  path={`${activeState}.flagSrc`}*/}
+              {/*  target="uni-flag"*/}
+              {/*  prop="src"*/}
+              {/*>*/}
+                <uni-flag round={round} />
+              {/*</uni-store-event-get>*/}
             </uni-store-event-get>
           </uni-button-icon-mat>
 
@@ -62,11 +62,7 @@ export const UniLangMenuTemplate =
               >
                 <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
                   <uni-list-item-mat>
-                    <uni-flag
-                      src={item.flagSrc}
-                      name={item.flag}
-                      rounded={rounded}
-                    />
+                    <uni-flag name={item.flag} round={round} />
                     <uni-text content={item.name} />
                   </uni-list-item-mat>
                 </uni-router-link>
