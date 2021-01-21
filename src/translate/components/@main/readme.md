@@ -13,7 +13,6 @@
 | `end`       | `end`       |             | `string`                           | `'}}'`                |
 | `feature`   | `feature`   |             | `string`                           | `'uni.store'`         |
 | `path`      | `path`      |             | `string`                           | `'app.loc.translate'` |
-| `refresh`   | `refresh`   |             | `boolean`                          | `false`               |
 | `separator` | `separator` |             | `string`                           | `'.'`                 |
 | `start`     | `start`     |             | `string`                           | `'{{'`                |
 | `type`      | `type`      |             | `"local" \| "memory" \| "session"` | `'memory'`            |
@@ -31,6 +30,8 @@
 graph TD;
   uni-translate --> uni-store-event-get
   uni-translate --> uni-replace
+  uni-store-event-get --> uni-event
+  uni-store-event-get --> uni-store-get
   style uni-translate fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

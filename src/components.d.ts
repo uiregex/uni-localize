@@ -8,37 +8,37 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { UniStoreType } from "@uni/udk";
 export namespace Components {
     interface UniLangMenu {
-        "activeState": string;
+        "activePath": string;
         "feature": string;
-        "languages": string;
+        "list": string;
         "mini": boolean;
         "round": boolean;
         "route": string;
         "routing": boolean;
         "select": string;
         "separator": string;
-        "translateState": string;
+        "translatePath": string;
         "type": UniStoreType;
     }
     interface UniLangMenuShadow {
-        "activeState": string;
+        "activePath": string;
         "feature": string;
-        "languages": string;
+        "list": string;
         "mini": boolean;
         "round": boolean;
         "route": string;
         "routing": boolean;
         "select": string;
         "separator": string;
-        "translateState": string;
+        "translatePath": string;
         "type": UniStoreType;
     }
     interface UniLangMenuWrap {
-        "activeState": string;
+        "activePath": string;
         "feature": string;
         "routing": boolean;
         "separator": string;
-        "translateState": string;
+        "translatePath": string;
         "type": UniStoreType;
     }
     interface UniTranslate {
@@ -46,7 +46,6 @@ export namespace Components {
         "end": string;
         "feature": string;
         "path": string;
-        "refresh": boolean;
         "separator": string;
         "start": string;
         "type": UniStoreType;
@@ -56,7 +55,6 @@ export namespace Components {
         "end": string;
         "feature": string;
         "path": string;
-        "refresh": boolean;
         "separator": string;
         "start": string;
         "type": UniStoreType;
@@ -103,37 +101,37 @@ declare global {
 }
 declare namespace LocalJSX {
     interface UniLangMenu {
-        "activeState"?: string;
+        "activePath"?: string;
         "feature"?: string;
-        "languages"?: string;
+        "list"?: string;
         "mini"?: boolean;
         "round"?: boolean;
         "route"?: string;
         "routing"?: boolean;
         "select"?: string;
         "separator"?: string;
-        "translateState"?: string;
+        "translatePath"?: string;
         "type"?: UniStoreType;
     }
     interface UniLangMenuShadow {
-        "activeState"?: string;
+        "activePath"?: string;
         "feature"?: string;
-        "languages"?: string;
+        "list"?: string;
         "mini"?: boolean;
         "round"?: boolean;
         "route"?: string;
         "routing"?: boolean;
         "select"?: string;
         "separator"?: string;
-        "translateState"?: string;
+        "translatePath"?: string;
         "type"?: UniStoreType;
     }
     interface UniLangMenuWrap {
-        "activeState"?: string;
+        "activePath"?: string;
         "feature"?: string;
         "routing"?: boolean;
         "separator"?: string;
-        "translateState"?: string;
+        "translatePath"?: string;
         "type"?: UniStoreType;
     }
     interface UniTranslate {
@@ -141,7 +139,6 @@ declare namespace LocalJSX {
         "end"?: string;
         "feature"?: string;
         "path"?: string;
-        "refresh"?: boolean;
         "separator"?: string;
         "start"?: string;
         "type"?: UniStoreType;
@@ -151,7 +148,6 @@ declare namespace LocalJSX {
         "end"?: string;
         "feature"?: string;
         "path"?: string;
-        "refresh"?: boolean;
         "separator"?: string;
         "start"?: string;
         "type"?: UniStoreType;

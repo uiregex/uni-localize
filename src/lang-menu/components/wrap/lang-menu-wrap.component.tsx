@@ -17,19 +17,19 @@ export class UniLangMenuWrapComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) type: UniStoreType = 'session';
+  @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
-  @Prop({ reflect: true }) activeState = 'app.loc.menu.active';
+  @Prop({ reflect: true }) activePath = 'app.loc.active';
 
-  @Prop({ reflect: true }) translateState = 'app.loc.translate';
+  @Prop({ reflect: true }) translatePath = 'app.loc.translate';
 
   componentDidLoad(): void {
     uniLangMenuWrapInit();
   }
 
   render(): VNode {
-    const { routing, feature, separator, type, activeState, translateState } = this;
+    const { routing, feature, separator, type, activePath, translatePath } = this;
 
-    return UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, <slot/>);
+    return UniLangMenuWrapTemplate({ routing, feature, separator, type, activePath, translatePath }, <slot/>);
   }
 }

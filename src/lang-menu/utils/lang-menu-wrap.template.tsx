@@ -3,7 +3,7 @@ import { h, Host, VNode } from '@stencil/core';
 import { UniTemplate } from '@uni/common';
 
 export const UniLangMenuWrapTemplate = function(
-  { routing, feature, separator, type, activeState, translateState },
+  { routing, feature, separator, type, activePath, translatePath },
   template: VNode,
 ): VNode {
   return UniTemplate(
@@ -26,7 +26,7 @@ export const UniLangMenuWrapTemplate = function(
         feature={feature}
         type={type}
         separator={separator}
-        path={`${activeState}.translation`}
+        path={`${activePath}.translation`}
         target="uni-store-load"
         prop="url"
       >
@@ -36,7 +36,7 @@ export const UniLangMenuWrapTemplate = function(
           feature={feature}
           type={type}
           separator={separator}
-          path={translateState}
+          path={translatePath}
           />
       </uni-store-event-get>
     </Host>,

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, VNode, Watch } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
 import { UniStoreType } from '@uni/udk';
 
@@ -8,9 +8,7 @@ import { UniTranslateTemplate } from '../../utils/translate.template';
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) active: boolean = false;
-
-  @Prop({ reflect: true, mutable: true }) refresh: boolean = false;
+  @Prop({ reflect: true, mutable: true }) active: boolean = false;
 
   @Prop({ reflect: true }) feature: string = 'uni.store';
 
@@ -24,21 +22,18 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) end: string = '}}';
 
-  @Watch('refresh')
-  onRefreshChange(newValue: boolean) {
-    if (newValue) {
-      setTimeout(() => this.refresh = false);
+  render(): VNode {
+    const { active, feature, separator, type, path, start, end } = this;
+    const props = { active, feature, separator, type, path, start, end };
+
+    if (this.active) {
+      setTimeout(() => this.active = false);
     }
+
+    return UniTranslateTemplate({ props }, <slot />);
   }
 
   componentDidLoad(): void {
     uniTranslateInit();
-  }
-
-  render(): VNode {
-    const { active, refresh, feature, separator, type, path, start, end } = this;
-    const props = { active, refresh, feature, separator, type, path, start, end };
-
-    return UniTranslateTemplate({ props }, <slot/>);
   }
 }

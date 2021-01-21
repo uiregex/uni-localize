@@ -7,19 +7,19 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type                               | Default                 |
-| ---------------- | ----------------- | ----------- | ---------------------------------- | ----------------------- |
-| `activeState`    | `active-state`    |             | `string`                           | `'app.loc.menu.active'` |
-| `feature`        | `feature`         |             | `string`                           | `'uni.store'`           |
-| `languages`      | `languages`       |             | `string`                           | `undefined`             |
-| `mini`           | `mini`            |             | `boolean`                          | `false`                 |
-| `round`          | `round`           |             | `boolean`                          | `false`                 |
-| `route`          | `route`           |             | `string`                           | `'lang'`                |
-| `routing`        | `routing`         |             | `boolean`                          | `false`                 |
-| `select`         | `select`          |             | `string`                           | `undefined`             |
-| `separator`      | `separator`       |             | `string`                           | `'.'`                   |
-| `translateState` | `translate-state` |             | `string`                           | `'app.loc.translate'`   |
-| `type`           | `type`            |             | `"local" \| "memory" \| "session"` | `'memory'`              |
+| Property        | Attribute        | Description | Type                               | Default               |
+| --------------- | ---------------- | ----------- | ---------------------------------- | --------------------- |
+| `activePath`    | `active-path`    |             | `string`                           | `'app.loc.active'`    |
+| `feature`       | `feature`        |             | `string`                           | `'uni.store'`         |
+| `list`          | `list`           |             | `string`                           | `undefined`           |
+| `mini`          | `mini`           |             | `boolean`                          | `false`               |
+| `round`         | `round`          |             | `boolean`                          | `false`               |
+| `route`         | `route`          |             | `string`                           | `'lang'`              |
+| `routing`       | `routing`        |             | `boolean`                          | `false`               |
+| `select`        | `select`         |             | `string`                           | `undefined`           |
+| `separator`     | `separator`      |             | `string`                           | `'.'`                 |
+| `translatePath` | `translate-path` |             | `string`                           | `'app.loc.translate'` |
+| `type`          | `type`           |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
 
 ## Dependencies
@@ -64,6 +64,10 @@ graph TD;
   uni-lang-menu --> uni-router
   uni-lang-menu --> uni-event
   uni-lang-menu --> uni-store-load
+  uni-store-event-get --> uni-event
+  uni-store-event-get --> uni-store-get
+  uni-store-event-set --> uni-event
+  uni-store-event-set --> uni-store-set
   uni-list-item-mat --> uni-list-item-ripple-mat
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

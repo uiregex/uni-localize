@@ -1,14 +1,14 @@
 import { h, VNode } from '@stencil/core';
 
 export const UniLangMenuTemplate =
-  function({ type, mini, round, routing, route, activeState, list, lang }): VNode {
+  function({ type, mini, round, routing, route, activePath, langs, lang }): VNode {
     return (
       <div class="mdc-menu-surface--anchor uni-lang-menu">
         <uni-store-set
           active={true}
           init={true}
           type={type}
-          path={activeState}
+          path={activePath}
           state={lang}
         />
 
@@ -17,7 +17,7 @@ export const UniLangMenuTemplate =
             <uni-store-event-get
               active={true}
               type={type}
-              path={`${activeState}.flag`}
+              path={`${activePath}.flag`}
               target="uni-flag"
               prop="name"
             >
@@ -37,7 +37,7 @@ export const UniLangMenuTemplate =
             <uni-store-event-get
               active={true}
               type={type}
-              path={`${activeState}.name`}
+              path={`${activePath}.name`}
               target="uni-text"
               prop="content"
             >
@@ -51,13 +51,13 @@ export const UniLangMenuTemplate =
         </uni-button-mat>
 
         <uni-menu-surface-mat>
-          {list.map((item) =>
+          {langs.map((item) =>
             <uni-list-mat>
               <uni-store-event-set
                 active={!routing}
                 listen="click"
                 type={type}
-                path={activeState}
+                path={activePath}
                 state={item}
               >
                 <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
@@ -71,7 +71,7 @@ export const UniLangMenuTemplate =
               <uni-route params={routing ? `${route}=${item.lang}` : ''}>
                 <uni-store-set
                   type={type}
-                  path={activeState}
+                  path={activePath}
                   state={item}
                 />
               </uni-route>

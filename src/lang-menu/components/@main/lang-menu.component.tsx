@@ -22,49 +22,40 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) route: string = 'lang';
 
+  @Prop({ reflect: true }) select: string;
+
+  @Prop({ reflect: true }) list: string;
+
   @Prop({ reflect: true }) feature: string = 'uni.store';
 
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) activeState = 'app.loc.menu.active';
+  @Prop({ reflect: true }) activePath = 'app.loc.active';
 
-  @Prop({ reflect: true }) translateState = 'app.loc.translate';
+  @Prop({ reflect: true }) translatePath = 'app.loc.translate';
 
-  @Prop({ reflect: true }) select: string;
-
-  @Prop({ reflect: true }) languages: string;
-
-  @State() list: UniLangMenuItem[] = [];
+  @State() langs: UniLangMenuItem[] = [];
 
   @State() lang: UniLangMenuItem;
 
-  // @Watch('languages')
-  // onLanguagesChange(newValue: string): void {
-  //   uniLangMenuInit(newValue)
-  //     .then((data: UniLangMenuItem[] = []) => {
-  //       this.list = data;
-  //       this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
-  //     });
-  // }
+  render(): VNode {
+    const { feature, separator, type, mini, round, routing, route, activePath, translatePath, langs, lang } = this;
+    const template = UniLangMenuTemplate({ type, mini, round, routing, route, activePath, langs, lang });
+
+    return lang
+      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activePath, translatePath }, template)
+      : UniHostTemplate({});
+  }
 
   componentDidLoad(): void {
     uniWatermark('uni-lang-menu', 'output');
 
-    uniLangMenuInit(this.languages)
+    uniLangMenuInit(this.list)
       .then((data: UniLangMenuItem[] = []) => {
-        this.list = data;
+        this.langs = data;
         this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
       });
-  }
-
-  render(): VNode {
-    const { feature, separator, type, mini, round, routing, route, activeState, translateState, list, lang } = this;
-    const template = UniLangMenuTemplate({ type, mini, round, routing, route, activeState, list, lang });
-
-    return lang
-      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activeState, translateState }, template)
-      : UniHostTemplate({});
   }
 }
