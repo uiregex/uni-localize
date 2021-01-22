@@ -34,12 +34,6 @@ export namespace Components {
         "type": UniStoreType;
     }
     interface UniLangMenuWrap {
-        "activePath": string;
-        "feature": string;
-        "routing": boolean;
-        "separator": string;
-        "translatePath": string;
-        "type": UniStoreType;
     }
     interface UniTranslate {
         "active": boolean;
@@ -127,12 +121,6 @@ declare namespace LocalJSX {
         "type"?: UniStoreType;
     }
     interface UniLangMenuWrap {
-        "activePath"?: string;
-        "feature"?: string;
-        "routing"?: boolean;
-        "separator"?: string;
-        "translatePath"?: string;
-        "type"?: UniStoreType;
     }
     interface UniTranslate {
         "active"?: boolean;

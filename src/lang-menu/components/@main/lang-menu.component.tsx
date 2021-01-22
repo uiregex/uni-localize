@@ -45,7 +45,7 @@ export class UniLangMenuComponent implements ComponentInterface {
     const template = UniLangMenuTemplate({ type, mini, round, routing, route, activePath, langs, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activePath, translatePath }, template)
+      ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
       : UniHostTemplate({});
   }
 

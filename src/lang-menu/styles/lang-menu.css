@@ -17,7 +17,7 @@
   margin-left: .5em !important;
 }
 
-.uni-lang-menu-label {
+.uni-lang-menu .mdc-button__label uni-text {
   color: #333 !important;
   text-transform: none !important;
 }

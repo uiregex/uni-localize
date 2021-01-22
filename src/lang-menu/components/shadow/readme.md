@@ -40,7 +40,6 @@
 - uni-router-link
 - uni-list-item-mat
 - uni-route
-- uni-router
 - uni-event
 - uni-store-load
 
@@ -61,7 +60,6 @@ graph TD;
   uni-lang-menu-shadow --> uni-router-link
   uni-lang-menu-shadow --> uni-list-item-mat
   uni-lang-menu-shadow --> uni-route
-  uni-lang-menu-shadow --> uni-router
   uni-lang-menu-shadow --> uni-event
   uni-lang-menu-shadow --> uni-store-load
   uni-store-event-get --> uni-event

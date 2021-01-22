@@ -29,9 +29,9 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) feature: string = 'uni.store';
 
-  @Prop({ reflect: true }) separator: string = '.';
-
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
+
+  @Prop({ reflect: true }) separator: string = '.';
 
   @Prop({ reflect: true }) activePath = 'app.loc.active';
 
@@ -46,7 +46,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
     const template = UniLangMenuTemplate({ type, mini, round, routing, route, activePath, langs, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ routing, feature, separator, type, activePath, translatePath }, template)
+      ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
       : UniTemplate(<slot/>);
   }
 
