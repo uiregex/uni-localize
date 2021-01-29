@@ -32,7 +32,7 @@
     "@uiwebkit/icn": "file:../icn/uiwebkit-icn-0.0.15.tgz",
     "@uni/common": "file:../../common/uni-common-0.0.30.tgz",
     "@uni/mat": "file:../mat/uni-mat-0.0.29.tgz",
-    "@uni/udk": "file:../udk/uni-udk-0.0.54.tgz"
+    "@uni/udk": "file:../udk/uni-udk-0.0.3.tgz"
   },
   "devDependencies": {
     "@stencil/core": "2.3.0",

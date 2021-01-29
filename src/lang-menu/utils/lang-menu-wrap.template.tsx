@@ -11,20 +11,20 @@ export const UniLangMenuWrapTemplate = function(
       <uni-event
         active={true}
         listen='click'
-        target='uni-menu-surface-mat'
+        selector='uni-menu-surface-mat'
         prop='opened'
         stop={true}
       >
         {template}
       </uni-event>
 
-      <uni-store-event-get
+      <uni-event-store-get
         active={true}
         feature={feature}
         type={type}
         separator={separator}
         path={`${activePath}.translation`}
-        target='uni-store-load'
+        selector='uni-store-load'
         prop='url'
       >
         <uni-store-load
@@ -35,7 +35,7 @@ export const UniLangMenuWrapTemplate = function(
           separator={separator}
           path={translatePath}
         />
-      </uni-store-event-get>
+      </uni-event-store-get>
     </Host>,
   );
 };

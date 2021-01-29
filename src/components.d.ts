@@ -36,7 +36,6 @@ export namespace Components {
     interface UniLangMenuWrap {
     }
     interface UniTranslate {
-        "active": boolean;
         "end": string;
         "feature": string;
         "path": string;
@@ -123,7 +122,6 @@ declare namespace LocalJSX {
     interface UniLangMenuWrap {
     }
     interface UniTranslate {
-        "active"?: boolean;
         "end"?: string;
         "feature"?: string;
         "path"?: string;

@@ -29,14 +29,14 @@
 - uni-store-set
 - uni-button-mat
 - uni-button-icon-mat
-- uni-store-event-get
+- uni-event-store-get
 - uni-flag
 - uni-button-label-mat
 - uni-text
 - uni-mat-f-arrow-drop-down
 - uni-menu-surface-mat
 - uni-list-mat
-- uni-store-event-set
+- uni-event-store-set
 - uni-router-link
 - uni-list-item-mat
 - uni-route
@@ -49,24 +49,27 @@ graph TD;
   uni-lang-menu-shadow --> uni-store-set
   uni-lang-menu-shadow --> uni-button-mat
   uni-lang-menu-shadow --> uni-button-icon-mat
-  uni-lang-menu-shadow --> uni-store-event-get
+  uni-lang-menu-shadow --> uni-event-store-get
   uni-lang-menu-shadow --> uni-flag
   uni-lang-menu-shadow --> uni-button-label-mat
   uni-lang-menu-shadow --> uni-text
   uni-lang-menu-shadow --> uni-mat-f-arrow-drop-down
   uni-lang-menu-shadow --> uni-menu-surface-mat
   uni-lang-menu-shadow --> uni-list-mat
-  uni-lang-menu-shadow --> uni-store-event-set
+  uni-lang-menu-shadow --> uni-event-store-set
   uni-lang-menu-shadow --> uni-router-link
   uni-lang-menu-shadow --> uni-list-item-mat
   uni-lang-menu-shadow --> uni-route
   uni-lang-menu-shadow --> uni-event
   uni-lang-menu-shadow --> uni-store-load
-  uni-store-event-get --> uni-event
-  uni-store-event-get --> uni-store-get
-  uni-store-event-set --> uni-event
-  uni-store-event-set --> uni-store-set
+  uni-event-store-get --> uni-event
+  uni-event-store-get --> uni-store-get
+  uni-event-store-set --> uni-event
+  uni-event-store-set --> uni-store-set
   uni-list-item-mat --> uni-list-item-ripple-mat
+  uni-store-load --> uni-event
+  uni-store-load --> uni-store-set
+  uni-store-load --> uni-load
   style uni-lang-menu-shadow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

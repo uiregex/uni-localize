@@ -14,35 +14,35 @@ export const UniLangMenuTemplate =
 
         <uni-button-mat>
           <uni-button-icon-mat>
-            <uni-store-event-get
+            <uni-event-store-get
               active={true}
               type={type}
               path={`${activePath}.flag`}
-              target='uni-flag'
+              selector='uni-flag'
               prop='name'
             >
-              {/*<uni-store-event-get*/}
+              {/*<uni-event-store-get*/}
               {/*  active={true}*/}
               {/*  type={type}*/}
               {/*  path={`${activeState}.flagSrc`}*/}
-              {/*  target="uni-flag"*/}
+              {/*  selector="uni-flag"*/}
               {/*  prop="src"*/}
               {/*>*/}
               <uni-flag round={round} />
-              {/*</uni-store-event-get>*/}
-            </uni-store-event-get>
+              {/*</uni-event-store-get>*/}
+            </uni-event-store-get>
           </uni-button-icon-mat>
 
           {mini ? '' : <uni-button-label-mat>
-            <uni-store-event-get
+            <uni-event-store-get
               active={true}
               type={type}
               path={`${activePath}.name`}
-              target='uni-text'
+              selector='uni-text'
               prop='value'
             >
               <uni-text />
-            </uni-store-event-get>
+            </uni-event-store-get>
           </uni-button-label-mat>}
 
           <uni-button-icon-mat>
@@ -53,7 +53,7 @@ export const UniLangMenuTemplate =
         <uni-menu-surface-mat>
           {langs.map((item) =>
             <uni-list-mat>
-              <uni-store-event-set
+              <uni-event-store-set
                 active={!routing}
                 listen='click'
                 type={type}
@@ -66,7 +66,7 @@ export const UniLangMenuTemplate =
                     <uni-text value={item.name} />
                   </uni-list-item-mat>
                 </uni-router-link>
-              </uni-store-event-set>
+              </uni-event-store-set>
 
               {!routing ? '' : <uni-route params={`${route}=${item.lang}`}>
                 <uni-store-set
