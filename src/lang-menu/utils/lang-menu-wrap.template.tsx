@@ -28,7 +28,8 @@ export const UniLangMenuWrapTemplate = function(
         prop='url'
       >
         <uni-store-load
-          active={true}
+          activate={true}
+          multi={true}
           clean={true}
           feature={feature}
           type={type}

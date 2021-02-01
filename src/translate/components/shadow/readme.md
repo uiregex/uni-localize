@@ -9,7 +9,6 @@
 
 | Property    | Attribute   | Description | Type                               | Default               |
 | ----------- | ----------- | ----------- | ---------------------------------- | --------------------- |
-| `active`    | `active`    |             | `boolean`                          | `false`               |
 | `end`       | `end`       |             | `string`                           | `'}}'`                |
 | `feature`   | `feature`   |             | `string`                           | `'uni.store'`         |
 | `path`      | `path`      |             | `string`                           | `'app.loc.translate'` |

@@ -44,7 +44,6 @@ export namespace Components {
         "type": UniStoreType;
     }
     interface UniTranslateShadow {
-        "active": boolean;
         "end": string;
         "feature": string;
         "path": string;
@@ -130,7 +129,6 @@ declare namespace LocalJSX {
         "type"?: UniStoreType;
     }
     interface UniTranslateShadow {
-        "active"?: boolean;
         "end"?: string;
         "feature"?: string;
         "path"?: string;

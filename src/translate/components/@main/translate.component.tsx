@@ -8,7 +8,7 @@ import { UniTranslateTemplate } from '../../utils/translate.template';
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
 
-  // @Prop({ reflect: true, mutable: true }) refresh: boolean = false;
+  // @Prop({ reflect: true, mutable: true }) activate: boolean = false;
 
   @Prop({ reflect: true }) feature: string = 'uni.store';
 
@@ -26,8 +26,8 @@ export class UniTranslateComponent implements ComponentInterface {
     const { feature, separator, type, path, start, end } = this;
     const props = { feature, separator, type, path, start, end };
 
-    // if (this.refresh) {
-    //   setTimeout(() => this.refresh = false);
+    // if (this.activate) {
+    //   setTimeout(() => this.activate = false);
     // }
 
     return UniTranslateTemplate({ props }, <slot />);

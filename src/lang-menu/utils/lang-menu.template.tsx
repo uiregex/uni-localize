@@ -5,8 +5,8 @@ export const UniLangMenuTemplate =
     return (
       <div class='mdc-menu-surface--anchor uni-lang-menu'>
         <uni-store-set
-          active={true}
-          init={true}
+          activate={true}
+          initial={true}
           type={type}
           path={activePath}
           state={lang}
@@ -68,7 +68,7 @@ export const UniLangMenuTemplate =
                 </uni-router-link>
               </uni-event-store-set>
 
-              {!routing ? '' : <uni-route params={`${route}=${item.lang}`}>
+              {!routing ? '' : <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
                 <uni-store-set
                   type={type}
                   path={activePath}
