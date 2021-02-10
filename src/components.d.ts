@@ -95,7 +95,7 @@ declare namespace LocalJSX {
     interface UniLangMenu {
         "activePath"?: string;
         "feature"?: string;
-        "list"?: string;
+        "list": string;
         "mini"?: boolean;
         "round"?: boolean;
         "route"?: string;
@@ -108,7 +108,7 @@ declare namespace LocalJSX {
     interface UniLangMenuShadow {
         "activePath"?: string;
         "feature"?: string;
-        "list"?: string;
+        "list": string;
         "mini"?: boolean;
         "round"?: boolean;
         "route"?: string;

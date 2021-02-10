@@ -10,11 +10,11 @@ export class UniTranslateComponent implements ComponentInterface {
 
   // @Prop({ reflect: true, mutable: true }) activate: boolean = false;
 
+  @Prop({ reflect: true }) type: UniStoreType = 'memory';
+
   @Prop({ reflect: true }) feature: string = 'uni.store';
 
   @Prop({ reflect: true }) separator: string = '.';
-
-  @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
   @Prop({ reflect: true }) path = 'app.loc.translate';
 

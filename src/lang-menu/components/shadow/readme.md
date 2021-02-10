@@ -7,19 +7,19 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                               | Default               |
-| --------------- | ---------------- | ----------- | ---------------------------------- | --------------------- |
-| `activePath`    | `active-path`    |             | `string`                           | `'app.loc.active'`    |
-| `feature`       | `feature`        |             | `string`                           | `'uni.store'`         |
-| `list`          | `list`           |             | `string`                           | `undefined`           |
-| `mini`          | `mini`           |             | `boolean`                          | `false`               |
-| `round`         | `round`          |             | `boolean`                          | `false`               |
-| `route`         | `route`          |             | `string`                           | `'lang'`              |
-| `routing`       | `routing`        |             | `boolean`                          | `false`               |
-| `select`        | `select`         |             | `string`                           | `undefined`           |
-| `separator`     | `separator`      |             | `string`                           | `'.'`                 |
-| `translatePath` | `translate-path` |             | `string`                           | `'app.loc.translate'` |
-| `type`          | `type`           |             | `"local" \| "memory" \| "session"` | `'memory'`            |
+| Property            | Attribute        | Description | Type                               | Default               |
+| ------------------- | ---------------- | ----------- | ---------------------------------- | --------------------- |
+| `activePath`        | `active-path`    |             | `string`                           | `'app.loc.active'`    |
+| `feature`           | `feature`        |             | `string`                           | `'uni.store'`         |
+| `list` _(required)_ | `list`           |             | `string`                           | `undefined`           |
+| `mini`              | `mini`           |             | `boolean`                          | `false`               |
+| `round`             | `round`          |             | `boolean`                          | `false`               |
+| `route`             | `route`          |             | `string`                           | `'lang'`              |
+| `routing`           | `routing`        |             | `boolean`                          | `false`               |
+| `select`            | `select`         |             | `string`                           | `undefined`           |
+| `separator`         | `separator`      |             | `string`                           | `'.'`                 |
+| `translatePath`     | `translate-path` |             | `string`                           | `'app.loc.translate'` |
+| `type`              | `type`           |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
 
 ## Dependencies
@@ -27,18 +27,11 @@
 ### Depends on
 
 - uni-store-set
-- uni-button-mat
-- uni-button-icon-mat
 - uni-event-store-get
 - uni-flag
-- uni-button-label-mat
 - uni-text
-- uni-mat-f-arrow-drop-down
-- uni-menu-surface-mat
-- uni-list-mat
 - uni-event-store-set
 - uni-router-link
-- uni-list-item-mat
 - uni-route
 - uni-event
 - uni-store-load
@@ -47,18 +40,11 @@
 ```mermaid
 graph TD;
   uni-lang-menu-shadow --> uni-store-set
-  uni-lang-menu-shadow --> uni-button-mat
-  uni-lang-menu-shadow --> uni-button-icon-mat
   uni-lang-menu-shadow --> uni-event-store-get
   uni-lang-menu-shadow --> uni-flag
-  uni-lang-menu-shadow --> uni-button-label-mat
   uni-lang-menu-shadow --> uni-text
-  uni-lang-menu-shadow --> uni-mat-f-arrow-drop-down
-  uni-lang-menu-shadow --> uni-menu-surface-mat
-  uni-lang-menu-shadow --> uni-list-mat
   uni-lang-menu-shadow --> uni-event-store-set
   uni-lang-menu-shadow --> uni-router-link
-  uni-lang-menu-shadow --> uni-list-item-mat
   uni-lang-menu-shadow --> uni-route
   uni-lang-menu-shadow --> uni-event
   uni-lang-menu-shadow --> uni-store-load
@@ -66,7 +52,6 @@ graph TD;
   uni-event-store-get --> uni-store-get
   uni-event-store-set --> uni-event
   uni-event-store-set --> uni-store-set
-  uni-list-item-mat --> uni-list-item-ripple-mat
   uni-store-load --> uni-event
   uni-store-load --> uni-store-set
   uni-store-load --> uni-load

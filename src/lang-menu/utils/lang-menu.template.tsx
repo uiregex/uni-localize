@@ -12,8 +12,8 @@ export const UniLangMenuTemplate =
           state={lang}
         />
 
-        <uni-button-mat>
-          <uni-button-icon-mat>
+        <uni-button>
+          <uni-button-icon-wrap>
             <uni-event-store-get
               active={true}
               type={type}
@@ -31,9 +31,9 @@ export const UniLangMenuTemplate =
               <uni-flag round={round} />
               {/*</uni-event-store-get>*/}
             </uni-event-store-get>
-          </uni-button-icon-mat>
+          </uni-button-icon-wrap>
 
-          {mini ? '' : <uni-button-label-mat>
+          {mini ? '' : <uni-button-label>
             <uni-event-store-get
               active={true}
               type={type}
@@ -43,41 +43,41 @@ export const UniLangMenuTemplate =
             >
               <uni-text />
             </uni-event-store-get>
-          </uni-button-label-mat>}
+          </uni-button-label>}
 
-          <uni-button-icon-mat>
-            <uni-mat-f-arrow-drop-down />
-          </uni-button-icon-mat>
-        </uni-button-mat>
+          <uni-button-icon name={'arrow-drop-down'} />
+        </uni-button>
 
-        <uni-menu-surface-mat>
+        <uni-menu-surface>
           {langs.map((item) =>
-            <uni-list-mat>
-              <uni-event-store-set
-                active={!routing}
-                listen='click'
-                type={type}
-                path={activePath}
-                state={item}
-              >
-                <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
-                  <uni-list-item-mat>
-                    <uni-flag name={item.flag} round={round} />
-                    <uni-text value={item.name} />
-                  </uni-list-item-mat>
-                </uni-router-link>
-              </uni-event-store-set>
-
-              {!routing ? '' : <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
-                <uni-store-set
+            <uni-list-wrap>
+              <ul role={'listbox'}>
+                <uni-event-store-set
+                  active={!routing}
+                  listen='click'
                   type={type}
                   path={activePath}
                   state={item}
-                />
-              </uni-route>}
-            </uni-list-mat>,
+                >
+                  <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
+                    <uni-list-item>
+                      <uni-flag name={item.flag} round={round} />
+                      <uni-text value={item.name} />
+                    </uni-list-item>
+                  </uni-router-link>
+                </uni-event-store-set>
+
+                {!routing ? '' : <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
+                  <uni-store-set
+                    type={type}
+                    path={activePath}
+                    state={item}
+                  />
+                </uni-route>}
+              </ul>
+            </uni-list-wrap>,
           )}
-        </uni-menu-surface-mat>
+        </uni-menu-surface>
       </div>
     );
   };

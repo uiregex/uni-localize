@@ -14,6 +14,8 @@ import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
 })
 export class UniLangMenuComponent implements ComponentInterface {
 
+  @Prop({ reflect: true }) list!: string;
+
   @Prop({ reflect: true }) mini: boolean = false;
 
   @Prop({ reflect: true }) round: boolean = false;
@@ -24,11 +26,9 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) select: string;
 
-  @Prop({ reflect: true }) list: string;
+  @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
   @Prop({ reflect: true }) feature: string = 'uni.store';
-
-  @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
   @Prop({ reflect: true }) separator: string = '.';
 

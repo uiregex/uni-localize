@@ -11,7 +11,7 @@ export const UniLangMenuWrapTemplate = function(
       <uni-event
         active={true}
         listen='click'
-        selector='uni-menu-surface-mat'
+        selector='uni-menu-surface'
         prop='opened'
         stop={true}
       >
