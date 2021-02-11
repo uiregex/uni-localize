@@ -12,7 +12,7 @@ export const UniLangMenuWrapTemplate = function(
         active={true}
         listen='click'
         selector='uni-menu-surface'
-        prop='opened'
+        prop='active'
         stop={true}
       >
         {template}
