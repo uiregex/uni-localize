@@ -1,5 +1,4 @@
 import { Config } from '@stencil/core';
-// import { sass } from '@stencil/sass';
 
 import cleanup from 'rollup-plugin-cleanup';
 import { inlineSvg } from 'stencil-inline-svg';
@@ -36,15 +35,9 @@ export const config: Config = {
     // logRequests: true,
   },
   plugins: [
-    // sass({ includePaths: ['./node_modules'] }),
     cleanup({ comments: 'none' }),
     inlineSvg()
   ],
-  // bundles: [
-  // { components: [ 'uni-store', 'uni-event', 'uni-load' ] },
-  // { components: [ 'uni-icon-button-mat' ] },
-  // { components: [ 'uni-list-mat', 'uni-list-item-mat' ] }
-  // ],
   outputTargets: [
     {
       type: 'dist',
@@ -52,10 +45,6 @@ export const config: Config = {
       polyfills: true,
       empty: true,
     },
-    // {
-    //   type: 'dist-custom-elements-bundle',
-    //   empty: true,
-    // },
     {
       type: 'docs-readme',
       footer: '*Powered by [UiWebKit](https://uiwebkit.com/)*',

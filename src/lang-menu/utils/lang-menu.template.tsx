@@ -1,9 +1,16 @@
-import { Fragment, h, VNode } from '@stencil/core';
+import { h, VNode } from '@stencil/core';
 
 export const UniLangMenuTemplate =
   function({ type, mini, round, routing, route, activePath, langs, lang }): VNode {
     return (
-      <div class='mdc-menu-surface--anchor uni-lang-menu'>
+      <uni-event
+        active={true}
+        listen='click'
+        selector='uni-menu-surface'
+        prop='active'
+        stop={true}
+        class='uni-lang-menu mdc-menu-surface--anchor'
+      >
         <uni-store-set
           activate={true}
           initial={true}
@@ -12,7 +19,7 @@ export const UniLangMenuTemplate =
           state={lang}
         />
 
-        <uni-button>
+        <uni-button pro={true}>
           <uni-button-icon-wrap>
             <uni-event-store-get
               active={true}
@@ -52,36 +59,30 @@ export const UniLangMenuTemplate =
           <uni-list-wrap>
             <ul>
               {langs.map((item) =>
-                <Fragment>
-                  <uni-event-store-set
-                    active={!routing}
-                    listen='click'
-                    type={type}
-                    path={activePath}
-                    state={item}
-                  >
-                    <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
-                      {routing ? <uni-route params={`${route}=${item.lang}`} prop={'active'}>
-                        <uni-list-item index={-1}>
-                          <uni-flag name={item.flag} round={round} />
-                          <uni-text value={item.name} />
-                        </uni-list-item>
-                      </uni-route> : ''}
-                    </uni-router-link>
-                  </uni-event-store-set>
+                <uni-event-store-set
+                  active={!routing}
+                  listen='click'
+                  type={type}
+                  path={activePath}
+                  state={item}
+                >
+                  <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
+                    <uni-route params={`${route}=${item.lang}`} prop={'active'}>
+                      <uni-list-item index={-1}>
+                        <uni-flag name={item.flag} round={round} />
+                        <uni-text value={item.name} />
+                      </uni-list-item>
+                    </uni-route>
+                  </uni-router-link>
 
                   {routing ? <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
-                    <uni-store-set
-                      type={type}
-                      path={activePath}
-                      state={item}
-                    />
+                    <uni-store-set type={type} path={activePath} state={item} />
                   </uni-route> : ''}
-                </Fragment>
+                </uni-event-store-set>,
               )}
             </ul>
           </uni-list-wrap>
         </uni-menu-surface>
-      </div>
+      </uni-event>
     );
   };

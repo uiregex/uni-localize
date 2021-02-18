@@ -1,15 +1,15 @@
 .uni-lang-menu .mdc-button {
-  min-width: 0;
+  min-width: 0
 }
 
 .uni-lang-menu .mdc-button__icon {
   margin-left: 0;
-  margin-right: 0;
-  width: auto;
+  margin-right: 0!important;
+  width: auto!important;
 }
 
 .uni-lang-menu .mdc-button__icon svg {
-  width: auto;
+  width: auto!important;
 }
 
 .uni-lang-menu .mdc-button__label,

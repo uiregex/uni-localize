@@ -1,4 +1,4 @@
-import { h, Host, VNode } from '@stencil/core';
+import { Fragment, h, VNode } from '@stencil/core';
 
 import { UniTemplate } from '@uni/common';
 
@@ -7,16 +7,8 @@ export const UniLangMenuWrapTemplate = function(
   template: VNode,
 ): VNode {
   return UniTemplate(
-    <Host>
-      <uni-event
-        active={true}
-        listen='click'
-        selector='uni-menu-surface'
-        prop='active'
-        stop={true}
-      >
-        {template}
-      </uni-event>
+    <Fragment>
+      {template}
 
       <uni-event-store-get
         active={true}
@@ -37,6 +29,6 @@ export const UniLangMenuWrapTemplate = function(
           path={translatePath}
         />
       </uni-event-store-get>
-    </Host>,
+    </Fragment>
   );
 };

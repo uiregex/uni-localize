@@ -29,18 +29,17 @@
     "pack": "npm pack"
   },
   "dependencies": {
-    "@uiwebkit/icn": "file:../icn/uiwebkit-icn-0.0.15.tgz",
-    "@uni/common": "file:../../common/uni-common-0.0.30.tgz",
-    "@uni/mat": "file:../mat/uni-mat-0.0.29.tgz",
-    "@uni/udk": "file:../udk/uni-udk-0.0.8.tgz"
+    "@uiwebkit/icn": "0.0.14",
+    "@uni/common": "file:../../common/uni-common-0.0.1.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.30.tgz",
+    "@uni/udk": "file:../udk/uni-udk-0.0.9.tgz"
   },
   "devDependencies": {
-    "@stencil/core": "2.3.0",
-    "@stencil/sass": "1.4.0",
+    "@stencil/core": "2.4.0",
     "@rollup/plugin-commonjs": "17.0.0",
     "@rollup/plugin-node-resolve": "11.0.1",
     "rollup-plugin-cleanup": "3.2.1",
-    "rollup": "2.35.1",
+    "rollup": "2.39.0",
     "stencil-inline-svg": "1.0.1"
   }
 }
