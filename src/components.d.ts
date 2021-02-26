@@ -38,6 +38,7 @@ export namespace Components {
     interface UniTranslate {
         "end": string;
         "feature": string;
+        "inactive": boolean;
         "path": string;
         "separator": string;
         "start": string;
@@ -123,6 +124,7 @@ declare namespace LocalJSX {
     interface UniTranslate {
         "end"?: string;
         "feature"?: string;
+        "inactive"?: boolean;
         "path"?: string;
         "separator"?: string;
         "start"?: string;

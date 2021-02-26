@@ -3,7 +3,7 @@ import { h, VNode } from '@stencil/core';
 import { UniTemplate } from '@uni/common';
 
 export const UniTranslateTemplate = function({ props }, template: VNode): VNode {
-  const { feature, separator, type, path, start, end } = props;
+  const { inactive, feature, separator, type, path, start, end } = props;
 
   return UniTemplate(
     <uni-event-store-get
@@ -15,9 +15,13 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
       selector='uni-replace'
       prop='state'
     >
-      <uni-replace start={start} end={end}>
+      <uni-replace
+        inactive={inactive}
+        start={start}
+        end={end}
+      >
         {template}
       </uni-replace>
-    </uni-event-store-get>,
+    </uni-event-store-get>
   );
 };
