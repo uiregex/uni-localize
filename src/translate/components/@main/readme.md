@@ -9,9 +9,9 @@
 
 | Property    | Attribute   | Description | Type                               | Default               |
 | ----------- | ----------- | ----------- | ---------------------------------- | --------------------- |
+| `activate`  | `activate`  |             | `boolean`                          | `false`               |
 | `end`       | `end`       |             | `string`                           | `'}}'`                |
 | `feature`   | `feature`   |             | `string`                           | `'uni.store'`         |
-| `inactive`  | `inactive`  |             | `boolean`                          | `false`               |
 | `path`      | `path`      |             | `string`                           | `'app.loc.translate'` |
 | `separator` | `separator` |             | `string`                           | `'.'`                 |
 | `start`     | `start`     |             | `string`                           | `'{{'`                |
