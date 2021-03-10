@@ -39,6 +39,7 @@ export namespace Components {
         "activate": boolean;
         "end": string;
         "feature": string;
+        "nested": boolean;
         "path": string;
         "separator": string;
         "start": string;
@@ -125,6 +126,7 @@ declare namespace LocalJSX {
         "activate"?: boolean;
         "end"?: string;
         "feature"?: string;
+        "nested"?: boolean;
         "path"?: string;
         "separator"?: string;
         "start"?: string;

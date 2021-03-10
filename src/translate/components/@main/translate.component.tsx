@@ -10,6 +10,8 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ mutable: true }) activate: boolean = false;
 
+  @Prop({ reflect: true }) nested: boolean = false;
+
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
   @Prop({ reflect: true }) feature: string = 'uni.store';
@@ -23,12 +25,12 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) end: string = '}}';
 
   render(): VNode {
-    const { activate, feature, separator, type, path, start, end } = this;
-    const props = { activate, feature, separator, type, path, start, end };
+    const { activate, nested, feature, separator, type, path, start, end } = this;
+    const props = { activate, nested, feature, separator, type, path, start, end };
 
-    if (this.activate) {
-      setTimeout(() => this.activate = false);
-    }
+    // if (this.activate) {
+    //   setTimeout(() => this.activate = false);
+    // }
 
     return UniTranslateTemplate({ props }, <slot />);
   }
