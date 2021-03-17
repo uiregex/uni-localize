@@ -13,6 +13,7 @@
 | `feature`   | `feature`   |             | `string`                           | `'uni.store'`         |
 | `inactive`  | `inactive`  |             | `boolean`                          | `false`               |
 | `path`      | `path`      |             | `string`                           | `'app.loc.translate'` |
+| `refresh`   | `refresh`   |             | `boolean`                          | `false`               |
 | `separator` | `separator` |             | `string`                           | `'.'`                 |
 | `start`     | `start`     |             | `string`                           | `'{{'`                |
 | `type`      | `type`      |             | `"local" \| "memory" \| "session"` | `'memory'`            |

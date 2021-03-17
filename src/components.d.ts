@@ -40,6 +40,7 @@ export namespace Components {
         "feature": string;
         "inactive": boolean;
         "path": string;
+        "refresh": boolean;
         "separator": string;
         "start": string;
         "type": UniStoreType;
@@ -126,6 +127,7 @@ declare namespace LocalJSX {
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
+        "refresh"?: boolean;
         "separator"?: string;
         "start"?: string;
         "type"?: UniStoreType;
