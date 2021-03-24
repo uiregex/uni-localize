@@ -11,7 +11,6 @@ export const UniLangMenuWrapTemplate = function(
       {template}
 
       <uni-event-store-get
-        active={true}
         feature={feature}
         type={type}
         separator={separator}
@@ -20,7 +19,6 @@ export const UniLangMenuWrapTemplate = function(
         prop='url'
       >
         <uni-store-load
-          activate={true}
           multi={true}
           clean={true}
           feature={feature}

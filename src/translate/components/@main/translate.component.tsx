@@ -8,7 +8,7 @@ import { UniTranslateTemplate } from '../../utils/translate.template';
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
 
-  @Prop({ mutable: true }) refresh: boolean = false;
+  @Prop({ mutable: true }) activate: boolean = false;
 
   @Prop({ reflect: true }) inactive: boolean = false;
 
@@ -25,8 +25,8 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) end: string = '}}';
 
   render(): VNode {
-    const { refresh, inactive, feature, separator, type, path, start, end } = this;
-    const props = { refresh, inactive, feature, separator, type, path, start, end };
+    const { activate, inactive, feature, separator, type, path, start, end } = this;
+    const props = { activate, inactive, feature, separator, type, path, start, end };
 
     return UniTranslateTemplate({ props }, <slot />);
   }

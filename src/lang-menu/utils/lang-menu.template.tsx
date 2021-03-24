@@ -4,7 +4,6 @@ export const UniLangMenuTemplate =
   function({ type, mini, round, routing, route, activePath, langs, lang }): VNode {
     return (
       <uni-event
-        active={true}
         listen='click'
         selector='uni-menu-surface'
         prop='active'
@@ -12,7 +11,6 @@ export const UniLangMenuTemplate =
         class='uni-lang-menu mdc-menu-surface--anchor'
       >
         <uni-store-set
-          activate={true}
           initial={true}
           type={type}
           path={activePath}
@@ -22,7 +20,6 @@ export const UniLangMenuTemplate =
         <uni-button pro={true}>
           <uni-button-icon-wrap>
             <uni-event-store-get
-              active={true}
               type={type}
               path={`${activePath}.flag`}
               selector='uni-flag'
@@ -42,7 +39,6 @@ export const UniLangMenuTemplate =
 
           {mini ? '' : <uni-button-label>
             <uni-event-store-get
-              active={true}
               type={type}
               path={`${activePath}.name`}
               selector='uni-text'
@@ -60,7 +56,7 @@ export const UniLangMenuTemplate =
             <ul>
               {langs.map((item) =>
                 <uni-event-store-set
-                  active={!routing}
+                  inactive={routing}
                   listen='click'
                   type={type}
                   path={activePath}
