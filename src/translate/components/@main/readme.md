@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                               | Default               |
-| ----------- | ----------- | ----------- | ---------------------------------- | --------------------- |
-| `end`       | `end`       |             | `string`                           | `'}}'`                |
-| `feature`   | `feature`   |             | `string`                           | `'uni.store'`         |
-| `inactive`  | `inactive`  |             | `boolean`                          | `false`               |
-| `path`      | `path`      |             | `string`                           | `'app.loc.translate'` |
-| `refresh`   | `refresh`   |             | `boolean`                          | `false`               |
-| `separator` | `separator` |             | `string`                           | `'.'`                 |
-| `start`     | `start`     |             | `string`                           | `'{{'`                |
-| `type`      | `type`      |             | `"local" \| "memory" \| "session"` | `'memory'`            |
+| Property    | Attribute    | Description | Type                               | Default               |
+| ----------- | ------------ | ----------- | ---------------------------------- | --------------------- |
+| `activate`  | `activate`   |             | `boolean`                          | `false`               |
+| `bindEnd`   | `bind-end`   |             | `string`                           | `'}}'`                |
+| `bindStart` | `bind-start` |             | `string`                           | `'{{'`                |
+| `feature`   | `feature`    |             | `string`                           | `'uni.store'`         |
+| `inactive`  | `inactive`   |             | `boolean`                          | `false`               |
+| `path`      | `path`       |             | `string`                           | `'app.loc.translate'` |
+| `separator` | `separator`  |             | `string`                           | `'.'`                 |
+| `type`      | `type`       |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
 
 ## Dependencies

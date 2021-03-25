@@ -20,13 +20,13 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) path = 'app.loc.translate';
 
-  @Prop({ reflect: true }) start: string = '{{';
+  @Prop({ reflect: true }) bindStart: string = '{{';
 
-  @Prop({ reflect: true }) end: string = '}}';
+  @Prop({ reflect: true }) bindEnd: string = '}}';
 
   render(): VNode {
-    const { activate, inactive, feature, separator, type, path, start, end } = this;
-    const props = { activate, inactive, feature, separator, type, path, start, end };
+    const { activate, inactive, feature, separator, type, path, bindStart, bindEnd } = this;
+    const props = { activate, inactive, feature, separator, type, path, bindStart, bindEnd };
 
     return UniTranslateTemplate({ props }, <slot />);
   }

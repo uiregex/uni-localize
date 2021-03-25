@@ -36,13 +36,13 @@ export namespace Components {
     interface UniLangMenuWrap {
     }
     interface UniTranslate {
-        "end": string;
+        "activate": boolean;
+        "bindEnd": string;
+        "bindStart": string;
         "feature": string;
         "inactive": boolean;
         "path": string;
-        "refresh": boolean;
         "separator": string;
-        "start": string;
         "type": UniStoreType;
     }
     interface UniTranslateShadow {
@@ -123,13 +123,13 @@ declare namespace LocalJSX {
     interface UniLangMenuWrap {
     }
     interface UniTranslate {
-        "end"?: string;
+        "activate"?: boolean;
+        "bindEnd"?: string;
+        "bindStart"?: string;
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
-        "refresh"?: boolean;
         "separator"?: string;
-        "start"?: string;
         "type"?: UniStoreType;
     }
     interface UniTranslateShadow {
