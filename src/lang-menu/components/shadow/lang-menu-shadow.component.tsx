@@ -53,6 +53,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
   componentDidLoad(): void {
     uniWatermark('uni-lang-menu-shadow', 'input');
 
+    // @TODO Watch list
     uniLangMenuInit(this.list)
       .then((data: UniLangMenuItem[] = []) => {
         this.langs = data;

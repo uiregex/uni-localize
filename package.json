@@ -31,7 +31,7 @@
   "dependencies": {
     "@uiwebkit/icn": "0.0.14",
     "@uni/common": "file:../../common/uni-common-0.0.1.tgz",
-    "@uni/mat": "file:../mat/uni-mat-0.0.30.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.31.tgz",
     "@uni/udk": "file:../udk/uni-udk-0.0.17.tgz"
   },
   "devDependencies": {

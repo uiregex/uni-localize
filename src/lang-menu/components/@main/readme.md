@@ -35,7 +35,7 @@
 - uni-button-label
 - uni-text
 - uni-button-icon
-- uni-menu-surface
+- uni-menu-wrap
 - uni-list-wrap
 - uni-event-store-set
 - uni-router-link
@@ -55,7 +55,7 @@ graph TD;
   uni-lang-menu --> uni-button-label
   uni-lang-menu --> uni-text
   uni-lang-menu --> uni-button-icon
-  uni-lang-menu --> uni-menu-surface
+  uni-lang-menu --> uni-menu-wrap
   uni-lang-menu --> uni-list-wrap
   uni-lang-menu --> uni-event-store-set
   uni-lang-menu --> uni-router-link

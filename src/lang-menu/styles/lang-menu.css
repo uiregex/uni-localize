@@ -17,10 +17,10 @@
   margin-left: .5em;
 }
 
-.uni-lang-menu .mdc-button__label uni-text {
-  color: #333;
-  text-transform: none;
-}
+/*.uni-lang-menu .mdc-button__label uni-text {*/
+/*  color: #333;*/
+/*  text-transform: none;*/
+/*}*/
 
 .uni-lang-menu .mdc-list {
   padding: 0;

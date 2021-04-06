@@ -5,8 +5,8 @@ export const UniLangMenuTemplate =
     return (
       <uni-event
         listen='click'
-        selector='uni-menu-surface'
-        prop='active'
+        selector='uni-menu-wrap'
+        prop='open'
         stop={true}
         class='uni-lang-menu mdc-menu-surface--anchor'
       >
@@ -51,7 +51,7 @@ export const UniLangMenuTemplate =
           <uni-button-icon name={'arrow-drop-down'} />
         </uni-button>
 
-        <uni-menu-surface>
+        <uni-menu-wrap>
           <uni-list-wrap>
             <ul>
               {langs.map((item) =>
@@ -78,7 +78,7 @@ export const UniLangMenuTemplate =
               )}
             </ul>
           </uni-list-wrap>
-        </uni-menu-surface>
+        </uni-menu-wrap>
       </uni-event>
     );
   };
