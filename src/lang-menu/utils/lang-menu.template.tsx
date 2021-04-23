@@ -36,10 +36,10 @@ export const UniLangMenuTemplate =
               <uni-event-store-get
                 type={type}
                 path={`${activePath}.name`}
-                selector='uni-text'
+                selector='uni-render'
                 prop='value'
               >
-                <uni-text />
+                <uni-render text={true} />
               </uni-event-store-get>
             </uni-button-label>}
 
@@ -61,7 +61,7 @@ export const UniLangMenuTemplate =
                       <uni-route params={`${route}=${item.lang}`} prop={'active'}>
                         <uni-list-item index={-1}>
                           <uni-flag name={item.flag} round={round} />
-                          <uni-text value={item.name} />
+                          <uni-render text={true} value={item.name} />
                         </uni-list-item>
                       </uni-route>
                     </uni-router-link>

@@ -18,7 +18,7 @@ export const UniLangMenuWrapTemplate = function(
         selector='uni-store-load'
         prop='url'
       >
-        <uni-store-load
+        <uni-load-store
           multi={true}
           clean={true}
           feature={feature}
