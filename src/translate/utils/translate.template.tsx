@@ -1,27 +1,38 @@
 import { h, VNode } from '@stencil/core';
 
 import { UniTemplate } from '@uni/common';
+import { uniGetStorePath } from '@uni/udk';
 
 export const UniTranslateTemplate = function({ props }, template: VNode): VNode {
-  const { activate, inactive, feature, separator, type, path, bindStart, bindEnd } = props;
+  const { activate, inactive, feature, type, path, separator, bindStart, bindEnd } = props;
 
   return UniTemplate(
-    <uni-event-store-get
-      feature={feature}
-      separator={separator}
-      type={type}
-      path={path}
-      selector='uni-replace'
-      prop='state'
+    <uni-event
+      capture={true}
+      listen={uniGetStorePath({ type, feature, separator, path })}
+      prop={'activate'}
+      value={true}
+      bindStart={bindStart}
+      bindEnd={bindEnd}
     >
-      <uni-replace
-        activate={activate}
-        inactive={inactive}
+      <uni-store-get
+        type={type}
+        feature={feature}
+        separator={separator}
+        path={path}
+        prop='state'
         bindStart={bindStart}
         bindEnd={bindEnd}
       >
-        {template}
-      </uni-replace>
-    </uni-event-store-get>
+        <uni-replace
+          activate={activate}
+          inactive={inactive}
+          bindStart={bindStart}
+          bindEnd={bindEnd}
+        >
+          {template}
+        </uni-replace>
+      </uni-store-get>
+    </uni-event>,
   );
 };

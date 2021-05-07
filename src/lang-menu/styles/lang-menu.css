@@ -13,7 +13,7 @@
 }
 
 .uni-lang-menu .mdc-button__label,
-.uni-lang-menu .mdc-menu-surface uni-text {
+.uni-lang-menu .mdc-menu-surface uni-render {
   margin-left: .5em;
 }
 

@@ -46,11 +46,13 @@ export namespace Components {
         "type": UniStoreType;
     }
     interface UniTranslateShadow {
-        "end": string;
+        "activate": boolean;
+        "bindEnd": string;
+        "bindStart": string;
         "feature": string;
+        "inactive": boolean;
         "path": string;
         "separator": string;
-        "start": string;
         "type": UniStoreType;
     }
 }
@@ -133,11 +135,13 @@ declare namespace LocalJSX {
         "type"?: UniStoreType;
     }
     interface UniTranslateShadow {
-        "end"?: string;
+        "activate"?: boolean;
+        "bindEnd"?: string;
+        "bindStart"?: string;
         "feature"?: string;
+        "inactive"?: boolean;
         "path"?: string;
         "separator"?: string;
-        "start"?: string;
         "type"?: UniStoreType;
     }
     interface IntrinsicElements {

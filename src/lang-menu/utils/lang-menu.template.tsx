@@ -1,11 +1,11 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
 export const UniLangMenuTemplate =
-  function({ type, mini, round, routing, route, activePath, langs, lang }): VNode {
-    return (
+  function({ type, feature, separator, activePath, mini, round, routing, route, langs, lang }): VNode {
+  return (
       <Fragment>
         <uni-store-set
-          initial={true}
+          mode={'patch'}
           type={type}
           path={activePath}
           state={lang}
@@ -16,12 +16,13 @@ export const UniLangMenuTemplate =
             <uni-button-icon-wrap>
               <uni-event-store-get
                 type={type}
+                feature={feature}
+                separator={separator}
                 path={`${activePath}.flag`}
                 selector='uni-flag'
                 prop='name'
               >
                 {/*<uni-event-store-get*/}
-                {/*  active={true}*/}
                 {/*  type={type}*/}
                 {/*  path={`${activeState}.flagSrc`}*/}
                 {/*  selector="uni-flag"*/}
@@ -35,6 +36,8 @@ export const UniLangMenuTemplate =
             {mini ? '' : <uni-button-label>
               <uni-event-store-get
                 type={type}
+                feature={feature}
+                separator={separator}
                 path={`${activePath}.name`}
                 selector='uni-render'
                 prop='value'
@@ -67,7 +70,14 @@ export const UniLangMenuTemplate =
                     </uni-router-link>
 
                     {routing ? <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
-                      <uni-store-set type={type} path={activePath} state={item} />
+                      <uni-store-set
+                        inactive={true}
+                        type={type}
+                        feature={feature}
+                        separator={separator}
+                        path={activePath}
+                        state={item}
+                      />
                     </uni-route> : ''}
                   </uni-event-store-set>,
                 )}

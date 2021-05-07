@@ -33,7 +33,7 @@
 - uni-event-store-get
 - uni-flag
 - uni-button-label
-- uni-text
+- uni-render
 - uni-button-icon
 - uni-menu-surface-wrap
 - uni-list-wrap
@@ -41,7 +41,9 @@
 - uni-router-link
 - uni-route
 - uni-list-item
-- uni-store-load
+- uni-event
+- uni-store-get
+- uni-load-store
 
 ### Graph
 ```mermaid
@@ -53,7 +55,7 @@ graph TD;
   uni-lang-menu --> uni-event-store-get
   uni-lang-menu --> uni-flag
   uni-lang-menu --> uni-button-label
-  uni-lang-menu --> uni-text
+  uni-lang-menu --> uni-render
   uni-lang-menu --> uni-button-icon
   uni-lang-menu --> uni-menu-surface-wrap
   uni-lang-menu --> uni-list-wrap
@@ -61,15 +63,17 @@ graph TD;
   uni-lang-menu --> uni-router-link
   uni-lang-menu --> uni-route
   uni-lang-menu --> uni-list-item
-  uni-lang-menu --> uni-store-load
+  uni-lang-menu --> uni-event
+  uni-lang-menu --> uni-store-get
+  uni-lang-menu --> uni-load-store
   uni-event-store-get --> uni-event
   uni-event-store-get --> uni-store-get
   uni-event-store-set --> uni-event
   uni-event-store-set --> uni-store-set
   uni-list-item --> uni-list-item-ripple
-  uni-store-load --> uni-event
-  uni-store-load --> uni-store-set
-  uni-store-load --> uni-load
+  uni-load-store --> uni-event
+  uni-load-store --> uni-store-set
+  uni-load-store --> uni-load
   style uni-lang-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

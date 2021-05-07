@@ -1,9 +1,9 @@
 import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
+import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { uniTranslateInit } from '../../utils/translate.init';
-import { UniTranslateTemplate } from '../../utils/translate.template';
+import { UniTranslateTemplate } from '../utils/translate.template';
 
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
@@ -32,6 +32,6 @@ export class UniTranslateComponent implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    uniTranslateInit();
+    uniWatermark('uni-translate', 'switch');
   }
 }

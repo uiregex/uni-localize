@@ -1,18 +1,19 @@
-import { Component, ComponentInterface, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, State, VNode } from '@stencil/core';
 
-import { UniHostTemplate, uniWatermark } from '@uni/common';
+import { UniTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { UniLangMenuItem } from '../../models';
-import { uniLangMenuInit } from '../../utils/lang-menu.init';
-import { UniLangMenuTemplate } from '../../utils/lang-menu.template';
-import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
+import { UniLangMenuItem } from '../models';
+import { uniLangMenuInit } from '../utils/lang-menu.init';
+import { UniLangMenuTemplate } from '../utils/lang-menu.template';
+import { UniLangMenuWrapTemplate } from '../utils/lang-menu-wrap.template';
 
 @Component({
-  tag: 'uni-lang-menu',
-  styleUrl: '../../styles/lang-menu.css'
+  tag: 'uni-lang-menu-shadow',
+  styleUrl: '../styles/lang-menu.css',
+  shadow: true
 })
-export class UniLangMenuComponent implements ComponentInterface {
+export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) list!: string;
 
@@ -42,16 +43,17 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   render(): VNode {
     const { feature, separator, type, mini, round, routing, route, activePath, translatePath, langs, lang } = this;
-    const template = UniLangMenuTemplate({ type, mini, round, routing, route, activePath, langs, lang });
+    const template = UniLangMenuTemplate({ type, feature, separator, activePath, mini, round, routing, route, langs, lang });
 
     return lang
       ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
-      : UniHostTemplate({});
+      : UniTemplate(<slot/>);
   }
 
   componentDidLoad(): void {
-    uniWatermark('uni-lang-menu', 'output');
+    uniWatermark('uni-lang-menu-shadow', 'input');
 
+    // @TODO Watch list
     uniLangMenuInit(this.list)
       .then((data: UniLangMenuItem[] = []) => {
         this.langs = data;

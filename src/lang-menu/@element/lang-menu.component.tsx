@@ -1,19 +1,18 @@
-import { Component, ComponentInterface, h, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, Prop, State, VNode } from '@stencil/core';
 
-import { UniTemplate, uniWatermark } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
-import { UniLangMenuItem } from '../../models';
-import { uniLangMenuInit } from '../../utils/lang-menu.init';
-import { UniLangMenuTemplate } from '../../utils/lang-menu.template';
-import { UniLangMenuWrapTemplate } from '../../utils/lang-menu-wrap.template';
+import { UniLangMenuItem } from '../models';
+import { uniLangMenuInit } from '../utils/lang-menu.init';
+import { UniLangMenuTemplate } from '../utils/lang-menu.template';
+import { UniLangMenuWrapTemplate } from '../utils/lang-menu-wrap.template';
 
 @Component({
-  tag: 'uni-lang-menu-shadow',
-  styleUrl: '../../styles/lang-menu.css',
-  shadow: true
+  tag: 'uni-lang-menu',
+  styleUrl: '../styles/lang-menu.css'
 })
-export class UniLangMenuShadowComponent implements ComponentInterface {
+export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) list!: string;
 
@@ -43,17 +42,16 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   render(): VNode {
     const { feature, separator, type, mini, round, routing, route, activePath, translatePath, langs, lang } = this;
-    const template = UniLangMenuTemplate({ type, mini, round, routing, route, activePath, langs, lang });
+    const template = UniLangMenuTemplate({ type, feature, separator, activePath, mini, round, routing, route, langs, lang });
 
     return lang
-      ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
-      : UniTemplate(<slot/>);
+      ? UniLangMenuWrapTemplate({ type, feature, separator, activePath, translatePath }, template)
+      : UniHostTemplate({});
   }
 
   componentDidLoad(): void {
-    uniWatermark('uni-lang-menu-shadow', 'input');
+    uniWatermark('uni-lang-menu', 'output');
 
-    // @TODO Watch list
     uniLangMenuInit(this.list)
       .then((data: UniLangMenuItem[] = []) => {
         this.langs = data;

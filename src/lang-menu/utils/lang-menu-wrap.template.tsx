@@ -1,6 +1,7 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
 import { UniTemplate } from '@uni/common';
+import { uniGetStorePath } from '@uni/udk';
 
 export const UniLangMenuWrapTemplate = function(
   { feature, separator, type, activePath, translatePath },
@@ -10,23 +11,29 @@ export const UniLangMenuWrapTemplate = function(
     <Fragment>
       {template}
 
-      <uni-event-store-get
-        feature={feature}
-        type={type}
-        separator={separator}
-        path={`${activePath}.translation`}
-        selector='uni-store-load'
-        prop='url'
+      <uni-event
+        capture={true}
+        listen={uniGetStorePath({ type, feature, separator, path: `${activePath}.translation` })}
+        prop={'activate'}
+        value={true}
       >
-        <uni-load-store
-          multi={true}
-          clean={true}
+        <uni-store-get
           feature={feature}
           type={type}
           separator={separator}
-          path={translatePath}
-        />
-      </uni-event-store-get>
-    </Fragment>
+          path={`${activePath}.translation`}
+          prop='url'
+        >
+          <uni-load-store
+            multi={true}
+            mode={'assign'}
+            feature={feature}
+            type={type}
+            separator={separator}
+            path={translatePath}
+          />
+        </uni-store-get>
+      </uni-event>
+    </Fragment>,
   );
 };
