@@ -34,6 +34,6 @@ export const UniLangMenuWrapTemplate = function(
           />
         </uni-store-get>
       </uni-event>
-    </Fragment>,
+    </Fragment>
   );
 };

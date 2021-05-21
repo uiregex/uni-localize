@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, State, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, State, VNode, Watch } from '@stencil/core';
 
 import { UniTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
@@ -37,13 +37,22 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) translatePath = 'app.loc.translate';
 
-  @State() langs: UniLangMenuItem[] = [];
+  @State() languages: UniLangMenuItem[] = [];
 
   @State() lang: UniLangMenuItem;
 
+  @Watch('list')
+  onList(newValue: string): void {
+    uniLangMenuInit(newValue)
+      .then((data: UniLangMenuItem[] = []) => {
+        this.languages = data;
+        this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
+      });
+  }
+
   render(): VNode {
-    const { feature, separator, type, mini, round, routing, route, activePath, translatePath, langs, lang } = this;
-    const template = UniLangMenuTemplate({ type, feature, separator, activePath, mini, round, routing, route, langs, lang });
+    const { feature, separator, type, mini, round, routing, route, activePath, translatePath, languages, lang } = this;
+    const template = UniLangMenuTemplate({ type, feature, separator, activePath, mini, round, routing, route, languages, lang });
 
     return lang
       ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
@@ -53,10 +62,9 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
   componentDidLoad(): void {
     uniWatermark('uni-lang-menu-shadow', 'input');
 
-    // @TODO Watch list
     uniLangMenuInit(this.list)
       .then((data: UniLangMenuItem[] = []) => {
-        this.langs = data;
+        this.languages = data;
         this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
       });
   }

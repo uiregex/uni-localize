@@ -1,7 +1,7 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
 export const UniLangMenuTemplate =
-  function({ type, feature, separator, activePath, mini, round, routing, route, langs, lang }): VNode {
+  function({ type, feature, separator, activePath, mini, round, routing, route, languages, lang }): VNode {
   return (
       <Fragment>
         <uni-store-set
@@ -52,7 +52,7 @@ export const UniLangMenuTemplate =
           <uni-menu-surface-wrap>
             <uni-list-wrap>
               <ul>
-                {langs.map((item) =>
+                {languages.map((item) =>
                   <uni-event-store-set
                     inactive={routing}
                     listen='click'
