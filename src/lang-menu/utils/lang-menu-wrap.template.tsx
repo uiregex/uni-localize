@@ -26,7 +26,7 @@ export const UniLangMenuWrapTemplate = function(
         >
           <uni-load-store
             multi={true}
-            mode={'assign'}
+            mode={'set'}
             feature={feature}
             type={type}
             separator={separator}

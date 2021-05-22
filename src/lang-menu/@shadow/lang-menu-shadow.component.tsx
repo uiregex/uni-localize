@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, h, Prop, State, VNode, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Prop, State, VNode, Watch } from '@stencil/core';
 
-import { UniTemplate, uniWatermark } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../models';
@@ -11,7 +11,7 @@ import { UniLangMenuWrapTemplate } from '../utils/lang-menu-wrap.template';
 @Component({
   tag: 'uni-lang-menu-shadow',
   styleUrl: '../styles/lang-menu.css',
-  shadow: true
+  shadow: true,
 })
 export class UniLangMenuShadowComponent implements ComponentInterface {
 
@@ -43,6 +43,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Watch('list')
   onList(newValue: string): void {
+    this.languages = [];
+
     uniLangMenuInit(newValue)
       .then((data: UniLangMenuItem[] = []) => {
         this.languages = data;
@@ -52,20 +54,33 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   render(): VNode {
     const { feature, separator, type, mini, round, routing, route, activePath, translatePath, languages, lang } = this;
-    const template = UniLangMenuTemplate({ type, feature, separator, activePath, mini, round, routing, route, languages, lang });
+    let template;
 
-    return lang
+    if (this.languages.length) {
+      template = UniLangMenuTemplate({
+        type,
+        feature,
+        separator,
+        activePath,
+        mini,
+        round,
+        routing,
+        route,
+        languages,
+        lang
+      });
+    }
+
+    return template
       ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
-      : UniTemplate(<slot/>);
+      : UniHostTemplate({});
   }
 
   componentDidLoad(): void {
     uniWatermark('uni-lang-menu-shadow', 'input');
 
-    uniLangMenuInit(this.list)
-      .then((data: UniLangMenuItem[] = []) => {
-        this.languages = data;
-        this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
-      });
+    if (!this.languages.length) {
+      this.onList(this.list)
+    }
   }
 }

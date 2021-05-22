@@ -4,12 +4,7 @@ export const UniLangMenuTemplate =
   function({ type, feature, separator, activePath, mini, round, routing, route, languages, lang }): VNode {
   return (
       <Fragment>
-        <uni-store-set
-          mode={'patch'}
-          type={type}
-          path={activePath}
-          state={lang}
-        />
+        <uni-store-set mode={'patch'} type={type} path={activePath} state={lang} />
 
         <uni-menu-wrap class='uni-lang-menu'>
           <uni-button pro={true}>
