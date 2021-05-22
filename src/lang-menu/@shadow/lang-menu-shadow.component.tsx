@@ -47,8 +47,10 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
     uniLangMenuInit(newValue)
       .then((data: UniLangMenuItem[] = []) => {
-        this.languages = data;
-        this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
+        setTimeout(() => {
+          this.languages = data;
+          this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
+        });
       });
   }
 
@@ -67,7 +69,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
         routing,
         route,
         languages,
-        lang
+        lang,
       });
     }
 
@@ -80,7 +82,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
     uniWatermark('uni-lang-menu-shadow', 'input');
 
     if (!this.languages.length) {
-      this.onList(this.list)
+      this.onList(this.list);
     }
   }
 }
