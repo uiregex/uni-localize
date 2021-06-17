@@ -6,9 +6,9 @@ export const UniLangMenuTemplate =
       <Fragment>
         <uni-store-set mode={'patch'} type={type} path={activePath} state={lang} />
 
-        <uni-menu-wrap class='uni-lang-menu'>
+        <uni-menu-wrap selector="uni-menu-surface" class='uni-lang-menu'>
           <uni-button pro={true}>
-            <uni-button-icon-wrap>
+            <uni-button-icon only={true}>
               <uni-event-store-get
                 type={type}
                 feature={feature}
@@ -26,7 +26,7 @@ export const UniLangMenuTemplate =
                 <uni-flag round={round} />
                 {/*</uni-event-store-get>*/}
               </uni-event-store-get>
-            </uni-button-icon-wrap>
+            </uni-button-icon>
 
             {mini ? '' : <uni-button-label>
               <uni-event-store-get
@@ -44,7 +44,7 @@ export const UniLangMenuTemplate =
             <uni-button-icon name={'arrow-drop-down'} />
           </uni-button>
 
-          <uni-menu-surface-wrap>
+          <uni-menu-surface>
             <uni-list-wrap>
               <ul>
                 {languages.map((item) =>
@@ -78,7 +78,7 @@ export const UniLangMenuTemplate =
                 )}
               </ul>
             </uni-list-wrap>
-          </uni-menu-surface-wrap>
+          </uni-menu-surface>
         </uni-menu-wrap>
       </Fragment>
     );

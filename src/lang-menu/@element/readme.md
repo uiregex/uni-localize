@@ -13,6 +13,7 @@
 | `feature`           | `feature`        |             | `string`                           | `'uni.store'`         |
 | `list` _(required)_ | `list`           |             | `string`                           | `undefined`           |
 | `mini`              | `mini`           |             | `boolean`                          | `false`               |
+| `only`              | `only`           |             | `boolean`                          | `false`               |
 | `round`             | `round`          |             | `boolean`                          | `false`               |
 | `route`             | `route`          |             | `string`                           | `'lang'`              |
 | `routing`           | `routing`        |             | `boolean`                          | `false`               |
@@ -29,13 +30,12 @@
 - uni-store-set
 - uni-menu-wrap
 - uni-button
-- uni-button-icon-wrap
+- uni-button-icon
 - uni-event-store-get
 - uni-flag
 - uni-button-label
 - uni-render
-- uni-button-icon
-- uni-menu-surface-wrap
+- uni-menu-surface
 - uni-list-wrap
 - uni-event-store-set
 - uni-router-link
@@ -51,13 +51,12 @@ graph TD;
   uni-lang-menu --> uni-store-set
   uni-lang-menu --> uni-menu-wrap
   uni-lang-menu --> uni-button
-  uni-lang-menu --> uni-button-icon-wrap
+  uni-lang-menu --> uni-button-icon
   uni-lang-menu --> uni-event-store-get
   uni-lang-menu --> uni-flag
   uni-lang-menu --> uni-button-label
   uni-lang-menu --> uni-render
-  uni-lang-menu --> uni-button-icon
-  uni-lang-menu --> uni-menu-surface-wrap
+  uni-lang-menu --> uni-menu-surface
   uni-lang-menu --> uni-list-wrap
   uni-lang-menu --> uni-event-store-set
   uni-lang-menu --> uni-router-link

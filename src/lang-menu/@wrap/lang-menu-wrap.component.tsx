@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, h, VNode } from '@stencil/core';
+import { Component, ComponentInterface, VNode } from '@stencil/core';
 
-import { UniTemplate, uniWatermark } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 
 @Component({
   tag: 'uni-lang-menu-wrap',
@@ -9,7 +9,9 @@ import { UniTemplate, uniWatermark } from '@uni/common';
 export class UniLangMenuWrapComponent implements ComponentInterface {
 
   render(): VNode {
-    return UniTemplate(<uni-menu-wrap class={'uni-lang-menu'}><slot/></uni-menu-wrap>);
+    const classes = {'uni-lang-menu': true};
+
+    return UniHostTemplate({classes});
   }
 
   componentDidLoad(): void {

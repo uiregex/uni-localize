@@ -12,6 +12,7 @@ export namespace Components {
         "feature": string;
         "list": string;
         "mini": boolean;
+        "only": boolean;
         "round": boolean;
         "route": string;
         "routing": boolean;
@@ -25,6 +26,7 @@ export namespace Components {
         "feature": string;
         "list": string;
         "mini": boolean;
+        "only": boolean;
         "round": boolean;
         "route": string;
         "routing": boolean;
@@ -101,6 +103,7 @@ declare namespace LocalJSX {
         "feature"?: string;
         "list": string;
         "mini"?: boolean;
+        "only"?: boolean;
         "round"?: boolean;
         "route"?: string;
         "routing"?: boolean;
@@ -114,6 +117,7 @@ declare namespace LocalJSX {
         "feature"?: string;
         "list": string;
         "mini"?: boolean;
+        "only"?: boolean;
         "round"?: boolean;
         "route"?: string;
         "routing"?: boolean;

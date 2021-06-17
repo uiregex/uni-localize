@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, Prop, State, VNode, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Prop, State, VNode, h, Watch } from '@stencil/core';
 
-import { UniHostTemplate, uniWatermark } from '@uni/common';
+import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../models';
@@ -36,6 +36,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
   @Prop({ reflect: true }) activePath = 'app.loc.active';
 
   @Prop({ reflect: true }) translatePath = 'app.loc.translate';
+
+  @Prop({ reflect: true }) only: boolean = false;
 
   @State() languages: UniLangMenuItem[] = [];
 
@@ -73,9 +75,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
       });
     }
 
-    return template
-      ? UniLangMenuWrapTemplate({ feature, separator, type, activePath, translatePath }, template)
-      : UniHostTemplate({});
+    return this.only ? <slot/>
+      : UniLangMenuWrapTemplate({ type, feature, separator, activePath, translatePath }, template);
   }
 
   componentDidLoad(): void {
