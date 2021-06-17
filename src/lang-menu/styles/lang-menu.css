@@ -4,24 +4,18 @@
 
 .uni-lang-menu .mdc-button__icon {
   margin-left: 0;
-  margin-right: 0!important;
-  width: auto!important;
+  margin-right: 0 !important;
+  width: auto !important;
 }
 
 .uni-lang-menu .mdc-button__icon svg {
-  width: auto!important;
+  width: auto !important;
 }
 
-.uni-lang-menu .mdc-button__label,
-.uni-lang-menu .mdc-menu-surface uni-render {
+.uni-lang-menu .uni-space {
   margin-left: .5em;
 }
 
-/*.uni-lang-menu .mdc-button__label uni-text {*/
-/*  color: #333;*/
-/*  text-transform: none;*/
-/*}*/
-
-.uni-lang-menu .mdc-list {
+.uni-lang-menu .p-0 {
   padding: 0;
 }
