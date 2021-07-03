@@ -10,6 +10,7 @@ export namespace Components {
     interface UniLangMenu {
         "activePath": string;
         "feature": string;
+        "frame": boolean;
         "list": string;
         "mini": boolean;
         "only": boolean;
@@ -18,12 +19,15 @@ export namespace Components {
         "routing": boolean;
         "select": string;
         "separator": string;
+        "shadow": boolean;
+        "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
     }
     interface UniLangMenuShadow {
         "activePath": string;
         "feature": string;
+        "frame": boolean;
         "list": string;
         "mini": boolean;
         "only": boolean;
@@ -32,6 +36,8 @@ export namespace Components {
         "routing": boolean;
         "select": string;
         "separator": string;
+        "shadow": boolean;
+        "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
     }
@@ -45,6 +51,7 @@ export namespace Components {
         "inactive": boolean;
         "path": string;
         "separator": string;
+        "top": boolean;
         "type": UniStoreType;
     }
     interface UniTranslateShadow {
@@ -55,6 +62,7 @@ export namespace Components {
         "inactive": boolean;
         "path": string;
         "separator": string;
+        "top": boolean;
         "type": UniStoreType;
     }
 }
@@ -101,6 +109,7 @@ declare namespace LocalJSX {
     interface UniLangMenu {
         "activePath"?: string;
         "feature"?: string;
+        "frame"?: boolean;
         "list": string;
         "mini"?: boolean;
         "only"?: boolean;
@@ -109,12 +118,15 @@ declare namespace LocalJSX {
         "routing"?: boolean;
         "select"?: string;
         "separator"?: string;
+        "shadow"?: boolean;
+        "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
     }
     interface UniLangMenuShadow {
         "activePath"?: string;
         "feature"?: string;
+        "frame"?: boolean;
         "list": string;
         "mini"?: boolean;
         "only"?: boolean;
@@ -123,6 +135,8 @@ declare namespace LocalJSX {
         "routing"?: boolean;
         "select"?: string;
         "separator"?: string;
+        "shadow"?: boolean;
+        "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
     }
@@ -136,6 +150,7 @@ declare namespace LocalJSX {
         "inactive"?: boolean;
         "path"?: string;
         "separator"?: string;
+        "top"?: boolean;
         "type"?: UniStoreType;
     }
     interface UniTranslateShadow {
@@ -146,6 +161,7 @@ declare namespace LocalJSX {
         "inactive"?: boolean;
         "path"?: string;
         "separator"?: string;
+        "top"?: boolean;
         "type"?: UniStoreType;
     }
     interface IntrinsicElements {

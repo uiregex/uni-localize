@@ -16,7 +16,8 @@
 | `inactive`  | `inactive`   |             | `boolean`                          | `false`               |
 | `path`      | `path`       |             | `string`                           | `'app.loc.translate'` |
 | `separator` | `separator`  |             | `string`                           | `'.'`                 |
-| `type`      | `type`       |             | `"local" \| "memory" \| "session"` | `undefined`           |
+| `top`       | `top`        |             | `boolean`                          | `false`               |
+| `type`      | `type`       |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
 
 ## Dependencies

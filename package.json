@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@uiwebkit/icn": "0.0.14",
-    "@uni/common": "file:../../common/uni-common-0.0.16.tgz",
-    "@uni/mat": "file:../mat/uni-mat-0.0.33.tgz",
-    "@uni/udk": "file:../udk/uni-udk-0.0.23.tgz"
+    "@uni/common": "file:../../common/uni-common-0.0.20.tgz",
+    "@uni/mat": "file:../mat/uni-mat-0.0.34.tgz",
+    "@uni/udk": "file:../udk/uni-udk-0.0.26.tgz"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "19.0.0",

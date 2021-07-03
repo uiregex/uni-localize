@@ -11,6 +11,7 @@
 | ------------------- | ---------------- | ----------- | ---------------------------------- | --------------------- |
 | `activePath`        | `active-path`    |             | `string`                           | `'app.loc.active'`    |
 | `feature`           | `feature`        |             | `string`                           | `'uni.store'`         |
+| `frame`             | `frame`          |             | `boolean`                          | `false`               |
 | `list` _(required)_ | `list`           |             | `string`                           | `undefined`           |
 | `mini`              | `mini`           |             | `boolean`                          | `false`               |
 | `only`              | `only`           |             | `boolean`                          | `false`               |
@@ -19,6 +20,8 @@
 | `routing`           | `routing`        |             | `boolean`                          | `false`               |
 | `select`            | `select`         |             | `string`                           | `undefined`           |
 | `separator`         | `separator`      |             | `string`                           | `'.'`                 |
+| `shadow`            | `shadow`         |             | `boolean`                          | `false`               |
+| `top`               | `top`            |             | `boolean`                          | `false`               |
 | `translatePath`     | `translate-path` |             | `string`                           | `'app.loc.translate'` |
 | `type`              | `type`           |             | `"local" \| "memory" \| "session"` | `'memory'`            |
 
@@ -37,10 +40,12 @@
 - uni-render
 - uni-menu-surface
 - uni-list-wrap
-- uni-event-store-set
 - uni-router-link
-- uni-route
 - uni-list-item
+- uni-list-item-graphic
+- uni-list-item-text
+- uni-route
+- uni-event-store-set
 - uni-event
 - uni-store-get
 - uni-load-store
@@ -58,18 +63,20 @@ graph TD;
   uni-lang-menu-shadow --> uni-render
   uni-lang-menu-shadow --> uni-menu-surface
   uni-lang-menu-shadow --> uni-list-wrap
-  uni-lang-menu-shadow --> uni-event-store-set
   uni-lang-menu-shadow --> uni-router-link
-  uni-lang-menu-shadow --> uni-route
   uni-lang-menu-shadow --> uni-list-item
+  uni-lang-menu-shadow --> uni-list-item-graphic
+  uni-lang-menu-shadow --> uni-list-item-text
+  uni-lang-menu-shadow --> uni-route
+  uni-lang-menu-shadow --> uni-event-store-set
   uni-lang-menu-shadow --> uni-event
   uni-lang-menu-shadow --> uni-store-get
   uni-lang-menu-shadow --> uni-load-store
   uni-event-store-get --> uni-event
   uni-event-store-get --> uni-store-get
+  uni-list-item --> uni-list-item-ripple
   uni-event-store-set --> uni-event
   uni-event-store-set --> uni-store-set
-  uni-list-item --> uni-list-item-ripple
   uni-load-store --> uni-event
   uni-load-store --> uni-store-set
   uni-load-store --> uni-load

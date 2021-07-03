@@ -1,9 +1,14 @@
 .uni-lang-menu .mdc-button {
-  min-width: 0
+  min-width: 0;
+  padding-right: 2px;
+}
+
+.uni-lang-menu .mdc-deprecated-list-item__graphic {
+  margin-right: 5px;
 }
 
 .uni-lang-menu .mdc-button__icon {
-  margin-left: 0;
+  margin-left: 0 !important;
   margin-right: 0 !important;
   width: auto !important;
 }
@@ -14,8 +19,4 @@
 
 .uni-lang-menu .uni-space {
   margin-left: .5em;
-}
-
-.uni-lang-menu .p-0 {
-  padding: 0;
 }

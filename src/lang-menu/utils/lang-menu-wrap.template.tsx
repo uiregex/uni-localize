@@ -4,8 +4,7 @@ import { UniTemplate } from '@uni/common';
 import { uniGetStorePath } from '@uni/udk';
 
 export const UniLangMenuWrapTemplate = function(
-  { feature, separator, type, activePath, translatePath },
-  template: VNode,
+  { top, frame, shadow, type, feature, separator, activePath, translatePath }, template: VNode,
 ): VNode {
   return UniTemplate(
     <Fragment>
@@ -18,6 +17,7 @@ export const UniLangMenuWrapTemplate = function(
         value={true}
       >
         <uni-store-get
+          top={top}
           feature={feature}
           type={type}
           separator={separator}
@@ -25,6 +25,9 @@ export const UniLangMenuWrapTemplate = function(
           prop='url'
         >
           <uni-load-store
+            top={top}
+            shadow={shadow}
+            frame={frame}
             multi={true}
             mode={'set'}
             feature={feature}
@@ -34,6 +37,6 @@ export const UniLangMenuWrapTemplate = function(
           />
         </uni-store-get>
       </uni-event>
-    </Fragment>
+    </Fragment>,
   );
 };

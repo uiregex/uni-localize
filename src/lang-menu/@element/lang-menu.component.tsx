@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Prop, State, VNode, h, Watch } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
+import { UniHostTemplate, uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniLangMenuItem } from '../models';
@@ -25,6 +25,12 @@ export class UniLangMenuComponent implements ComponentInterface {
   @Prop({ reflect: true }) route: string = 'lang';
 
   @Prop({ reflect: true }) select: string;
+
+  @Prop({ reflect: true }) top: boolean = false;
+
+  @Prop({ reflect: true }) shadow: boolean = false;
+
+  @Prop({ reflect: true }) frame: boolean = false;
 
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
@@ -56,26 +62,24 @@ export class UniLangMenuComponent implements ComponentInterface {
   }
 
   render(): VNode {
-    const { feature, separator, type, mini, round, routing, route, activePath, translatePath, languages, lang } = this;
+    const {
+      top, shadow, frame, type, feature, separator, mini, round, routing, route, activePath, translatePath, languages,
+      lang,
+    } = this;
+    const classes = { 'uni-lang-menu': true };
     let template;
 
     if (this.languages.length) {
       template = UniLangMenuTemplate({
-        type,
-        feature,
-        separator,
-        activePath,
-        mini,
-        round,
-        routing,
-        route,
-        languages,
-        lang,
+        top, shadow: false, frame, type, feature, separator, activePath, mini, round, routing, route, languages, lang,
       });
     }
 
-    return this.only ? <slot/>
-      : UniLangMenuWrapTemplate({ type, feature, separator, activePath, translatePath }, template);
+    return this.only ? UniHostTemplate({ classes }, <slot />)
+      : UniLangMenuWrapTemplate(
+        { top, shadow, frame, type, feature, separator, activePath, translatePath },
+        template,
+      );
   }
 
   componentDidLoad(): void {

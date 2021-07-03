@@ -8,9 +8,11 @@ import { UniTranslateTemplate } from '../utils/translate.template';
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
 
+  @Prop({ reflect: true }) inactive: boolean = false;
+
   @Prop({ mutable: true }) activate: boolean = false;
 
-  @Prop({ reflect: true }) inactive: boolean = false;
+  @Prop({ reflect: true }) top: boolean = false;
 
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
 
@@ -25,8 +27,8 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) bindEnd: string = '}}';
 
   render(): VNode {
-    const { activate, inactive, feature, separator, type, path, bindStart, bindEnd } = this;
-    const props = { activate, inactive, feature, separator, type, path, bindStart, bindEnd };
+    const { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd } = this;
+    const props = { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd };
 
     return UniTranslateTemplate({ props }, <slot />);
   }

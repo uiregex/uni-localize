@@ -4,7 +4,7 @@ import { UniTemplate } from '@uni/common';
 import { uniGetStorePath } from '@uni/udk';
 
 export const UniTranslateTemplate = function({ props }, template: VNode): VNode {
-  const { activate, inactive, feature, type, path, separator, bindStart, bindEnd } = props;
+  const { inactive, activate, top, feature, type, path, separator, bindStart, bindEnd } = props;
 
   return UniTemplate(
     <uni-event
@@ -12,17 +12,14 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
       listen={uniGetStorePath({ type, feature, separator, path })}
       prop={'activate'}
       value={true}
-      bindStart={bindStart}
-      bindEnd={bindEnd}
     >
       <uni-store-get
+        top={top}
         type={type}
         feature={feature}
         separator={separator}
         path={path}
         prop='state'
-        bindStart={bindStart}
-        bindEnd={bindEnd}
       >
         <uni-replace
           activate={activate}
