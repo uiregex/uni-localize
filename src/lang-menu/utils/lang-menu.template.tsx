@@ -18,7 +18,7 @@ export const UniLangMenuTemplate =
           state={lang}
         />
 
-        <uni-menu-wrap selector='uni-menu-surface' class='uni-lang-menu'>
+        <uni-menu selector='uni-menu-surface' class='uni-lang-menu'>
           <uni-button pro={true}>
             <uni-button-icon only={true}>
               <uni-event-store-get
@@ -62,82 +62,84 @@ export const UniLangMenuTemplate =
           <uni-menu-surface>
             <uni-list-wrap pro={true}>
               <ul>
-                {languages.map((item) => routing ? (
-                    <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
-                      <uni-event-store-get
-                        top={top}
-                        type={type}
-                        feature={feature}
-                        separator={separator}
-                        path={`${activePath}.lang`}
-                        equal={item.lang}
-                        selector='uni-list-item'
-                        prop='selected'
-                      >
-                        <uni-list-item index={-1}>
-                          {item.flag ? (
-                            <uni-list-item-graphic only={true}>
-                              <uni-flag name={item.flag} round={round} />
-                            </uni-list-item-graphic>
-                          ) : ''}
-
-                          <uni-list-item-text>{item.name}</uni-list-item-text>
-                        </uni-list-item>
-                      </uni-event-store-get>
-
-                      <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
-                        <uni-store-set
-                          inactive={true}
+                <uni-display hidden={true}>
+                  {languages.map((item) => routing ? (
+                      <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
+                        <uni-event-store-get
                           top={top}
-                          shadow={shadow}
-                          frame={frame}
                           type={type}
                           feature={feature}
                           separator={separator}
-                          path={activePath}
-                          state={item}
-                        />
-                      </uni-route>
-                    </uni-router-link>
-                  ) : (
-                    <uni-event-store-set
-                      listen='click'
-                      top={top}
-                      shadow={shadow}
-                      frame={frame}
-                      type={type}
-                      feature={feature}
-                      separator={separator}
-                      path={activePath}
-                      state={item}
-                    >
-                      <uni-event-store-get
+                          path={`${activePath}.lang`}
+                          equal={item.lang}
+                          selector='uni-list-item'
+                          prop='selected'
+                        >
+                          <uni-list-item index={-1}>
+                            {item.flag ? (
+                              <uni-list-item-graphic only={true}>
+                                <uni-flag name={item.flag} round={round} />
+                              </uni-list-item-graphic>
+                            ) : ''}
+
+                            <uni-list-item-text>{item.name}</uni-list-item-text>
+                          </uni-list-item>
+                        </uni-event-store-get>
+
+                        <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
+                          <uni-store-set
+                            inactive={true}
+                            top={top}
+                            shadow={shadow}
+                            frame={frame}
+                            type={type}
+                            feature={feature}
+                            separator={separator}
+                            path={activePath}
+                            state={item}
+                          />
+                        </uni-route>
+                      </uni-router-link>
+                    ) : (
+                      <uni-event-store-set
+                        listen='click'
                         top={top}
+                        shadow={shadow}
+                        frame={frame}
                         type={type}
                         feature={feature}
                         separator={separator}
-                        path={`${activePath}.lang`}
-                        equal={item.lang}
-                        selector={'uni-list-item'}
-                        prop={'selected'}
+                        path={activePath}
+                        state={item}
                       >
-                        <uni-list-item index={-1}>
-                          {item.flag ? (
-                            <uni-list-item-graphic only={true}>
-                              <uni-flag name={item.flag} round={round} />
-                            </uni-list-item-graphic>
-                          ) : ''}
+                        <uni-event-store-get
+                          top={top}
+                          type={type}
+                          feature={feature}
+                          separator={separator}
+                          path={`${activePath}.lang`}
+                          equal={item.lang}
+                          selector={'uni-list-item'}
+                          prop={'selected'}
+                        >
+                          <uni-list-item index={-1}>
+                            {item.flag ? (
+                              <uni-list-item-graphic only={true}>
+                                <uni-flag name={item.flag} round={round} />
+                              </uni-list-item-graphic>
+                            ) : ''}
 
-                          <uni-list-item-text>{item.name}</uni-list-item-text>
-                        </uni-list-item>
-                      </uni-event-store-get>
-                    </uni-event-store-set>
-                  ),
-                )}
+                            <uni-list-item-text>{item.name}</uni-list-item-text>
+                          </uni-list-item>
+                        </uni-event-store-get>
+                      </uni-event-store-set>
+                    )
+                  )}
+                </uni-display>
               </ul>
             </uni-list-wrap>
           </uni-menu-surface>
-        </uni-menu-wrap>
+        </uni-menu>
       </Fragment>
     ) as VNode;
   };

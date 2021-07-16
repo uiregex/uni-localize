@@ -31,7 +31,7 @@
 ### Depends on
 
 - uni-store-set
-- uni-menu-wrap
+- uni-menu
 - uni-button
 - uni-button-icon
 - uni-event-store-get
@@ -40,6 +40,7 @@
 - uni-render
 - uni-menu-surface
 - uni-list-wrap
+- uni-display
 - uni-router-link
 - uni-list-item
 - uni-list-item-graphic
@@ -54,7 +55,7 @@
 ```mermaid
 graph TD;
   uni-lang-menu --> uni-store-set
-  uni-lang-menu --> uni-menu-wrap
+  uni-lang-menu --> uni-menu
   uni-lang-menu --> uni-button
   uni-lang-menu --> uni-button-icon
   uni-lang-menu --> uni-event-store-get
@@ -63,6 +64,7 @@ graph TD;
   uni-lang-menu --> uni-render
   uni-lang-menu --> uni-menu-surface
   uni-lang-menu --> uni-list-wrap
+  uni-lang-menu --> uni-display
   uni-lang-menu --> uni-router-link
   uni-lang-menu --> uni-list-item
   uni-lang-menu --> uni-list-item-graphic

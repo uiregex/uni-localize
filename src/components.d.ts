@@ -41,8 +41,6 @@ export namespace Components {
         "translatePath": string;
         "type": UniStoreType;
     }
-    interface UniLangMenuWrap {
-    }
     interface UniTranslate {
         "activate": boolean;
         "bindEnd": string;
@@ -79,12 +77,6 @@ declare global {
         prototype: HTMLUniLangMenuShadowElement;
         new (): HTMLUniLangMenuShadowElement;
     };
-    interface HTMLUniLangMenuWrapElement extends Components.UniLangMenuWrap, HTMLStencilElement {
-    }
-    var HTMLUniLangMenuWrapElement: {
-        prototype: HTMLUniLangMenuWrapElement;
-        new (): HTMLUniLangMenuWrapElement;
-    };
     interface HTMLUniTranslateElement extends Components.UniTranslate, HTMLStencilElement {
     }
     var HTMLUniTranslateElement: {
@@ -100,7 +92,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-shadow": HTMLUniLangMenuShadowElement;
-        "uni-lang-menu-wrap": HTMLUniLangMenuWrapElement;
         "uni-translate": HTMLUniTranslateElement;
         "uni-translate-shadow": HTMLUniTranslateShadowElement;
     }
@@ -140,8 +131,6 @@ declare namespace LocalJSX {
         "translatePath"?: string;
         "type"?: UniStoreType;
     }
-    interface UniLangMenuWrap {
-    }
     interface UniTranslate {
         "activate"?: boolean;
         "bindEnd"?: string;
@@ -167,7 +156,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-shadow": UniLangMenuShadow;
-        "uni-lang-menu-wrap": UniLangMenuWrap;
         "uni-translate": UniTranslate;
         "uni-translate-shadow": UniTranslateShadow;
     }
@@ -178,7 +166,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-shadow": LocalJSX.UniLangMenuShadow & JSXBase.HTMLAttributes<HTMLUniLangMenuShadowElement>;
-            "uni-lang-menu-wrap": LocalJSX.UniLangMenuWrap & JSXBase.HTMLAttributes<HTMLUniLangMenuWrapElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
             "uni-translate-shadow": LocalJSX.UniTranslateShadow & JSXBase.HTMLAttributes<HTMLUniTranslateShadowElement>;
         }
