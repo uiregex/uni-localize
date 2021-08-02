@@ -57,7 +57,7 @@ export class UniLangMenuComponent implements ComponentInterface {
         setTimeout(() => {
           this.languages = data;
           this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
-        });
+        }, 100);
       });
   }
 
