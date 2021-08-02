@@ -58,7 +58,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
         setTimeout(() => {
           this.languages = data;
           this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
-        });
+        }, 100);
       });
   }
 
@@ -83,7 +83,7 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
       );
   }
 
-  componentDidLoad(): void {
+  componentWillLoad(): Promise<void> | void {
     uniWatermark('uni-lang-menu-shadow', 'input');
 
     if (!this.languages.length) {

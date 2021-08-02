@@ -64,27 +64,29 @@ export const UniLangMenuTemplate =
               <ul>
                 <uni-display hidden={true}>
                   {languages.map((item) => routing ? (
-                      <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
-                        <uni-event-store-get
-                          top={top}
-                          type={type}
-                          feature={feature}
-                          separator={separator}
-                          path={`${activePath}.lang`}
-                          equal={item.lang}
-                          selector='uni-list-item'
-                          prop='selected'
-                        >
-                          <uni-list-item index={-1}>
-                            {item.flag ? (
-                              <uni-list-item-graphic only={true}>
-                                <uni-flag name={item.flag} round={round} />
-                              </uni-list-item-graphic>
-                            ) : ''}
+                      <Fragment>
+                        <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
+                          <uni-event-store-get
+                            top={top}
+                            type={type}
+                            feature={feature}
+                            separator={separator}
+                            path={`${activePath}.lang`}
+                            equal={item.lang}
+                            selector='uni-list-item'
+                            prop='selected'
+                          >
+                            <uni-list-item index={-1}>
+                              {item.flag ? (
+                                <uni-list-item-graphic only={true}>
+                                  <uni-flag name={item.flag} round={round} />
+                                </uni-list-item-graphic>
+                              ) : ''}
 
-                            <uni-list-item-text>{item.name}</uni-list-item-text>
-                          </uni-list-item>
-                        </uni-event-store-get>
+                              <uni-list-item-text>{item.name}</uni-list-item-text>
+                            </uni-list-item>
+                          </uni-event-store-get>
+                        </uni-router-link>
 
                         <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
                           <uni-store-set
@@ -99,7 +101,7 @@ export const UniLangMenuTemplate =
                             state={item}
                           />
                         </uni-route>
-                      </uni-router-link>
+                      </Fragment>
                     ) : (
                       <uni-event-store-set
                         listen='click'
@@ -133,7 +135,7 @@ export const UniLangMenuTemplate =
                           </uni-list-item>
                         </uni-event-store-get>
                       </uni-event-store-set>
-                    )
+                    ),
                   )}
                 </uni-display>
               </ul>
