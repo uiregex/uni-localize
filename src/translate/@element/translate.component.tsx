@@ -33,6 +33,10 @@ export class UniTranslateComponent implements ComponentInterface {
     return UniTranslateTemplate({ props }, <slot />);
   }
 
+  componentDidRender(): void {
+    setTimeout(() => this.activate = false);
+  }
+
   componentDidLoad(): void {
     uniWatermark('uni-translate', 'switch');
   }

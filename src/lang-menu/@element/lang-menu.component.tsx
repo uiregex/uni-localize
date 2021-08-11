@@ -82,7 +82,7 @@ export class UniLangMenuComponent implements ComponentInterface {
       );
   }
 
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     uniWatermark('uni-lang-menu', 'output');
 
     if (!this.languages.length) {
