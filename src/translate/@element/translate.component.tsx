@@ -4,6 +4,7 @@ import { uniWatermark } from '@uni/common';
 import { UniStoreType } from '@uni/udk';
 
 import { UniTranslateTemplate } from '../utils/translate.template';
+import { UniTranslateRenderedTemplate } from '../utils/translate-rendered.template';
 
 @Component({ tag: 'uni-translate' })
 export class UniTranslateComponent implements ComponentInterface {
@@ -11,6 +12,8 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) inactive: boolean = false;
 
   @Prop({ mutable: true }) activate: boolean = false;
+
+  @Prop({ reflect: true }) rendered: boolean = false;
 
   @Prop({ reflect: true }) top: boolean = false;
 
@@ -27,10 +30,12 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) bindEnd: string = '}}';
 
   render(): VNode {
-    const { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd } = this;
-    const props = { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd };
+    const { inactive, activate, rendered, top, feature, separator, type, path, bindStart, bindEnd } = this;
+    const props = { inactive, activate, rendered, top, feature, separator, type, path, bindStart, bindEnd };
 
-    return UniTranslateTemplate({ props }, <slot />);
+    return this.rendered
+      ? UniTranslateRenderedTemplate({ props }, <slot />)
+      : UniTranslateTemplate({ props }, <slot />);
   }
 
   componentDidRender(): void {

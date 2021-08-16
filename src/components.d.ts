@@ -48,6 +48,7 @@ export namespace Components {
         "feature": string;
         "inactive": boolean;
         "path": string;
+        "rendered": boolean;
         "separator": string;
         "top": boolean;
         "type": UniStoreType;
@@ -138,6 +139,7 @@ declare namespace LocalJSX {
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
+        "rendered"?: boolean;
         "separator"?: string;
         "top"?: boolean;
         "type"?: UniStoreType;

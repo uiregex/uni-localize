@@ -15,6 +15,7 @@
 | `feature`   | `feature`    |             | `string`                           | `'uni.store'`         |
 | `inactive`  | `inactive`   |             | `boolean`                          | `false`               |
 | `path`      | `path`       |             | `string`                           | `'app.loc.translate'` |
+| `rendered`  | `rendered`   |             | `boolean`                          | `false`               |
 | `separator` | `separator`  |             | `string`                           | `'.'`                 |
 | `top`       | `top`        |             | `boolean`                          | `false`               |
 | `type`      | `type`       |             | `"local" \| "memory" \| "session"` | `'memory'`            |
