@@ -39,9 +39,9 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) activePath = 'app.loc.active';
+  @Prop({ reflect: true }) activePath: string = 'app.loc.active';
 
-  @Prop({ reflect: true }) translatePath = 'app.loc.translate';
+  @Prop({ reflect: true }) translatePath: string = 'app.loc.translate';
 
   @Prop({ reflect: true }) only: boolean = false;
 

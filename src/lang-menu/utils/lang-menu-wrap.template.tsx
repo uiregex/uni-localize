@@ -31,7 +31,6 @@ export const UniLangMenuWrapTemplate = function(
             multi={true}
             mode={'set'}
             feature={feature}
-            type={type}
             separator={separator}
             path={translatePath}
           />

@@ -32,7 +32,7 @@
     "@uiwebkit/icn": "0.1.2",
     "@uni/common": "file:../../common/uni-common-0.0.23.tgz",
     "@uni/mat": "file:../mat/uni-mat-0.0.36.tgz",
-    "@uni/udk": "file:../udk/uni-udk-0.0.33.tgz"
+    "@uni/udk": "file:../udk/uni-udk-0.0.34.tgz"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "19.0.0",
