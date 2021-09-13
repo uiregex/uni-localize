@@ -1,8 +1,6 @@
 import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
-import { UniStoreType } from '@uni/udk';
-
+import { UniStoreType } from '../../lang-menu';
 import { UniTranslateTemplate } from '../utils/translate.template';
 import { UniTranslateRenderedTemplate } from '../utils/translate-rendered.template';
 
@@ -23,7 +21,7 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) path = 'app.loc.translate';
+  @Prop({ reflect: true }) path = 'loc.translate';
 
   @Prop({ reflect: true }) bindStart: string = '{{';
 
@@ -40,9 +38,5 @@ export class UniTranslateComponent implements ComponentInterface {
 
   componentDidRender(): void {
     setTimeout(() => this.activate = false);
-  }
-
-  componentDidLoad(): void {
-    uniWatermark('uni-translate', 'switch');
   }
 }

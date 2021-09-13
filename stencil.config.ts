@@ -1,8 +1,5 @@
 import { Config } from '@stencil/core';
 
-import cleanup from 'rollup-plugin-cleanup';
-import { inlineSvg } from 'stencil-inline-svg';
-
 export const config: Config = {
   namespace: 'loc',
   buildEs5: 'prod',
@@ -34,15 +31,15 @@ export const config: Config = {
     // experimentalDevModules: true,
     // logRequests: true,
   },
-  plugins: [
-    cleanup({ comments: 'none' }),
-    inlineSvg()
-  ],
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
       polyfills: true,
+      empty: true,
+    },
+    {
+      type: 'dist-custom-elements-bundle',
       empty: true,
     },
     {

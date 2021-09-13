@@ -5,12 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { UniStoreType } from "@uni/udk";
+import { UniStoreType } from "./lang-menu/models";
+import { UniStoreType as UniStoreType1 } from "./lang-menu";
 export namespace Components {
     interface UniLangMenu {
         "activePath": string;
         "feature": string;
         "frame": boolean;
+        "languagesPath": string;
         "list": string;
         "mini": boolean;
         "only": boolean;
@@ -28,6 +30,7 @@ export namespace Components {
         "activePath": string;
         "feature": string;
         "frame": boolean;
+        "languagesPath": string;
         "list": string;
         "mini": boolean;
         "only": boolean;
@@ -60,6 +63,7 @@ export namespace Components {
         "feature": string;
         "inactive": boolean;
         "path": string;
+        "rendered": boolean;
         "separator": string;
         "top": boolean;
         "type": UniStoreType;
@@ -102,6 +106,7 @@ declare namespace LocalJSX {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
+        "languagesPath"?: string;
         "list": string;
         "mini"?: boolean;
         "only"?: boolean;
@@ -119,6 +124,7 @@ declare namespace LocalJSX {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
+        "languagesPath"?: string;
         "list": string;
         "mini"?: boolean;
         "only"?: boolean;
@@ -151,6 +157,7 @@ declare namespace LocalJSX {
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
+        "rendered"?: boolean;
         "separator"?: string;
         "top"?: boolean;
         "type"?: UniStoreType;

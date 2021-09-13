@@ -1,12 +1,11 @@
 import { h, VNode } from '@stencil/core';
 
-import { UniTemplate } from '@uni/common';
-import { uniGetStorePath } from '@uni/udk';
+import { uniGetStorePath } from '../../lang-menu';
 
 export const UniTranslateTemplate = function({ props }, template: VNode): VNode {
   const { inactive, activate, top, feature, type, path, separator, bindStart, bindEnd } = props;
 
-  return UniTemplate(
+  return (
     <uni-event
       capture={true}
       listen={uniGetStorePath({ type, feature, separator, path })}
@@ -19,7 +18,7 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
         feature={feature}
         separator={separator}
         path={path}
-        prop='state'
+        prop={'state'}
       >
         <uni-replace
           activate={activate}
@@ -30,6 +29,6 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
           {template}
         </uni-replace>
       </uni-store-get>
-    </uni-event>,
+    </uni-event>
   );
 };

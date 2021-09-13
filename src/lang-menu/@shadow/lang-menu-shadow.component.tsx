@@ -1,12 +1,7 @@
-import { Component, ComponentInterface, Prop, State, VNode, h, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Prop, VNode, h, Host } from '@stencil/core';
 
-import { UniHostTemplate, uniWatermark } from '@uni/common';
-import { UniStoreType } from '@uni/udk';
-
-import { UniLangMenuItem } from '../models';
-import { uniLangMenuInit } from '../utils/lang-menu.init';
+import { UniStoreType } from '../models';
 import { UniLangMenuTemplate } from '../utils/lang-menu.template';
-import { UniLangMenuWrapTemplate } from '../utils/lang-menu-wrap.template';
 
 @Component({
   tag: 'uni-lang-menu-shadow',
@@ -39,55 +34,33 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) activePath: string = 'app.loc.active';
+  @Prop({ reflect: true }) languagesPath: string = 'loc.languages';
 
-  @Prop({ reflect: true }) translatePath: string = 'app.loc.translate';
+  @Prop({ reflect: true }) activePath: string = 'loc.active';
+
+  @Prop({ reflect: true }) translatePath: string = 'loc.translate';
 
   @Prop({ reflect: true }) only: boolean = false;
 
-  @State() languages: UniLangMenuItem[] = [];
-
-  @State() lang: UniLangMenuItem;
-
-  @Watch('list')
-  onList(newValue: string): void {
-    this.languages = [];
-
-    uniLangMenuInit(newValue)
-      .then((data: UniLangMenuItem[] = []) => {
-        setTimeout(() => {
-          this.languages = data;
-          this.lang = data.filter((item: UniLangMenuItem): boolean => item.lang === this.select)[0] || data[0];
-        }, 100);
-      });
-  }
-
   render(): VNode {
-    const {
-      top, shadow, frame, type, feature, separator, mini, round, routing, route, activePath, translatePath, languages,
-      lang,
-    } = this;
-    const classes = { 'uni-lang-menu': true };
-    let template;
+    if (this.only) {
+      const classes = { 'uni-lang-menu': true };
 
-    if (this.languages.length) {
-      template = UniLangMenuTemplate({
-        top, shadow: true, frame, type, feature, separator, activePath, mini, round, routing, route, languages, lang,
-      });
-    }
-
-    return this.only ? UniHostTemplate({ classes }, <slot />)
-      : UniLangMenuWrapTemplate(
-        { top, shadow, frame, type, feature, separator, activePath, translatePath },
-        template
+      return (
+        <Host class={classes}>
+          <slot />
+        </Host>
       );
-  }
+    } else {
+      const {
+        list, mini, round, routing, route,
+        top, shadow, frame, type, feature, separator,
+        languagesPath, activePath, translatePath,
+      } = this;
+      const data = { list, mini, round, routing, route, languagesPath, activePath, translatePath, isShadow: true };
+      const storeData = { top, shadow, frame, type, feature, separator };
 
-  componentWillLoad(): Promise<void> | void {
-    uniWatermark('uni-lang-menu-shadow', 'input');
-
-    if (!this.languages.length) {
-      this.onList(this.list);
+      return UniLangMenuTemplate(data, storeData);
     }
   }
 }

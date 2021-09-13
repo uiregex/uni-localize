@@ -1,147 +1,118 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
-export const UniLangMenuTemplate =
-  function({
-             top, shadow, frame, type, feature, separator, activePath, mini, round, routing, route, languages, lang,
-           }): VNode {
-    return (
-      <Fragment>
-        <uni-store-set
-          top={top}
-          shadow={shadow}
-          frame={frame}
-          mode={'init'}
-          type={type}
-          feature={feature}
-          separator={separator}
-          path={activePath}
-          state={lang}
-        />
+import { uniGetStorePath } from './get-store-path';
+import { uniCaseLiteral } from './case.literal';
 
-        <uni-menu selector='uni-menu-surface' class='uni-lang-menu'>
-          <uni-button pro={true}>
-            <uni-button-icon only={true}>
-              <uni-event-store-get
-                top={top}
-                type={type}
-                feature={feature}
-                separator={separator}
-                path={`${activePath}.flag`}
-                selector='uni-flag'
-                prop='name'
-              >
-                {/*<uni-event-store-get*/}
-                {/*top={top}*/}
-                {/*  type={type}*/}
-                {/*  path={`${activeState}.flagSrc`}*/}
-                {/*  selector="uni-flag"*/}
-                {/*  prop="src"*/}
-                {/*>*/}
-                <uni-flag round={round} />
-                {/*</uni-event-store-get>*/}
-              </uni-event-store-get>
-            </uni-button-icon>
+export const UniLangMenuTemplate = function(data, storeData): VNode {
+  const { list, mini, round, routing, route, languagesPath, activePath, translatePath, isShadow } = data;
+  const { top, shadow, frame, type, feature, separator } = storeData;
 
-            {mini ? '' : <uni-button-label>
+  return (
+    <Fragment>
+      <uni-menu selector={'uni-menu-surface'} class='uni-lang-menu'>
+        <uni-button pro={true}>
+          <uni-button-icon only={true}>
+            <uni-event-store-get
+              top={top}
+              type={type}
+              feature={feature}
+              separator={separator}
+              path={`${activePath}.flag`}
+              selector={'uni-flag'}
+              prop={'name'}
+            >
+              <uni-flag round={round} />
+            </uni-event-store-get>
+          </uni-button-icon>
+
+          <uni-display inactive={mini}>
+            <uni-button-label>
               <uni-event-store-get
                 top={top}
                 type={type}
                 feature={feature}
                 separator={separator}
                 path={`${activePath}.name`}
-                selector='uni-render'
-                prop='value'
+                selector={'uni-render'}
+                prop={'value'}
               >
-                <uni-render text={true} class='uni-space' />
+                <uni-render text={true} className='uni-space' />
               </uni-event-store-get>
-            </uni-button-label>}
+            </uni-button-label>
+          </uni-display>
 
-            <uni-button-icon name={'arrow-drop-down'} />
-          </uni-button>
+          <uni-button-icon name={'arrow-drop-down'} />
+        </uni-button>
 
-          <uni-menu-surface>
-            <uni-list-wrap pro={true}>
-              <ul>
-                <uni-display hidden={true}>
-                  {languages.map((item) => routing ? (
-                      <Fragment>
-                        <uni-router-link params={routing ? `${route}=${item.lang}` : ''}>
-                          <uni-event-store-get
-                            top={top}
-                            type={type}
-                            feature={feature}
-                            separator={separator}
-                            path={`${activePath}.lang`}
-                            equal={item.lang}
-                            selector='uni-list-item'
-                            prop='selected'
-                          >
-                            <uni-list-item index={-1}>
-                              {item.flag ? (
-                                <uni-list-item-graphic only={true}>
-                                  <uni-flag name={item.flag} round={round} />
-                                </uni-list-item-graphic>
-                              ) : ''}
+        <uni-menu-surface>
+          <uni-list-wrap pro={true}>
+            <ul>
+              <uni-event-store-get
+                type={type}
+                feature={feature}
+                separator={separator}
+                path={languagesPath}
+                prop={'state'}
+              >
+                <uni-repeat strict={true}>
+                  <template innerHTML={uniCaseLiteral({ round, routing, route, activePath, isShadow }, storeData)} />
+                </uni-repeat>
+              </uni-event-store-get>
+            </ul>
+          </uni-list-wrap>
+        </uni-menu-surface>
+      </uni-menu>
 
-                              <uni-list-item-text>{item.name}</uni-list-item-text>
-                            </uni-list-item>
-                          </uni-event-store-get>
-                        </uni-router-link>
+      <uni-load-store
+        top={top}
+        shadow={shadow}
+        frame={frame}
+        type={type}
+        feature={feature}
+        separator={separator}
+        path={languagesPath}
+        url={list}
+      />
 
-                        <uni-route params={`${route}=${item.lang}`} prop={'activate'}>
-                          <uni-store-set
-                            inactive={true}
-                            top={top}
-                            shadow={shadow}
-                            frame={frame}
-                            type={type}
-                            feature={feature}
-                            separator={separator}
-                            path={activePath}
-                            state={item}
-                          />
-                        </uni-route>
-                      </Fragment>
-                    ) : (
-                      <uni-event-store-set
-                        listen='click'
-                        top={top}
-                        shadow={shadow}
-                        frame={frame}
-                        type={type}
-                        feature={feature}
-                        separator={separator}
-                        path={activePath}
-                        state={item}
-                      >
-                        <uni-event-store-get
-                          top={top}
-                          type={type}
-                          feature={feature}
-                          separator={separator}
-                          path={`${activePath}.lang`}
-                          equal={item.lang}
-                          selector={'uni-list-item'}
-                          prop={'selected'}
-                        >
-                          <uni-list-item index={-1}>
-                            {item.flag ? (
-                              <uni-list-item-graphic only={true}>
-                                <uni-flag name={item.flag} round={round} />
-                              </uni-list-item-graphic>
-                            ) : ''}
+      <uni-event-store-get type={type} path={`${languagesPath}[0]`} prop={'state'}>
+        <uni-store-set
+          top={top}
+          shadow={shadow}
+          frame={frame}
+          type={type}
+          feature={feature}
+          separator={separator}
+          mode={'init'}
+          path={activePath}
+        />
+      </uni-event-store-get>
 
-                            <uni-list-item-text>{item.name}</uni-list-item-text>
-                          </uni-list-item>
-                        </uni-event-store-get>
-                      </uni-event-store-set>
-                    ),
-                  )}
-                </uni-display>
-              </ul>
-            </uni-list-wrap>
-          </uni-menu-surface>
-        </uni-menu>
-      </Fragment>
-    ) as VNode;
-  };
+      <uni-event
+        capture={true}
+        listen={uniGetStorePath({ type, feature, separator, path: `${activePath}.translation` })}
+        prop={'activate'}
+        value={true}
+      >
+        <uni-store-get
+          top={top}
+          feature={feature}
+          type={type}
+          separator={separator}
+          path={`${activePath}.translation`}
+          prop={'url'}
+        >
+          <uni-load-store
+            top={top}
+            shadow={shadow}
+            frame={frame}
+            multi={true}
+            mode={'set'}
+            feature={feature}
+            separator={separator}
+            path={translatePath}
+          />
+        </uni-store-get>
+      </uni-event>
+    </Fragment>
+  ) as VNode;
+};

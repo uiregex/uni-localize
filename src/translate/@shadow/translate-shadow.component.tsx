@@ -1,9 +1,8 @@
 import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
-import { uniWatermark } from '@uni/common';
-import { UniStoreType } from '@uni/udk';
-
+import { UniStoreType } from '../../lang-menu';
 import { UniTranslateTemplate } from '../utils/translate.template';
+import { UniTranslateRenderedTemplate } from '../utils/translate-rendered.template';
 
 @Component({
   tag: 'uni-translate-shadow',
@@ -15,6 +14,8 @@ export class UniTranslateShadowComponent implements ComponentInterface {
 
   @Prop({ mutable: true }) activate: boolean = false;
 
+  @Prop({ reflect: true }) rendered: boolean = false;
+
   @Prop({ reflect: true }) top: boolean = false;
 
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
@@ -23,7 +24,7 @@ export class UniTranslateShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) separator: string = '.';
 
-  @Prop({ reflect: true }) path = 'app.loc.translate';
+  @Prop({ reflect: true }) path = 'loc.translate';
 
   @Prop({ reflect: true }) bindStart: string = '{{';
 
@@ -33,14 +34,12 @@ export class UniTranslateShadowComponent implements ComponentInterface {
     const { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd } = this;
     const props = { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd };
 
-    return UniTranslateTemplate({ props }, <slot />);
+    return this.rendered
+      ? UniTranslateRenderedTemplate({ props }, <slot />)
+      : UniTranslateTemplate({ props }, <slot />);
   }
 
   componentDidRender(): void {
     setTimeout(() => this.activate = false);
-  }
-
-  componentDidLoad(): void {
-    uniWatermark('uni-translate-shadow', 'get');
   }
 }
