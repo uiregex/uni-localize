@@ -18,7 +18,7 @@ Uni Localization components are just HTML Web Components & Custom Elements, so t
 To start building a new web component using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/uiwebkit/loc.git uni-icons
+git clone https://github.com/uiwebkit/loc.git uni-localization
 cd uni-localization
 ```
 
