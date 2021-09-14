@@ -35,7 +35,7 @@ To build the component for production, run:
 npm run build:prod
 ```
 
-Check out our docs [here](https://uiwebkit.com/icn/1).
+Check out our docs [here](https://uiwebkit.com/wgt/loc/1).
 
 
 ## Naming Components
