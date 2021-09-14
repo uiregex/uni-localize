@@ -7,7 +7,7 @@
 
   <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/icn@1.0.0/dist/icn/icn.esm.js'></script>
   <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/mat@1.0.0/dist/mat.esm.js'></script>
-  <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/udk@1.0.2/dist/udk.esm.js'></script>
+  <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/udk@1.0.3/dist/udk.esm.js'></script>
   <script type='module' src='build/loc.esm.js'></script>
 
   <script nomodule src='https://cdn.jsdelivr.net/npm/@uiwebkit/icn@latest/dist/icn/icn.js'></script>
@@ -21,8 +21,9 @@
 
   <uni-lang-menu-shadow round routing type="local" list="assets/json/i18n/langs.json"></uni-lang-menu-shadow>
 
-  <uni-translate active>This content is localized</uni-translate>
+  <uni-translate>This content is localized</uni-translate>
 </div>
+
 
 <div>
   <uni-store-set type="local" mode="init" path="loc.active"
@@ -209,7 +210,7 @@
 
 <div>
   <uni-store-set type="local" mode="init" path="loc.active"
-                 state='{"lang": "en", "name": "English", "translation": "assets/json/i18n/en.json"}'>
+                 state='{"lang": "en", "flag": "gb", "name": "English", "translation": "assets/json/i18n/en.json"}'>
   </uni-store-set>
 
   <uni-lang-menu only>

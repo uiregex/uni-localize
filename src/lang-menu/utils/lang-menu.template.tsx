@@ -1,6 +1,5 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
-import { uniGetStorePath } from './get-store-path';
 import { uniCaseLiteral } from './case.literal';
 
 export const UniLangMenuTemplate = function(data, storeData): VNode {
@@ -48,6 +47,7 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
           <uni-list-wrap pro={true}>
             <ul>
               <uni-event-store-get
+                top={top}
                 type={type}
                 feature={feature}
                 separator={separator}
@@ -65,7 +65,7 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
 
       <uni-load-store
         top={top}
-        shadow={shadow}
+        shadow={isShadow}
         frame={frame}
         type={type}
         feature={feature}
@@ -74,10 +74,17 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
         url={list}
       />
 
-      <uni-event-store-get type={type} path={`${languagesPath}[0]`} prop={'state'}>
+      <uni-event-store-get
+        top={top}
+        type={type}
+        feature={feature}
+        separator={separator}
+        path={`${languagesPath}[0]`}
+        prop={'state'}
+      >
         <uni-store-set
           top={top}
-          shadow={shadow}
+          shadow={isShadow}
           frame={frame}
           type={type}
           feature={feature}
@@ -87,32 +94,25 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
         />
       </uni-event-store-get>
 
-      <uni-event
-        capture={true}
-        listen={uniGetStorePath({ type, feature, separator, path: `${activePath}.translation` })}
-        prop={'activate'}
-        value={true}
+      <uni-event-store-get
+        top={top}
+        type={type}
+        feature={feature}
+        separator={separator}
+        path={`${activePath}.translation`}
+        prop={'url'}
       >
-        <uni-store-get
+        <uni-load-store
           top={top}
+          shadow={shadow}
+          frame={frame}
+          multi={true}
+          mode={'set'}
           feature={feature}
-          type={type}
           separator={separator}
-          path={`${activePath}.translation`}
-          prop={'url'}
-        >
-          <uni-load-store
-            top={top}
-            shadow={shadow}
-            frame={frame}
-            multi={true}
-            mode={'set'}
-            feature={feature}
-            separator={separator}
-            path={translatePath}
-          />
-        </uni-store-get>
-      </uni-event>
+          path={translatePath}
+        />
+      </uni-event-store-get>
     </Fragment>
   ) as VNode;
 };

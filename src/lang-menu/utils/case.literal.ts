@@ -2,7 +2,7 @@ import { uniListItemLiteral } from './list-item.literal';
 
 export function uniCaseLiteral(data, storeData): string {
   const { routing, route, round, activePath, isShadow } = data;
-  const { top, shadow, frame, type, feature, separator } = storeData;
+  const { top, frame, type, feature, separator } = storeData;
 
   return routing
     ? `<uni-router-link params='${routing ? route + '={{ lang }}' : ''}'>
@@ -24,7 +24,7 @@ export function uniCaseLiteral(data, storeData): string {
          <uni-store-set
            inactive
            top='${top}'
-           shadow='${shadow || isShadow}'
+           shadow='${isShadow}'
            frame='${frame}'
            type='${type}'
            feature='${feature}'
@@ -36,7 +36,7 @@ export function uniCaseLiteral(data, storeData): string {
     : `<uni-event-store-set
          listen='click'
          top='${top}'
-         shadow='${shadow || isShadow}'
+         shadow='${isShadow}'
          frame='${frame}'
          type='${type}'
          feature='${feature}'
