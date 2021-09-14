@@ -19,7 +19,6 @@
     "loader/"
   ],
   "scripts": {
-    "build:import": "rollup -c",
     "build:dev": "stencil build --dev --watch",
     "build:prod": "stencil build",
     "serve:dev": "stencil build --dev --watch --serve",
@@ -27,9 +26,15 @@
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "pack": "npm pack"
+    "pack": "npm pack",
+    "publish": "npm publish uiwebkit-loc-1.1.0.tgz --access public"
   },
   "devDependencies": {
     "@stencil/core": "2.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwebkit/loc.git"
+  },
+  "homepage": "https://uiwebkit.com/wgt/loc/1/"
 }
