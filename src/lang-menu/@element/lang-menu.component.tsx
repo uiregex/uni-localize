@@ -19,8 +19,6 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) route: string = 'lang';
 
-  @Prop({ reflect: true }) select: string;
-
   @Prop({ reflect: true }) top: boolean = false;
 
   @Prop({ reflect: true }) shadow: boolean = false;
