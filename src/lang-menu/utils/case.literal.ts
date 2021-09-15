@@ -45,10 +45,10 @@ export function uniCaseLiteral(data, storeData): string {
          state='{{ uniself }}'
        >
          <uni-event-store-get
-           top=${top}
+           top='${top}'
            type='${type}'
-           feature={feature}
-           separator={separator}
+           feature='${feature}'
+           separator='${separator}'
            path='${activePath}.lang'
            equal='{{ lang }}'
            selector='uni-list-item'
