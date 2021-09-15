@@ -19,7 +19,6 @@
 | `round`             | `round`          |             | `boolean`                          | `false`           |
 | `route`             | `route`          |             | `string`                           | `'lang'`          |
 | `routing`           | `routing`        |             | `boolean`                          | `false`           |
-| `select`            | `select`         |             | `string`                           | `undefined`       |
 | `separator`         | `separator`      |             | `string`                           | `'.'`             |
 | `shadow`            | `shadow`         |             | `boolean`                          | `false`           |
 | `top`               | `top`            |             | `boolean`                          | `false`           |

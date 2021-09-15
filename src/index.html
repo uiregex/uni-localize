@@ -17,16 +17,29 @@
 </head>
 <body>
 <div>
-  <uni-router shadow></uni-router>
-
-  <uni-lang-menu-shadow round routing type="local" list="assets/json/i18n/langs.json"></uni-lang-menu-shadow>
+  <uni-lang-menu list="assets/json/i18n/langs.json"></uni-lang-menu>
 
   <uni-translate>This content is localized</uni-translate>
 </div>
 
+<div>
+  <uni-router shadow></uni-router>
+
+  <uni-lang-menu-shadow
+    round
+    routing
+    type="local"
+    list="assets/json/i18n/langs.json"
+    languages-path="loc.shadow.languages"
+    active-path="loc.shadow.active"
+    translate-path="loc.shadow.translate"
+  ></uni-lang-menu-shadow>
+
+  <uni-translate path="loc.shadow.translate">This content is localized</uni-translate>
+</div>
 
 <div>
-  <uni-store-set type="local" mode="init" path="loc.active"
+  <uni-store-set type="local" mode="init" path="loc.route.active"
                  state='{"lang": "en", "flag": "gb", "name": "English", "translation": "assets/json/i18n/en.json"}'>
   </uni-store-set>
 
@@ -34,13 +47,13 @@
     <uni-menu>
       <uni-button pro>
         <uni-button-icon only>
-          <uni-event-store-get type="local" path="loc.active.flag" selector="uni-flag" prop="name">
+          <uni-event-store-get type="local" path="loc.route.active.flag" selector="uni-flag" prop="name">
             <uni-flag round></uni-flag>
           </uni-event-store-get>
         </uni-button-icon>
 
         <uni-button-label class="uni-space">
-          <uni-event-store-get type="local" path="loc.active.name" selector="uni-render" prop="value">
+          <uni-event-store-get type="local" path="loc.route.active.name" selector="uni-render" prop="value">
             <uni-render text></uni-render>
           </uni-event-store-get>
         </uni-button-label>
@@ -55,7 +68,7 @@
             <uni-load-repeat strict url="assets/json/i18n/langs.json">
               <template>
                 <uni-router-link params="lang={{ lang }}">
-                  <uni-event-store-get type="local" path="loc.active.lang" equal="{{ lang }}" prop="selected">
+                  <uni-event-store-get type="local" path="loc.route.active.lang" equal="{{ lang }}" prop="selected">
                     <uni-list-item>
                       <uni-list-item-graphic only>
                         <uni-modify state="{{ flag }}" action="unbind" prop="name">
@@ -69,7 +82,7 @@
                 </uni-router-link>
 
                 <uni-route params="lang={{ lang }}" prop="activate">
-                  <uni-store-set inactive type="local" path="loc.active" state="{{ uniself }}"></uni-store-set>
+                  <uni-store-set inactive type="local" path="loc.route.active" state="{{ uniself }}"></uni-store-set>
                 </uni-route>
               </template>
             </uni-load-repeat>
@@ -79,33 +92,33 @@
     </uni-menu>
   </uni-lang-menu>
 
-  <uni-translate active>This content is localized</uni-translate>
+  <uni-translate path="loc.route.translate">This content is localized</uni-translate>
 
-  <uni-event-store-get type="local" path="loc.active.translation" selector="uni-load-store" prop="url">
-    <uni-load-store multi mode="set" path="loc.translate">
+  <uni-event-store-get type="local" path="loc.route.active.translation" selector="uni-load-store" prop="url">
+    <uni-load-store multi mode="set" path="loc.route.translate">
     </uni-load-store>
   </uni-event-store-get>
 </div>
 
 
 <div>
-  <uni-load-store type="local" path="loc.languages" url="assets/json/i18n/langs.json"></uni-load-store>
+  <uni-load-store type="local" path="loc.store.languages" url="assets/json/i18n/langs.json"></uni-load-store>
 
-  <uni-event-store-get type="local" path='loc.languages[0]' prop="state">
-    <uni-store-set type="local" mode="init" path="loc.active"></uni-store-set>
+  <uni-event-store-get type="local" path='loc.store.languages[0]' prop="state">
+    <uni-store-set type="local" mode="init" path="loc.store.active"></uni-store-set>
   </uni-event-store-get>
 
   <uni-lang-menu only>
     <uni-menu>
       <uni-button pro>
         <uni-button-icon only>
-          <uni-event-store-get type="local" path="loc.active.flag" selector="uni-flag" prop="name">
+          <uni-event-store-get type="local" path="loc.store.active.flag" selector="uni-flag" prop="name">
             <uni-flag round></uni-flag>
           </uni-event-store-get>
         </uni-button-icon>
 
         <uni-button-label class="uni-space">
-          <uni-event-store-get type="local" path="loc.active.name" prop="value">
+          <uni-event-store-get type="local" path="loc.store.active.name" prop="value">
             <uni-render text></uni-render>
           </uni-event-store-get>
         </uni-button-label>
@@ -116,11 +129,11 @@
       <uni-menu-surface>
         <uni-list-wrap pro>
           <ul>
-            <uni-event-store-get type="local" path="loc.languages" prop="state">
+            <uni-event-store-get type="local" path="loc.store.languages" prop="state">
               <uni-repeat strict>
                 <template>
-                  <uni-event-store-set listen="click" type="local" path="loc.active" state="{{ uniself }}">
-                    <uni-event-store-get type="local" path="loc.active.lang" equal="{{ lang }}" prop="selected">
+                  <uni-event-store-set listen="click" type="local" path="loc.store.active" state="{{ uniself }}">
+                    <uni-event-store-get type="local" path="loc.store.active.lang" equal="{{ lang }}" prop="selected">
                       <uni-list-item>
                         <uni-list-item-graphic only>
                           <uni-modify state="{{ flag }}" action="unbind" prop="name">
@@ -141,16 +154,16 @@
     </uni-menu>
   </uni-lang-menu>
 
-  <uni-translate active>This content is localized</uni-translate>
+  <uni-translate path="loc.store.translate">This content is localized</uni-translate>
 
-  <uni-event-store-get type="local" path="loc.active.translation" selector="uni-load-store" prop="url">
-    <uni-load-store multi mode="set" path="loc.translate"></uni-load-store>
+  <uni-event-store-get type="local" path="loc.store.active.translation" selector="uni-load-store" prop="url">
+    <uni-load-store multi mode="set" path="loc.store.translate"></uni-load-store>
   </uni-event-store-get>
 </div>
 
 
 <div>
-  <uni-store-set type="local" mode="init" path="loc.active"
+  <uni-store-set type="local" mode="init" path="loc.load.active"
                  state='{"lang": "en", "flag": "gb", "name": "English", "translation": "assets/json/i18n/en.json"}'>
   </uni-store-set>
 
@@ -158,13 +171,13 @@
     <uni-menu>
       <uni-button pro>
         <uni-button-icon only>
-          <uni-event-store-get type="local" path="loc.active.flag" selector="uni-flag" prop="name">
+          <uni-event-store-get type="local" path="loc.load.active.flag" selector="uni-flag" prop="name">
             <uni-flag round></uni-flag>
           </uni-event-store-get>
         </uni-button-icon>
 
         <uni-button-label class="uni-space">
-          <uni-event-store-get type="local" path="loc.active.name" selector="uni-render" prop="value">
+          <uni-event-store-get type="local" path="loc.load.active.name" selector="uni-render" prop="value">
             <uni-render text></uni-render>
           </uni-event-store-get>
         </uni-button-label>
@@ -178,8 +191,8 @@
           <ul>
             <uni-load-repeat strict url="assets/json/i18n/langs.json">
               <template>
-                <uni-event-store-set listen="click" type="local" path="loc.active" state="{{ uniself }}">
-                  <uni-event-store-get type="local" path="loc.active.lang" equal="{{ lang }}" prop="selected">
+                <uni-event-store-set listen="click" type="local" path="loc.load.active" state="{{ uniself }}">
+                  <uni-event-store-get type="local" path="loc.load.active.lang" equal="{{ lang }}" prop="selected">
                     <uni-list-item>
                       <uni-list-item-graphic only>
                         <uni-modify state="{{ flag }}" action="unbind" prop="name">
@@ -199,17 +212,17 @@
     </uni-menu>
   </uni-lang-menu>
 
-  <uni-translate active>This content is localized</uni-translate>
+  <uni-translate path="loc.load.translate">This content is localized</uni-translate>
 
-  <uni-event-store-get type="local" path="loc.active.translation" selector="uni-load-store" prop="url">
-    <uni-load-store multi mode="set" path="loc.translate">
+  <uni-event-store-get type="local" path="loc.load.active.translation" selector="uni-load-store" prop="url">
+    <uni-load-store multi mode="set" path="loc.load.translate">
     </uni-load-store>
   </uni-event-store-get>
 </div>
 
 
 <div>
-  <uni-store-set type="local" mode="init" path="loc.active"
+  <uni-store-set type="local" mode="init" path="loc.manual.active"
                  state='{"lang": "en", "flag": "gb", "name": "English", "translation": "assets/json/i18n/en.json"}'>
   </uni-store-set>
 
@@ -217,13 +230,13 @@
     <uni-menu>
       <uni-button pro>
         <uni-button-icon only>
-          <uni-event-store-get type="local" path="loc.active.flag" selector="uni-flag" prop="name">
+          <uni-event-store-get type="local" path="loc.manual.active.flag" selector="uni-flag" prop="name">
             <uni-flag round></uni-flag>
           </uni-event-store-get>
         </uni-button-icon>
 
         <uni-button-label class="uni-space">
-          <uni-event-store-get type="local" path="loc.active.name" selector="uni-render" prop="value">
+          <uni-event-store-get type="local" path="loc.manual.active.name" selector="uni-render" prop="value">
             <uni-render text></uni-render>
           </uni-event-store-get>
         </uni-button-label>
@@ -235,9 +248,9 @@
       <uni-menu-surface>
         <uni-list-wrap pro>
           <ul>
-            <uni-event-store-set listen="click" type="local" path="loc.active"
+            <uni-event-store-set listen="click" type="local" path="loc.manual.active"
                                  state='{"lang": "en", "flag": "gb", "name": "English", "translation": "assets/json/i18n/en.json"}'>
-              <uni-event-store-get type="local" path="loc.active.lang" equal='en' selector='uni-list-item'
+              <uni-event-store-get type="local" path="loc.manual.active.lang" equal='en' selector='uni-list-item'
                                    prop="selected">
                 <uni-list-item>
                   <uni-list-item-graphic only>
@@ -249,9 +262,9 @@
               </uni-event-store-get>
             </uni-event-store-set>
 
-            <uni-event-store-set listen="click" type="local" path="loc.active"
+            <uni-event-store-set listen="click" type="local" path="loc.manual.active"
                                  state='{"lang": "cn", "flag": "cn", "name": "中文", "translation": "assets/json/i18n/cn.json"}'>
-              <uni-event-store-get type="local" path="loc.active.lang" equal='cn' selector='uni-list-item'
+              <uni-event-store-get type="local" path="loc.manual.active.lang" equal='cn' selector='uni-list-item'
                                    prop="selected">
                 <uni-list-item>
                   <uni-list-item-graphic only>
@@ -263,9 +276,9 @@
               </uni-event-store-get>
             </uni-event-store-set>
 
-            <uni-event-store-set listen="click" type="local" path="loc.active"
+            <uni-event-store-set listen="click" type="local" path="loc.manual.active"
                                  state='{"lang": "ru", "flag": "ru", "name": "Русский", "translation": "assets/json/i18n/ru.json"}'>
-              <uni-event-store-get type="local" path="loc.active.lang" equal='ru' selector='uni-list-item'
+              <uni-event-store-get type="local" path="loc.manual.active.lang" equal='ru' selector='uni-list-item'
                                    prop="selected">
                 <uni-list-item>
                   <uni-list-item-graphic only>
@@ -282,10 +295,10 @@
     </uni-menu>
   </uni-lang-menu>
 
-  <uni-translate active>This content is localized</uni-translate>
+  <uni-translate path="loc.manual.translate">This content is localized</uni-translate>
 
-  <uni-event-store-get type="local" path="loc.active.translation" selector="uni-load-store" prop="url">
-    <uni-load-store multi mode="set" path="loc.translate">
+  <uni-event-store-get type="local" path="loc.manual.active.translation" selector="uni-load-store" prop="url">
+    <uni-load-store multi mode="set" path="loc.manual.translate">
     </uni-load-store>
   </uni-event-store-get>
 </div>

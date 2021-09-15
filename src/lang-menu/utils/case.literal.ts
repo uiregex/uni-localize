@@ -45,7 +45,7 @@ export function uniCaseLiteral(data, storeData): string {
          state='{{ uniself }}'
        >
          <uni-event-store-get
-           top={top}
+           top=${top}
            type='${type}'
            feature={feature}
            separator={separator}
