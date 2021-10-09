@@ -28,8 +28,8 @@ export class UniTranslateComponent implements ComponentInterface {
   @Prop({ reflect: true }) bindEnd: string = '}}';
 
   render(): VNode {
-    const { inactive, activate, rendered, top, feature, separator, type, path, bindStart, bindEnd } = this;
-    const props = { inactive, activate, rendered, top, feature, separator, type, path, bindStart, bindEnd };
+    const { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd } = this;
+    const props = { inactive, activate, top, feature, separator, type, path, bindStart, bindEnd };
 
     return this.rendered
       ? UniTranslateRenderedTemplate({ props }, <slot />)

@@ -1,6 +1,7 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
-import { uniCaseLiteral } from './case.literal';
+import { uniLangItemRoutingLiteral } from './routing.literal';
+import { uniLangItemStoreLiteral } from './store.literal';
 
 export const UniLangMenuTemplate = function(data, storeData): VNode {
   const { list, mini, round, routing, route, languagesPath, activePath, translatePath, isShadow } = data;
@@ -54,8 +55,9 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
                 path={languagesPath}
                 prop={'state'}
               >
-                <uni-repeat strict={true}>
-                  <template innerHTML={uniCaseLiteral({ round, routing, route, activePath, isShadow }, storeData)} />
+                <uni-repeat strict={true} value={routing
+                  ? uniLangItemRoutingLiteral({ route, round, activePath, isShadow }, storeData)
+                  : uniLangItemStoreLiteral({ round, activePath, isShadow }, storeData)}>
                 </uni-repeat>
               </uni-event-store-get>
             </ul>
