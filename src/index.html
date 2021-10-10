@@ -139,23 +139,59 @@
 </div>
 
 <div>
-  <uni-event-store-set listen='input' path='loc.form.type'>
-    <uni-event-store-get type='local' path='loc.form.type' prop='value'>
-      <input type='text' name='input' id='loc-type'>
-    </uni-event-store-get>
+  <span>Set Store type:</span>
 
-    <uni-event listen='click' prop='activate'>
-      <uni-store-get inactive path='loc.form.type' prop='state'>
-        <uni-store-set type='local' path='loc.form.type'></uni-store-set>
-      </uni-store-get>
+  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='local'>
+    <uni-form-field>
+      <uni-event-store-get type='local' path='loc.form.type' equal='local' prop='on'>
+        <uni-radio data-id='loc-type-local'></uni-radio>
+      </uni-event-store-get>
 
-      <uni-button pro mode='outlined'>Save</uni-button>
-    </uni-event>
+      <label for='loc-type-local'>local</label>
+    </uni-form-field>
   </uni-event-store-set>
 
-  <label for='loc-type'>Set Store type</label>
+  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='session'>
+    <uni-form-field>
+      <uni-event-store-get type='local' path='loc.form.type' equal='session' prop='on'>
+        <uni-radio data-id='loc-type-session'></uni-radio>
+      </uni-event-store-get>
+
+      <label for='loc-type-session'>session</label>
+    </uni-form-field>
+  </uni-event-store-set>
+
+  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='memory'>
+    <uni-form-field>
+      <uni-event-store-get type='local' path='loc.form.type' equal='memory' prop='on'>
+        <uni-radio data-id='loc-type-memory'></uni-radio>
+      </uni-event-store-get>
+
+      <label for='loc-type-memory'>memory</label>
+    </uni-form-field>
+  </uni-event-store-set>
 </div>
 
+<!--<div>-->
+<!--  <uni-event-store-set listen='input' path='loc.form.type'>-->
+<!--    <uni-event-store-get type='local' path='loc.form.type' prop='value'>-->
+<!--      <input type='text' name='input' id='loc-type'>-->
+<!--    </uni-event-store-get>-->
+
+<!--    <uni-event listen='click' prop='activate'>-->
+<!--      <uni-store-get inactive path='loc.form.type' prop='state'>-->
+<!--        <uni-store-set type='local' path='loc.form.type'></uni-store-set>-->
+<!--      </uni-store-get>-->
+
+<!--      <uni-button pro mode='outlined'>Save</uni-button>-->
+<!--    </uni-event>-->
+<!--  </uni-event-store-set>-->
+
+<!--  <label for='loc-type'>Set Store type</label>-->
+<!--</div>-->
+
+
+<p></p>
 
 <uni-event-store-get type='local' path='loc.form.round' all selector='uni-lang-menu, uni-lang-menu-shadow, uni-flag'
                      prop='round'>
@@ -170,7 +206,7 @@
           <uni-event-store-get type='local' path='loc.form.type' all selector='uni-lang-menu, uni-lang-menu-shadow'
                                prop='type'>
             <div>
-              Custom Element:
+              Element:
               <uni-lang-menu
                 languages-path='loc.element.languages'
                 active-path='loc.element.active'
@@ -181,7 +217,7 @@
             </div>
 
             <div>
-              Custom Shadow:
+              Shadow:
               <uni-router shadow></uni-router>
 
               <uni-lang-menu-shadow

@@ -66,6 +66,7 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
       </uni-menu>
 
       <uni-load-store
+        multi={true}
         top={top}
         shadow={isShadow}
         frame={frame}
@@ -105,10 +106,10 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
         prop={'url'}
       >
         <uni-load-store
+          multi={true}
           top={top}
           shadow={shadow}
           frame={frame}
-          multi={true}
           mode={'set'}
           feature={feature}
           separator={separator}
