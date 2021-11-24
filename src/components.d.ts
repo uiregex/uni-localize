@@ -32,7 +32,6 @@ export namespace Components {
         "languagesPath": string;
         "list": string;
         "mini": boolean;
-        "only": boolean;
         "round": boolean;
         "route": string;
         "routing": boolean;
@@ -124,7 +123,6 @@ declare namespace LocalJSX {
         "languagesPath"?: string;
         "list": string;
         "mini"?: boolean;
-        "only"?: boolean;
         "round"?: boolean;
         "route"?: string;
         "routing"?: boolean;

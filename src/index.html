@@ -89,6 +89,7 @@
       <uni-store-get type='local' path='loc.form.mini' prop='checked'>
         <input type='checkbox' id='loc-mini' name='loc-mini' value='1'>
       </uni-store-get>
+
       <label for='loc-mini'>Set 'mini'</label>
     </uni-modify>
   </uni-event-store-get>
@@ -102,6 +103,7 @@
       <uni-store-get type='local' path='loc.form.round' prop='checked'>
         <input type='checkbox' id='loc-round' name='loc-round' value='1'>
       </uni-store-get>
+
       <label for='loc-round'>Set 'round'</label>
     </uni-modify>
   </uni-event-store-get>
@@ -115,6 +117,7 @@
       <uni-store-get type='local' path='loc.form.routing' prop='checked'>
         <input type='checkbox' id='loc-routing' name='loc-routing' value='1'>
       </uni-store-get>
+
       <label for='loc-routing'>Enable routing (visible in URL)</label>
     </uni-modify>
   </uni-event-store-get>
@@ -249,7 +252,7 @@
           </uni-button-icon>
 
           <uni-store-display type='local' path='loc.form.mini' equal='false'>
-            <uni-button-label class='uni-space'>
+            <uni-button-label>
               <uni-event-store-get type='local' path='loc.route.active.name' selector='uni-render' prop='value'>
                 <uni-render text></uni-render>
               </uni-event-store-get>
@@ -316,7 +319,7 @@
           </uni-button-icon>
 
           <uni-store-display type='local' path='loc.form.mini' equal='false'>
-            <uni-button-label class='uni-space'>
+            <uni-button-label>
               <uni-event-store-get type='local' path='loc.store.active.name' prop='value'>
                 <uni-render text></uni-render>
               </uni-event-store-get>
@@ -378,7 +381,7 @@
           </uni-button-icon>
 
           <uni-store-display type='local' path='loc.form.mini' equal='false'>
-            <uni-button-label class='uni-space'>
+            <uni-button-label>
               <uni-event-store-get type='local' path='loc.load.active.name' selector='uni-render' prop='value'>
                 <uni-render text></uni-render>
               </uni-event-store-get>
@@ -439,7 +442,7 @@
           </uni-button-icon>
 
           <uni-store-display type='local' path='loc.form.mini' equal='false'>
-            <uni-button-label class='uni-space'>
+            <uni-button-label>
               <uni-event-store-get type='local' path='loc.manual.active.name' selector='uni-render' prop='value'>
                 <uni-render text></uni-render>
               </uni-event-store-get>

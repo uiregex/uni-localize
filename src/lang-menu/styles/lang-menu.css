@@ -3,20 +3,21 @@
   padding-right: 2px;
 }
 
-.uni-lang-menu .mdc-deprecated-list-item__graphic {
-  margin-right: 5px;
-}
-
 .uni-lang-menu .mdc-button__icon {
   margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-right: 5px !important;
   width: auto !important;
 }
 
-.uni-lang-menu .mdc-button__icon svg {
+.uni-lang-menu uni-drop-down {
+  width: 10px;
+  padding-bottom: 3px;
+}
+
+.uni-lang-menu uni-flag svg {
   width: auto !important;
 }
 
-.uni-lang-menu .uni-space {
-  margin-left: .5em;
+.uni-lang-menu .mdc-list-item__graphic {
+  margin-right: 5px;
 }

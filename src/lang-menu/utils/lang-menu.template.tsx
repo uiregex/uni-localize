@@ -36,12 +36,12 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
                 selector={'uni-render'}
                 prop={'value'}
               >
-                <uni-render text={true} className='uni-space' />
+                <uni-render text={true} />
               </uni-event-store-get>
             </uni-button-label>
           </uni-display>
 
-          <uni-button-icon name={'arrow-drop-down'} />
+          <uni-drop-down/>
         </uni-button>
 
         <uni-menu-surface>

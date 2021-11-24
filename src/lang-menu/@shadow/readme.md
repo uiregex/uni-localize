@@ -15,7 +15,6 @@
 | `languagesPath`     | `languages-path` |             | `string`                           | `'loc.languages'` |
 | `list` _(required)_ | `list`           |             | `string`                           | `undefined`       |
 | `mini`              | `mini`           |             | `boolean`                          | `false`           |
-| `only`              | `only`           |             | `boolean`                          | `false`           |
 | `round`             | `round`          |             | `boolean`                          | `false`           |
 | `route`             | `route`          |             | `string`                           | `'lang'`          |
 | `routing`           | `routing`        |             | `boolean`                          | `false`           |

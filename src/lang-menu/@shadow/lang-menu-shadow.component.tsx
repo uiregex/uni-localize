@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Prop, VNode, h, Host } from '@stencil/core';
+import { Component, ComponentInterface, Prop, VNode } from '@stencil/core';
 
 import { UniStoreType } from '../models';
 import { UniLangMenuTemplate } from '../utils/lang-menu.template';
@@ -38,27 +38,15 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) translatePath: string = 'loc.translate';
 
-  @Prop({ reflect: true }) only: boolean = false;
-
   render(): VNode {
-    if (this.only) {
-      const classes = { 'uni-lang-menu': true };
+    const {
+      list, mini, round, routing, route,
+      top, shadow, frame, type, feature, separator,
+      languagesPath, activePath, translatePath,
+    } = this;
+    const data = { list, mini, round, routing, route, languagesPath, activePath, translatePath, isShadow: true };
+    const storeData = { top, shadow, frame, type, feature, separator };
 
-      return (
-        <Host class={classes}>
-          <slot />
-        </Host>
-      );
-    } else {
-      const {
-        list, mini, round, routing, route,
-        top, shadow, frame, type, feature, separator,
-        languagesPath, activePath, translatePath,
-      } = this;
-      const data = { list, mini, round, routing, route, languagesPath, activePath, translatePath, isShadow: true };
-      const storeData = { top, shadow, frame, type, feature, separator };
-
-      return UniLangMenuTemplate(data, storeData);
-    }
+    return UniLangMenuTemplate(data, storeData);
   }
 }
