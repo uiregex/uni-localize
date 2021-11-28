@@ -5,7 +5,7 @@
 
 .uni-lang-menu .mdc-button__icon {
   margin-left: 0 !important;
-  margin-right: 5px !important;
+  margin-right: 3px !important;
   width: auto !important;
 }
 
@@ -19,5 +19,9 @@
 }
 
 .uni-lang-menu .mdc-list-item__graphic {
-  margin-right: 5px;
+  margin-right: 0 !important;
+}
+
+.uni-lang-menu uni-list-item-text {
+  margin-left: 5px;
 }
