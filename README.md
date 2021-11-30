@@ -21,9 +21,9 @@
 
 # Uni Localization
 
-Uni Localization is a set of Web Components & Custom Elements to add multilingual support and customize it in the declarative style.
+Uni Localization is a set of Web Components & Custom Elements for adding multilingual support to your website and customize it in the declarative style.
 
-Uni Localization components have two modes:
+Uni Localization components have three modes:
 1. Custom Element - `100%` convenience;
 2. Web Component - `100%` security;
 3. Custom Element with 'only' prop - `100%` customization;
@@ -34,7 +34,7 @@ Uni Localization components are just HTML Web Components & Custom Elements, so t
 
 ## Getting Started
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+Clone this repo to a new directory:
 
 ```bash
 git clone https://github.com/uiwebkit/loc.git uni-localization
