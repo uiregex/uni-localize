@@ -7,18 +7,18 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type                               | Default           |
-| ----------- | ------------ | ----------- | ---------------------------------- | ----------------- |
-| `activate`  | `activate`   |             | `boolean`                          | `false`           |
-| `bindEnd`   | `bind-end`   |             | `string`                           | `'}}'`            |
-| `bindStart` | `bind-start` |             | `string`                           | `'{{'`            |
-| `feature`   | `feature`    |             | `string`                           | `'uni.store'`     |
-| `inactive`  | `inactive`   |             | `boolean`                          | `false`           |
-| `path`      | `path`       |             | `string`                           | `'loc.translate'` |
-| `rendered`  | `rendered`   |             | `boolean`                          | `false`           |
-| `separator` | `separator`  |             | `string`                           | `'.'`             |
-| `top`       | `top`        |             | `boolean`                          | `false`           |
-| `type`      | `type`       |             | `"local" \| "memory" \| "session"` | `'memory'`        |
+| Property    | Attribute   | Description | Type                               | Default           |
+| ----------- | ----------- | ----------- | ---------------------------------- | ----------------- |
+| `activate`  | `activate`  |             | `boolean`                          | `false`           |
+| `bindend`   | `bindend`   |             | `string`                           | `'))'`            |
+| `bindstart` | `bindstart` |             | `string`                           | `'(('`            |
+| `feature`   | `feature`   |             | `string`                           | `'uni.store'`     |
+| `inactive`  | `inactive`  |             | `boolean`                          | `false`           |
+| `path`      | `path`      |             | `string`                           | `'loc.translate'` |
+| `rendered`  | `rendered`  |             | `boolean`                          | `false`           |
+| `separator` | `separator` |             | `string`                           | `'.'`             |
+| `top`       | `top`       |             | `boolean`                          | `false`           |
+| `type`      | `type`      |             | `"local" \| "memory" \| "session"` | `'memory'`        |
 
 
 ----------------------------------------------

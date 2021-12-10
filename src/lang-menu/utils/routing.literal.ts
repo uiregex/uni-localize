@@ -4,14 +4,14 @@ export function uniLangItemRoutingLiteral(data, storeData): string {
   const { route, round, activePath, isShadow } = data;
   const { top, frame, type, feature, separator } = storeData;
 
-  return `<uni-router-link params='${route}={{ lang }}'>
+  return `<uni-router-link params='${route}=(( lang ))'>
          <uni-event-store-get
            top='${top}'
            type='${type}'
            feature='${feature}'
            separator='${separator}'
            path='${activePath}.lang'
-           equal='{{ lang }}'
+           equal='(( lang ))'
            selector='uni-list-item'
            prop='selected'
          >
@@ -19,7 +19,7 @@ export function uniLangItemRoutingLiteral(data, storeData): string {
          </uni-event-store-get>
        </uni-router-link>
 
-       <uni-route params='${route}={{ lang }}' prop='activate'>
+       <uni-route params='${route}=(( lang ))' prop='activate'>
          <uni-store-set
            inactive
            top='${top}'
@@ -29,7 +29,7 @@ export function uniLangItemRoutingLiteral(data, storeData): string {
            feature='${feature}'
            separator='${separator}'
            path='${activePath}'
-           state='{{ uniself }}'
+           state='(( uniself ))'
          />
        </uni-route>`;
 }

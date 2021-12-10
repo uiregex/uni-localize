@@ -43,8 +43,8 @@ export namespace Components {
     }
     interface UniTranslate {
         "activate": boolean;
-        "bindEnd": string;
-        "bindStart": string;
+        "bindend": string;
+        "bindstart": string;
         "feature": string;
         "inactive": boolean;
         "path": string;
@@ -55,8 +55,8 @@ export namespace Components {
     }
     interface UniTranslateShadow {
         "activate": boolean;
-        "bindEnd": string;
-        "bindStart": string;
+        "bindend": string;
+        "bindstart": string;
         "feature": string;
         "inactive": boolean;
         "path": string;
@@ -134,8 +134,8 @@ declare namespace LocalJSX {
     }
     interface UniTranslate {
         "activate"?: boolean;
-        "bindEnd"?: string;
-        "bindStart"?: string;
+        "bindend"?: string;
+        "bindstart"?: string;
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
@@ -146,8 +146,8 @@ declare namespace LocalJSX {
     }
     interface UniTranslateShadow {
         "activate"?: boolean;
-        "bindEnd"?: string;
-        "bindStart"?: string;
+        "bindend"?: string;
+        "bindstart"?: string;
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;

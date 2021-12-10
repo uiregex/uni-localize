@@ -13,7 +13,7 @@ export function uniLangItemStoreLiteral(data, storeData): string {
          feature='${feature}'
          separator='${separator}'
          path='${activePath}'
-         state='{{ uniself }}'
+         state='(( uniself ))'
        >
          <uni-event-store-get
            top='${top}'
@@ -21,7 +21,7 @@ export function uniLangItemStoreLiteral(data, storeData): string {
            feature='${feature}'
            separator='${separator}'
            path='${activePath}.lang'
-           equal='{{ lang }}'
+           equal='(( lang ))'
            selector='uni-list-item'
            prop='selected'
          >
