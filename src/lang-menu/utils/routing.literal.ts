@@ -1,7 +1,5 @@
-import { uniListItemLiteral } from './list-item.literal';
-
 export function uniLangItemRoutingLiteral(data, storeData): string {
-  const { route, round, activePath, isShadow } = data;
+  const { linear, mini, round, route, mode, activePath, isShadow } = data;
   const { top, frame, type, feature, separator } = storeData;
 
   return `<uni-router-link params='${route}=(( lang ))'>
@@ -12,10 +10,13 @@ export function uniLangItemRoutingLiteral(data, storeData): string {
            separator='${separator}'
            path='${activePath}.lang'
            equal='(( lang ))'
-           selector='uni-list-item'
+           selector='${linear ? 'uni-lang-list-button' : 'uni-lang-menu-list-item'}'
            prop='selected'
          >
-           ${uniListItemLiteral(round)}
+           ${linear
+              ? `<uni-lang-list-button mode='${mode}' mini='${mini}' round='${round}' flag='(( flag ))' name='(( name ))'/>`
+              : `<uni-lang-menu-list-item round='${round}' flag='(( flag ))' name='(( name ))'/>`
+            }
          </uni-event-store-get>
        </uni-router-link>
 

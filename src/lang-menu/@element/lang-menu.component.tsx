@@ -1,7 +1,8 @@
 import { Component, ComponentInterface, Prop, VNode, h, Host } from '@stencil/core';
 
-import { UniStoreType } from '../models';
+import { UniButtonMode, UniStoreType } from '../models';
 import { UniLangMenuTemplate } from '../utils/lang-menu.template';
+import { UniLangListTemplate } from '../utils/lang-list.template';
 
 @Component({
   tag: 'uni-lang-menu',
@@ -11,6 +12,8 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) list!: string;
 
+  @Prop({ reflect: true }) linear: boolean = false;
+
   @Prop({ reflect: true }) mini: boolean = false;
 
   @Prop({ reflect: true }) round: boolean = false;
@@ -18,6 +21,8 @@ export class UniLangMenuComponent implements ComponentInterface {
   @Prop({ reflect: true }) routing: boolean = false;
 
   @Prop({ reflect: true }) route: string = 'lang';
+
+  @Prop({ reflect: true }) mode: UniButtonMode;
 
   @Prop({ reflect: true }) top: boolean = false;
 
@@ -46,14 +51,13 @@ export class UniLangMenuComponent implements ComponentInterface {
       return <Host class={classes} />;
     } else {
       const {
-        list, mini, round, routing, route,
-        top, shadow, frame, type, feature, separator,
+        list, linear, mini, round, routing, route, mode, top, shadow, frame, type, feature, separator,
         languagesPath, activePath, translatePath,
       } = this;
-      const data = { list, mini, round, routing, route, languagesPath, activePath, translatePath };
+      const data = { list, linear, mini, round, routing, route, mode, languagesPath, activePath, translatePath };
       const storeData = { top, shadow, frame, type, feature, separator };
 
-      return UniLangMenuTemplate(data, storeData);
+      return this.linear ? UniLangListTemplate(data, storeData) : UniLangMenuTemplate(data, storeData);
     }
   }
 }

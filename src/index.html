@@ -6,19 +6,21 @@
   <title>Localization</title>
 
   <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/icn@1.2.2/dist/icn/icn.esm.js'></script>
-  <!--  <script type='module' src='http://localhost:1111/build/icn.esm.js'></script>-->
-  <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/mat@2.0.0-2/dist/mat.esm.js'></script>
   <!--  <script type='module' src='http://localhost:1111/build/udk.esm.js'></script>-->
   <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/udk@2.0.0-11/dist/udk.esm.js'></script>
+  <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/pro@1.0.4/dist/pro.esm.js'></script>
+  <script type='module' src='https://cdn.jsdelivr.net/npm/@uiwebkit/mat@2.0.0-2/dist/mat.esm.js'></script>
   <script type='module' src='build/loc.esm.js'></script>
 </head>
 <body>
 <!--https://uni.github.io/loc/lang-menu.json-->
-<uni-store-set mode='init' type='local' path='loc.form.list' state='assets/json/i18n/langs.json'></uni-store-set>
-<uni-store-set mode='init' type='local' path='loc.form.mini' state='false'></uni-store-set>
+<uni-store-set shadow mode='init' type='local' path='loc.form.list' state='assets/json/i18n/langs.json'></uni-store-set>
+<uni-store-set shadow mode='init' type='local' path='loc.form.linear' state='false'></uni-store-set>
+<uni-store-set shadow mode='init' type='local' path='loc.form.mini' state='false'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.round' state='false'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.routing' state='false'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.route' state='lang'></uni-store-set>
+<uni-store-set shadow mode='init' type='local' path='loc.form.mode' state='default'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.type' state='local'></uni-store-set>
 
 
@@ -74,6 +76,20 @@
   </uni-event-store-set>
 
   <label for='loc-list'>Set list url</label>
+</div>
+
+<div>
+  <uni-event-store-get listen='click' type='local' path='loc.form.linear' prop='state'>
+    <uni-modify action='toggle' prop='state'>
+      <uni-store-set type='local' path='loc.form.linear'></uni-store-set>
+
+      <uni-store-get type='local' path='loc.form.linear' prop='checked'>
+        <input type='checkbox' id='loc-linear' name='loc-mini' value='1'>
+      </uni-store-get>
+
+      <label for='loc-linear'>Set 'linear'</label>
+    </uni-modify>
+  </uni-event-store-get>
 </div>
 
 <div>
@@ -137,37 +153,85 @@
 </div>
 
 <div>
+  <span>Set Button mode:</span>
+
+  <form>
+    <uni-event-store-set listen='click' type='local' path='loc.form.mode' state='default'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.mode' equal='default' prop='checked'>
+          <uni-radio data-id='loc-mode-default'></uni-radio>
+        </uni-event-store-get>
+
+        <label for='loc-mode-default'>default</label>
+      </uni-form-field>
+    </uni-event-store-set>
+
+    <uni-event-store-set listen='click' type='local' path='loc.form.mode' state='outlined'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.mode' equal='outlined' prop='checked'>
+          <uni-radio data-id='loc-mode-outlined'></uni-radio>
+        </uni-event-store-get>
+
+        <label for='loc-mode-outlined'>outlined</label>
+      </uni-form-field>
+    </uni-event-store-set>
+
+    <uni-event-store-set listen='click' type='local' path='loc.form.mode' state='flat'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.mode' equal='flat' prop='checked'>
+          <uni-radio data-id='loc-mode-flat'></uni-radio>
+        </uni-event-store-get>
+
+        <label for='loc-mode-flat'>flat</label>
+      </uni-form-field>
+    </uni-event-store-set>
+
+    <uni-event-store-set listen='click' type='local' path='loc.form.mode' state='raised'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.mode' equal='raised' prop='checked'>
+          <uni-radio data-id='loc-mode-raised'></uni-radio>
+        </uni-event-store-get>
+
+        <label for='loc-mode-raised'>raised</label>
+      </uni-form-field>
+    </uni-event-store-set>
+  </form>
+</div>
+
+<div>
   <span>Set Store type:</span>
 
-  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='local'>
-    <uni-form-field>
-      <uni-event-store-get type='local' path='loc.form.type' equal='local' prop='checked'>
-        <uni-radio data-id='loc-type-local'></uni-radio>
-      </uni-event-store-get>
+  <form>
+    <uni-event-store-set listen='click' type='local' path='loc.form.type' state='local'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.type' equal='local' prop='checked'>
+          <uni-radio data-id='loc-type-local'></uni-radio>
+        </uni-event-store-get>
 
-      <label for='loc-type-local'>local</label>
-    </uni-form-field>
-  </uni-event-store-set>
+        <label for='loc-type-local'>local</label>
+      </uni-form-field>
+    </uni-event-store-set>
 
-  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='session'>
-    <uni-form-field>
-      <uni-event-store-get type='local' path='loc.form.type' equal='session' prop='checked'>
-        <uni-radio data-id='loc-type-session'></uni-radio>
-      </uni-event-store-get>
+    <uni-event-store-set listen='click' type='local' path='loc.form.type' state='session'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.type' equal='session' prop='checked'>
+          <uni-radio data-id='loc-type-session'></uni-radio>
+        </uni-event-store-get>
 
-      <label for='loc-type-session'>session</label>
-    </uni-form-field>
-  </uni-event-store-set>
+        <label for='loc-type-session'>session</label>
+      </uni-form-field>
+    </uni-event-store-set>
 
-  <uni-event-store-set listen='click' type='local' path='loc.form.type' state='memory'>
-    <uni-form-field>
-      <uni-event-store-get type='local' path='loc.form.type' equal='memory' prop='checked'>
-        <uni-radio data-id='loc-type-memory'></uni-radio>
-      </uni-event-store-get>
+    <uni-event-store-set listen='click' type='local' path='loc.form.type' state='memory'>
+      <uni-form-field>
+        <uni-event-store-get type='local' path='loc.form.type' equal='memory' prop='checked'>
+          <uni-radio data-id='loc-type-memory'></uni-radio>
+        </uni-event-store-get>
 
-      <label for='loc-type-memory'>memory</label>
-    </uni-form-field>
-  </uni-event-store-set>
+        <label for='loc-type-memory'>memory</label>
+      </uni-form-field>
+    </uni-event-store-set>
+  </form>
 </div>
 
 <!--<div>-->
@@ -191,42 +255,48 @@
 
 <p></p>
 
+<uni-router shadow></uni-router>
+
 <uni-event-store-get type='local' path='loc.form.round' all selector='uni-lang-menu, uni-lang-menu-shadow, uni-flag'
                      prop='round'>
   <div>
     <uni-event-store-get type='local' path='loc.form.list' all selector='uni-lang-menu, uni-lang-menu-shadow'
                          prop='list'>
-      <uni-event-store-get type='local' path='loc.form.mini' all selector='uni-lang-menu, uni-lang-menu-shadow'
-                           prop='mini'>
-        <uni-event-store-get type='local' path='loc.form.routing' all selector='uni-lang-menu, uni-lang-menu-shadow'
-                             prop='routing'>
-          <uni-event-store-get type='local' path='loc.form.route' all selector='uni-lang-menu, uni-lang-menu-shadow'
-                               prop='route'>
-            <uni-event-store-get type='local' path='loc.form.type' all selector='uni-lang-menu, uni-lang-menu-shadow'
-                                 prop='type'>
-              <div>
-                Element:
-                <uni-lang-menu
-                  languages-path='loc.element.languages'
-                  active-path='loc.element.active'
-                  translate-path='loc.element.translate'
-                ></uni-lang-menu>
+      <uni-event-store-get type='local' path='loc.form.linear' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                           prop='linear'>
+        <uni-event-store-get type='local' path='loc.form.mini' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                             prop='mini'>
+          <uni-event-store-get type='local' path='loc.form.routing' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                               prop='routing'>
+            <uni-event-store-get type='local' path='loc.form.route' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                                 prop='route'>
+              <uni-event-store-get type='local' path='loc.form.mode' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                                   prop='mode'>
+                <uni-event-store-get type='local' path='loc.form.type' all
+                                     selector='uni-lang-menu, uni-lang-menu-shadow' prop='type'>
+                  <div style='padding: 5px'>
+                    Element:
+                    <uni-lang-menu
+                      languages-path='loc.element.languages'
+                      active-path='loc.element.active'
+                      translate-path='loc.element.translate'
+                    ></uni-lang-menu>
 
-                <uni-translate path='loc.element.translate'>This content is localized</uni-translate>
-              </div>
+                    <uni-translate path='loc.element.translate'>This content is localized</uni-translate>
+                  </div>
 
-              <div>
-                Shadow:
-                <uni-router shadow></uni-router>
+                  <div style='padding: 5px'>
+                    Shadow:
+                    <uni-lang-menu-shadow
+                      languages-path='loc.shadow.languages'
+                      active-path='loc.shadow.active'
+                      translate-path='loc.shadow.translate'
+                    ></uni-lang-menu-shadow>
 
-                <uni-lang-menu-shadow
-                  languages-path='loc.shadow.languages'
-                  active-path='loc.shadow.active'
-                  translate-path='loc.shadow.translate'
-                ></uni-lang-menu-shadow>
-
-                <uni-translate path='loc.shadow.translate'>This content is localized</uni-translate>
-              </div>
+                    <uni-translate path='loc.shadow.translate'>This content is localized</uni-translate>
+                  </div>
+                </uni-event-store-get>
+              </uni-event-store-get>
             </uni-event-store-get>
           </uni-event-store-get>
         </uni-event-store-get>
@@ -279,8 +349,8 @@
                     </uni-router-link>
 
                     <uni-route params='lang=(( lang ))' prop='activate'>
-                      <uni-store-set inactive type='local' path='loc.route.active'
-                                     state='(( uniself ))'></uni-store-set>
+                      <uni-store-set inactive type='local' path='loc.route.active' state='(( uniself ))'>
+                      </uni-store-set>
                     </uni-route>
                   </template>
                 </uni-load-repeat>
