@@ -43,7 +43,7 @@ export class UniLangLoadComponent implements ComponentInterface {
         />
 
         <uni-event-store-get
-          top={top}
+          top={this.top}
           type={this.type}
           feature={this.feature}
           separator={this.separator}
