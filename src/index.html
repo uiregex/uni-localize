@@ -14,7 +14,7 @@
 </head>
 <body>
 <!--https://uni.github.io/loc/lang-menu.json-->
-<uni-store-set shadow mode='init' type='local' path='loc.form.list' state='assets/json/i18n/langs.json'></uni-store-set>
+<uni-store-set shadow mode='init' type='local' path='loc.form.url' state='assets/json/i18n/langs.json'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.linear' state='false'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.mini' state='false'></uni-store-set>
 <uni-store-set shadow mode='init' type='local' path='loc.form.round' state='false'></uni-store-set>
@@ -61,21 +61,21 @@
 <!--</div>-->
 
 <div>
-  <uni-event-store-set listen='input' path='loc.form.list'>
-    <uni-event-store-get type='local' path='loc.form.list' prop='value'>
+  <uni-event-store-set listen='input' path='loc.form.url'>
+    <uni-event-store-get type='local' path='loc.form.url' prop='value'>
       <input type='text' name='input' id='loc-list'>
     </uni-event-store-get>
 
     <uni-event listen='click' prop='activate'>
-      <uni-store-get inactive path='loc.form.list' prop='state'>
-        <uni-store-set type='local' path='loc.form.list'></uni-store-set>
+      <uni-store-get inactive path='loc.form.url' prop='state'>
+        <uni-store-set type='local' path='loc.form.url'></uni-store-set>
       </uni-store-get>
 
       <uni-button pro mode='outlined'>Save</uni-button>
     </uni-event>
   </uni-event-store-set>
 
-  <label for='loc-list'>Set list url</label>
+  <label for='loc-list'>Set languages list url</label>
 </div>
 
 <div>
@@ -260,8 +260,8 @@
 <uni-event-store-get type='local' path='loc.form.round' all selector='uni-lang-menu, uni-lang-menu-shadow, uni-flag'
                      prop='round'>
   <div>
-    <uni-event-store-get type='local' path='loc.form.list' all selector='uni-lang-menu, uni-lang-menu-shadow'
-                         prop='list'>
+    <uni-event-store-get type='local' path='loc.form.url' all selector='uni-lang-menu, uni-lang-menu-shadow'
+                         prop='url'>
       <uni-event-store-get type='local' path='loc.form.linear' all selector='uni-lang-menu, uni-lang-menu-shadow'
                            prop='linear'>
         <uni-event-store-get type='local' path='loc.form.mini' all selector='uni-lang-menu, uni-lang-menu-shadow'

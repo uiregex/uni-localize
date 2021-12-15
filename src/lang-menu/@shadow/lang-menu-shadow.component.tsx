@@ -11,7 +11,7 @@ import { UniLangListTemplate } from '../utils/lang-list.template';
 })
 export class UniLangMenuShadowComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) list!: string;
+  @Prop({ reflect: true }) url!: string;
 
   @Prop({ reflect: true }) linear: boolean = false;
 
@@ -45,10 +45,10 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   render(): VNode {
     const {
-      list, linear, mini, round, routing, route, mode, top, shadow, frame, type, feature, separator,
+      url, linear, mini, round, routing, route, mode, top, shadow, frame, type, feature, separator,
       languagesPath, activePath, translatePath,
     } = this;
-    const data = { list, linear, mini, round, routing, route, mode, languagesPath, activePath, translatePath, isShadow: true };
+    const data = { url, linear, mini, round, routing, route, mode, languagesPath, activePath, translatePath, isShadow: true };
     const storeData = { top, shadow, frame, type, feature, separator };
 
     return this.linear ? UniLangListTemplate(data, storeData) : UniLangMenuTemplate(data, storeData);

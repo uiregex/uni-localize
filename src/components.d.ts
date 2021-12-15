@@ -16,13 +16,25 @@ export namespace Components {
         "round": boolean;
         "selected": boolean;
     }
+    interface UniLangLoad {
+        "activePath": string;
+        "feature": string;
+        "frame": boolean;
+        "isShadow": boolean;
+        "languagesPath": string;
+        "separator": string;
+        "shadow": boolean;
+        "top": boolean;
+        "translatePath": string;
+        "type": UniStoreType;
+        "url": string;
+    }
     interface UniLangMenu {
         "activePath": string;
         "feature": string;
         "frame": boolean;
         "languagesPath": string;
         "linear": boolean;
-        "list": string;
         "mini": boolean;
         "mode": UniButtonMode;
         "only": boolean;
@@ -34,6 +46,7 @@ export namespace Components {
         "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
+        "url": string;
     }
     interface UniLangMenuButton {
         "activePath": string;
@@ -57,7 +70,6 @@ export namespace Components {
         "frame": boolean;
         "languagesPath": string;
         "linear": boolean;
-        "list": string;
         "mini": boolean;
         "mode": UniButtonMode;
         "round": boolean;
@@ -68,6 +80,7 @@ export namespace Components {
         "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
+        "url": string;
     }
     interface UniTranslate {
         "activate": boolean;
@@ -100,6 +113,12 @@ declare global {
     var HTMLUniLangListButtonElement: {
         prototype: HTMLUniLangListButtonElement;
         new (): HTMLUniLangListButtonElement;
+    };
+    interface HTMLUniLangLoadElement extends Components.UniLangLoad, HTMLStencilElement {
+    }
+    var HTMLUniLangLoadElement: {
+        prototype: HTMLUniLangLoadElement;
+        new (): HTMLUniLangLoadElement;
     };
     interface HTMLUniLangMenuElement extends Components.UniLangMenu, HTMLStencilElement {
     }
@@ -139,6 +158,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "uni-lang-list-button": HTMLUniLangListButtonElement;
+        "uni-lang-load": HTMLUniLangLoadElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
         "uni-lang-menu-button": HTMLUniLangMenuButtonElement;
         "uni-lang-menu-list-item": HTMLUniLangMenuListItemElement;
@@ -156,13 +176,25 @@ declare namespace LocalJSX {
         "round"?: boolean;
         "selected"?: boolean;
     }
+    interface UniLangLoad {
+        "activePath"?: string;
+        "feature"?: string;
+        "frame"?: boolean;
+        "isShadow"?: boolean;
+        "languagesPath"?: string;
+        "separator"?: string;
+        "shadow"?: boolean;
+        "top"?: boolean;
+        "translatePath"?: string;
+        "type"?: UniStoreType;
+        "url": string;
+    }
     interface UniLangMenu {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
         "languagesPath"?: string;
         "linear"?: boolean;
-        "list": string;
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "only"?: boolean;
@@ -174,6 +206,7 @@ declare namespace LocalJSX {
         "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
+        "url": string;
     }
     interface UniLangMenuButton {
         "activePath"?: string;
@@ -197,7 +230,6 @@ declare namespace LocalJSX {
         "frame"?: boolean;
         "languagesPath"?: string;
         "linear"?: boolean;
-        "list": string;
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "round"?: boolean;
@@ -208,6 +240,7 @@ declare namespace LocalJSX {
         "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
+        "url": string;
     }
     interface UniTranslate {
         "activate"?: boolean;
@@ -235,6 +268,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "uni-lang-list-button": UniLangListButton;
+        "uni-lang-load": UniLangLoad;
         "uni-lang-menu": UniLangMenu;
         "uni-lang-menu-button": UniLangMenuButton;
         "uni-lang-menu-list-item": UniLangMenuListItem;
@@ -248,6 +282,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "uni-lang-list-button": LocalJSX.UniLangListButton & JSXBase.HTMLAttributes<HTMLUniLangListButtonElement>;
+            "uni-lang-load": LocalJSX.UniLangLoad & JSXBase.HTMLAttributes<HTMLUniLangLoadElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
             "uni-lang-menu-button": LocalJSX.UniLangMenuButton & JSXBase.HTMLAttributes<HTMLUniLangMenuButtonElement>;
             "uni-lang-menu-list-item": LocalJSX.UniLangMenuListItem & JSXBase.HTMLAttributes<HTMLUniLangMenuListItemElement>;

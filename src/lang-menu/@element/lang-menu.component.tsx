@@ -10,7 +10,7 @@ import { UniLangListTemplate } from '../utils/lang-list.template';
 })
 export class UniLangMenuComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) list!: string;
+  @Prop({ reflect: true }) url!: string;
 
   @Prop({ reflect: true }) linear: boolean = false;
 
@@ -46,15 +46,18 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   render(): VNode {
     if (this.only) {
-      const classes = { 'uni-lang-menu': true };
+      const classes = {
+        'uni-lang-menu': !this.linear,
+        'uni-lang-list': this.linear
+      };
 
       return <Host class={classes} />;
     } else {
       const {
-        list, linear, mini, round, routing, route, mode, top, shadow, frame, type, feature, separator,
+        url, linear, mini, round, routing, route, mode, top, shadow, frame, type, feature, separator,
         languagesPath, activePath, translatePath,
       } = this;
-      const data = { list, linear, mini, round, routing, route, mode, languagesPath, activePath, translatePath };
+      const data = { url, linear, mini, round, routing, route, mode, languagesPath, activePath, translatePath };
       const storeData = { top, shadow, frame, type, feature, separator };
 
       return this.linear ? UniLangListTemplate(data, storeData) : UniLangMenuTemplate(data, storeData);
