@@ -5,82 +5,67 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { UniButtonMode, UniStoreType } from "./lang-menu/models";
+import { UniButtonMode, UniLangItem, UniStoreType } from "./lang-menu/models";
 import { UniStoreType as UniStoreType1 } from "./lang-menu";
 export namespace Components {
+    interface UniLangDefault {
+        "activePath": string;
+        "feature": string;
+        "frame": boolean;
+        "indexMode": 'init' | 'set' | 'merge';
+        "isShadow": boolean;
+        "selectedIndex": number;
+        "shadow": boolean;
+        "top": boolean;
+        "type": UniStoreType;
+        "value": Array<UniLangItem>;
+    }
     interface UniLangListButton {
+        "activate": boolean;
         "flag": string;
         "mini": boolean;
         "mode": UniButtonMode;
         "name": string;
         "round": boolean;
-        "selected": boolean;
     }
-    interface UniLangLoad {
-        "activePath": string;
-        "feature": string;
-        "frame": boolean;
-        "isShadow": boolean;
-        "languagesPath": string;
-        "separator": string;
-        "shadow": boolean;
-        "top": boolean;
-        "translatePath": string;
-        "type": UniStoreType;
-        "url": string;
+    interface UniLangListItem {
+        "activate": boolean;
+        "flag": string;
+        "name": string;
+        "round": boolean;
     }
     interface UniLangMenu {
         "activePath": string;
         "feature": string;
         "frame": boolean;
-        "languagesPath": string;
         "linear": boolean;
         "mini": boolean;
         "mode": UniButtonMode;
         "only": boolean;
         "round": boolean;
-        "route": string;
-        "routing": boolean;
+        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
-        "url": string;
-    }
-    interface UniLangMenuButton {
-        "activePath": string;
-        "feature": string;
-        "mini": boolean;
-        "mode": UniButtonMode;
-        "round": boolean;
-        "separator": string;
-        "top": boolean;
-        "type": UniStoreType;
-    }
-    interface UniLangMenuListItem {
-        "flag": string;
-        "name": string;
-        "round": boolean;
-        "selected": boolean;
+        "value": string | Array<UniLangItem>;
     }
     interface UniLangMenuShadow {
         "activePath": string;
         "feature": string;
         "frame": boolean;
-        "languagesPath": string;
         "linear": boolean;
         "mini": boolean;
         "mode": UniButtonMode;
         "round": boolean;
-        "route": string;
-        "routing": boolean;
+        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
         "translatePath": string;
         "type": UniStoreType;
-        "url": string;
+        "value": string | Array<UniLangItem>;
     }
     interface UniTranslate {
         "activate": boolean;
@@ -92,6 +77,16 @@ export namespace Components {
         "rendered": boolean;
         "separator": string;
         "top": boolean;
+        "type": UniStoreType;
+    }
+    interface UniTranslateLoad {
+        "activePath": string;
+        "feature": string;
+        "frame": boolean;
+        "separator": string;
+        "shadow": boolean;
+        "top": boolean;
+        "translatePath": string;
         "type": UniStoreType;
     }
     interface UniTranslateShadow {
@@ -108,35 +103,29 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLUniLangDefaultElement extends Components.UniLangDefault, HTMLStencilElement {
+    }
+    var HTMLUniLangDefaultElement: {
+        prototype: HTMLUniLangDefaultElement;
+        new (): HTMLUniLangDefaultElement;
+    };
     interface HTMLUniLangListButtonElement extends Components.UniLangListButton, HTMLStencilElement {
     }
     var HTMLUniLangListButtonElement: {
         prototype: HTMLUniLangListButtonElement;
         new (): HTMLUniLangListButtonElement;
     };
-    interface HTMLUniLangLoadElement extends Components.UniLangLoad, HTMLStencilElement {
+    interface HTMLUniLangListItemElement extends Components.UniLangListItem, HTMLStencilElement {
     }
-    var HTMLUniLangLoadElement: {
-        prototype: HTMLUniLangLoadElement;
-        new (): HTMLUniLangLoadElement;
+    var HTMLUniLangListItemElement: {
+        prototype: HTMLUniLangListItemElement;
+        new (): HTMLUniLangListItemElement;
     };
     interface HTMLUniLangMenuElement extends Components.UniLangMenu, HTMLStencilElement {
     }
     var HTMLUniLangMenuElement: {
         prototype: HTMLUniLangMenuElement;
         new (): HTMLUniLangMenuElement;
-    };
-    interface HTMLUniLangMenuButtonElement extends Components.UniLangMenuButton, HTMLStencilElement {
-    }
-    var HTMLUniLangMenuButtonElement: {
-        prototype: HTMLUniLangMenuButtonElement;
-        new (): HTMLUniLangMenuButtonElement;
-    };
-    interface HTMLUniLangMenuListItemElement extends Components.UniLangMenuListItem, HTMLStencilElement {
-    }
-    var HTMLUniLangMenuListItemElement: {
-        prototype: HTMLUniLangMenuListItemElement;
-        new (): HTMLUniLangMenuListItemElement;
     };
     interface HTMLUniLangMenuShadowElement extends Components.UniLangMenuShadow, HTMLStencilElement {
     }
@@ -150,6 +139,12 @@ declare global {
         prototype: HTMLUniTranslateElement;
         new (): HTMLUniTranslateElement;
     };
+    interface HTMLUniTranslateLoadElement extends Components.UniTranslateLoad, HTMLStencilElement {
+    }
+    var HTMLUniTranslateLoadElement: {
+        prototype: HTMLUniTranslateLoadElement;
+        new (): HTMLUniTranslateLoadElement;
+    };
     interface HTMLUniTranslateShadowElement extends Components.UniTranslateShadow, HTMLStencilElement {
     }
     var HTMLUniTranslateShadowElement: {
@@ -157,90 +152,75 @@ declare global {
         new (): HTMLUniTranslateShadowElement;
     };
     interface HTMLElementTagNameMap {
+        "uni-lang-default": HTMLUniLangDefaultElement;
         "uni-lang-list-button": HTMLUniLangListButtonElement;
-        "uni-lang-load": HTMLUniLangLoadElement;
+        "uni-lang-list-item": HTMLUniLangListItemElement;
         "uni-lang-menu": HTMLUniLangMenuElement;
-        "uni-lang-menu-button": HTMLUniLangMenuButtonElement;
-        "uni-lang-menu-list-item": HTMLUniLangMenuListItemElement;
         "uni-lang-menu-shadow": HTMLUniLangMenuShadowElement;
         "uni-translate": HTMLUniTranslateElement;
+        "uni-translate-load": HTMLUniTranslateLoadElement;
         "uni-translate-shadow": HTMLUniTranslateShadowElement;
     }
 }
 declare namespace LocalJSX {
+    interface UniLangDefault {
+        "activePath"?: string;
+        "feature"?: string;
+        "frame"?: boolean;
+        "indexMode"?: 'init' | 'set' | 'merge';
+        "isShadow"?: boolean;
+        "selectedIndex"?: number;
+        "shadow"?: boolean;
+        "top"?: boolean;
+        "type"?: UniStoreType;
+        "value"?: Array<UniLangItem>;
+    }
     interface UniLangListButton {
+        "activate"?: boolean;
         "flag"?: string;
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "name"?: string;
         "round"?: boolean;
-        "selected"?: boolean;
     }
-    interface UniLangLoad {
-        "activePath"?: string;
-        "feature"?: string;
-        "frame"?: boolean;
-        "isShadow"?: boolean;
-        "languagesPath"?: string;
-        "separator"?: string;
-        "shadow"?: boolean;
-        "top"?: boolean;
-        "translatePath"?: string;
-        "type"?: UniStoreType;
-        "url": string;
+    interface UniLangListItem {
+        "activate"?: boolean;
+        "flag"?: string;
+        "name"?: string;
+        "round"?: boolean;
     }
     interface UniLangMenu {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
-        "languagesPath"?: string;
         "linear"?: boolean;
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "only"?: boolean;
         "round"?: boolean;
-        "route"?: string;
-        "routing"?: boolean;
+        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
-        "url": string;
-    }
-    interface UniLangMenuButton {
-        "activePath"?: string;
-        "feature"?: string;
-        "mini"?: boolean;
-        "mode"?: UniButtonMode;
-        "round"?: boolean;
-        "separator"?: string;
-        "top"?: boolean;
-        "type"?: UniStoreType;
-    }
-    interface UniLangMenuListItem {
-        "flag"?: string;
-        "name"?: string;
-        "round"?: boolean;
-        "selected"?: boolean;
+        "value"?: string | Array<UniLangItem>;
     }
     interface UniLangMenuShadow {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
-        "languagesPath"?: string;
         "linear"?: boolean;
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "round"?: boolean;
-        "route"?: string;
-        "routing"?: boolean;
+        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
         "translatePath"?: string;
         "type"?: UniStoreType;
-        "url": string;
+        "value"?: string | Array<UniLangItem>;
     }
     interface UniTranslate {
         "activate"?: boolean;
@@ -252,6 +232,16 @@ declare namespace LocalJSX {
         "rendered"?: boolean;
         "separator"?: string;
         "top"?: boolean;
+        "type"?: UniStoreType;
+    }
+    interface UniTranslateLoad {
+        "activePath"?: string;
+        "feature"?: string;
+        "frame"?: boolean;
+        "separator"?: string;
+        "shadow"?: boolean;
+        "top"?: boolean;
+        "translatePath"?: string;
         "type"?: UniStoreType;
     }
     interface UniTranslateShadow {
@@ -267,13 +257,13 @@ declare namespace LocalJSX {
         "type"?: UniStoreType;
     }
     interface IntrinsicElements {
+        "uni-lang-default": UniLangDefault;
         "uni-lang-list-button": UniLangListButton;
-        "uni-lang-load": UniLangLoad;
+        "uni-lang-list-item": UniLangListItem;
         "uni-lang-menu": UniLangMenu;
-        "uni-lang-menu-button": UniLangMenuButton;
-        "uni-lang-menu-list-item": UniLangMenuListItem;
         "uni-lang-menu-shadow": UniLangMenuShadow;
         "uni-translate": UniTranslate;
+        "uni-translate-load": UniTranslateLoad;
         "uni-translate-shadow": UniTranslateShadow;
     }
 }
@@ -281,13 +271,13 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "uni-lang-default": LocalJSX.UniLangDefault & JSXBase.HTMLAttributes<HTMLUniLangDefaultElement>;
             "uni-lang-list-button": LocalJSX.UniLangListButton & JSXBase.HTMLAttributes<HTMLUniLangListButtonElement>;
-            "uni-lang-load": LocalJSX.UniLangLoad & JSXBase.HTMLAttributes<HTMLUniLangLoadElement>;
+            "uni-lang-list-item": LocalJSX.UniLangListItem & JSXBase.HTMLAttributes<HTMLUniLangListItemElement>;
             "uni-lang-menu": LocalJSX.UniLangMenu & JSXBase.HTMLAttributes<HTMLUniLangMenuElement>;
-            "uni-lang-menu-button": LocalJSX.UniLangMenuButton & JSXBase.HTMLAttributes<HTMLUniLangMenuButtonElement>;
-            "uni-lang-menu-list-item": LocalJSX.UniLangMenuListItem & JSXBase.HTMLAttributes<HTMLUniLangMenuListItemElement>;
             "uni-lang-menu-shadow": LocalJSX.UniLangMenuShadow & JSXBase.HTMLAttributes<HTMLUniLangMenuShadowElement>;
             "uni-translate": LocalJSX.UniTranslate & JSXBase.HTMLAttributes<HTMLUniTranslateElement>;
+            "uni-translate-load": LocalJSX.UniTranslateLoad & JSXBase.HTMLAttributes<HTMLUniTranslateLoadElement>;
             "uni-translate-shadow": LocalJSX.UniTranslateShadow & JSXBase.HTMLAttributes<HTMLUniTranslateShadowElement>;
         }
     }

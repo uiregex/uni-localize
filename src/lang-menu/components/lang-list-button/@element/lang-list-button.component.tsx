@@ -7,7 +7,7 @@ import { UniButtonMode } from '../../../models';
 @Component({ tag: 'uni-lang-list-button' })
 export class UniLangListButtonComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) selected: boolean = false;
+  @Prop({ reflect: true }) activate: boolean = false;
 
   @Prop({ reflect: true }) mini: boolean = false;
 
@@ -21,7 +21,7 @@ export class UniLangListButtonComponent implements ComponentInterface {
 
   render(): VNode {
     return UniTemplate(
-      <uni-selection inactive={!this.selected}>
+      <uni-selection inactive={!this.activate}>
         <uni-button pro={true} mode={this.mode}>
           <uni-modify state={this.flag} action='isBind' prop='inactive'>
             <uni-display inactive={true}>
@@ -37,7 +37,7 @@ export class UniLangListButtonComponent implements ComponentInterface {
             <uni-button-label>{this.name}</uni-button-label>
           </uni-display>
         </uni-button>
-      </uni-selection>,
+      </uni-selection>
     );
   }
 }

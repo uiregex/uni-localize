@@ -1,0 +1,20 @@
+[
+  {
+    "route": "lang=en",
+    "flag": "gb",
+    "textLabel": "English",
+    "translationUrl": "assets/json/i18n/en.json"
+  },
+  {
+    "route": "lang=cn",
+    "flag": "cn",
+    "textLabel": "中文",
+    "translationUrl": "assets/json/i18n/cn.json"
+  },
+  {
+    "route": "lang=ru",
+    "flag": "ru",
+    "textLabel": "Русский",
+    "translationUrl": "assets/json/i18n/ru.json"
+  }
+]

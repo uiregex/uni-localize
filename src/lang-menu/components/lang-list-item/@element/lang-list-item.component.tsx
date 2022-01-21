@@ -1,9 +1,9 @@
 import { Component, ComponentInterface, Prop, VNode, h } from '@stencil/core';
 
-@Component({ tag: 'uni-lang-menu-list-item' })
-export class UniLangMenuListItemComponent implements ComponentInterface {
+@Component({ tag: 'uni-lang-list-item' })
+export class UniLangListItemComponent implements ComponentInterface {
 
-  @Prop({ reflect: true }) selected: boolean = false;
+  @Prop({ reflect: true }) activate: boolean = false;
 
   @Prop({ reflect: true }) round: boolean = false;
 
@@ -13,7 +13,7 @@ export class UniLangMenuListItemComponent implements ComponentInterface {
 
   render(): VNode {
     return (
-      <uni-list-item selected={this.selected} index='-1'>
+      <uni-list-item selected={this.activate} index='-1'>
         <uni-modify state={this.flag} action='isBind' prop='inactive'>
           <uni-display inactive={true}>
             <uni-list-item-graphic only={true}>

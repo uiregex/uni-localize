@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'loc',
+  namespace: 'localize',
   enableCache: false,
   taskQueue: 'async',
   extras: {

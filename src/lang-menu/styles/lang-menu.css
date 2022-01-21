@@ -29,6 +29,10 @@
 
 /* List styles */
 
+.uni-lang-list {
+  margin-right: 3px;
+}
+
 .uni-lang-list .mdc-button {
   min-width: 0;
   padding: 0 5px;

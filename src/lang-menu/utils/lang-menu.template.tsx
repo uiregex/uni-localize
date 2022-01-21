@@ -1,56 +1,77 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
-import { uniLangItemRoutingLiteral } from './routing.literal';
-import { uniLangItemStoreLiteral } from './store.literal';
+import { UniLangRepeatTemplate } from './lang-repeat.template';
 
 export const UniLangMenuTemplate = function(data, storeData): VNode {
-  const { url, mini, round, mode, routing, route, languagesPath, activePath, translatePath, isShadow } = data;
+  const { value, selectedIndex, mini, round, mode, activePath, translatePath, indexMode, isShadow } = data;
   const { top, shadow, frame, type, feature, separator } = storeData;
 
   return (
     <Fragment>
-      <uni-menu selector={'uni-menu-surface'} class='uni-lang-menu'>
-        <uni-lang-menu-button
-          mini={mini}
-          round={round}
-          mode={mode}
-          top={top}
-          type={type}
-          feature={feature}
-          separator={separator}
-          activePath={activePath}
-        />
+      <uni-lang-default
+        value={value}
+        selectedIndex={selectedIndex}
+        indexMode={indexMode}
+        isShadow={isShadow}
+        top={top}
+        shadow={shadow}
+        frame={frame}
+        type={type}
+        feature={feature}
+        activePath={activePath}
+      />
 
-        <uni-menu-surface>
-          <uni-list-wrap pro={true}>
-            <ul>
+      <uni-menu selector={'uni-menu-surface'} class='uni-lang-menu'>
+        <uni-button pro={true} mode={mode}>
+          <uni-button-icon only={true}>
+            <uni-event-store-get
+              top={top}
+              type={type}
+              feature={feature}
+              separator={separator}
+              path={`${activePath}.flag`}
+              selector={'uni-flag'}
+              prop={'name'}
+            >
+              <uni-flag round={round} />
+            </uni-event-store-get>
+          </uni-button-icon>
+
+          <uni-display inactive={mini}>
+            <uni-button-label>
               <uni-event-store-get
                 top={top}
                 type={type}
                 feature={feature}
                 separator={separator}
-                path={languagesPath}
-                prop={'state'}
+                path={`${activePath}.textLabel`}
+                selector={'uni-render'}
+                prop={'value'}
               >
-                <uni-repeat strict={true} value={routing
-                  ? uniLangItemRoutingLiteral({ route, round, activePath, isShadow }, storeData)
-                  : uniLangItemStoreLiteral({ round, activePath, isShadow }, storeData)} />
+                <uni-render text={true} />
               </uni-event-store-get>
+            </uni-button-label>
+          </uni-display>
+
+          <uni-drop-down />
+        </uni-button>
+
+        <uni-menu-surface>
+          <uni-list-wrap pro={true}>
+            <ul>
+              {UniLangRepeatTemplate(data, storeData)}
             </ul>
           </uni-list-wrap>
         </uni-menu-surface>
       </uni-menu>
 
-      <uni-lang-load
-        url={url}
+      <uni-translate-load
         top={top}
         shadow={shadow}
-        isShadow={isShadow}
         frame={frame}
         type={type}
         feature={feature}
         separator={separator}
-        languagesPath={languagesPath}
         activePath={activePath}
         translatePath={translatePath}
       />

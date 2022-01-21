@@ -1,3 +1,2 @@
-export * from './lang-list-button/@element/lang-list-button.component';
-export * from './lang-menu-button/@element/lang-menu-button.component';
-export * from './lang-menu-list-item/@element/lang-menu-list-item.component';
+export * from './lang-list-item/@element/lang-list-item.component';
+export * from './translate-load/@element/translate-load.component';

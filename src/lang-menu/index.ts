@@ -5,7 +5,7 @@ export * from './components';
 
 export * from './models';
 
+export * from './utils/helpers';
 export * from './utils/lang-list.template';
 export * from './utils/lang-menu.template';
-export * from './utils/routing.literal';
-export * from './utils/store.literal';
+export * from './utils/lang-repeat.template';
