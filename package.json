@@ -1,6 +1,6 @@
 {
   "name": "@uiwebkit/loc",
-  "version": "2.0.0-7",
+  "version": "2.0.0-8",
   "license": "MIT",
   "description": "Uni Localize",
   "author": "Vitali Havryliuk",
@@ -12,8 +12,8 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/loc/loc.esm.js",
-  "jsdelivr": "dist/loc/loc.esm.js",
+  "unpkg": "dist/localize/localize.esm.js",
+  "jsdelivr": "dist/localize/localize.esm.js",
   "files": [
     "dist/",
     "loader/"
@@ -27,7 +27,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "pack": "npm pack",
-    "publish": "npm publish uiwebkit-loc-2.0.0-7.tgz --access public"
+    "publish": "npm publish uiwebkit-loc-2.0.0-8.tgz --access public"
   },
   "dependencies": {
     "@stencil/core": "2.12.1",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/uiwebkit/loc.git"
+    "url": "https://github.com/uiwebkit/localize.git"
   },
   "homepage": "https://uiwebkit.com/wgt/loc/2/"
 }
