@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Fragment, h, Prop, VNode } from '@stencil/core';
 
-import { UniLangItem, UniStoreType } from '../../models';
+import { UniLangItem, UniStoreType } from '../../../models';
 
 @Component({ tag: 'uni-lang-default' })
 export class UniLangDefaultComponent implements ComponentInterface {
