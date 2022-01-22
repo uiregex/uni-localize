@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Prop, VNode, h, Host, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Prop, VNode, h, Host } from '@stencil/core';
 
 import { UniButtonMode, UniLangItem, UniStoreType } from '../models';
 import { UniLangMenuTemplate } from '../utils/lang-menu.template';
@@ -12,8 +12,6 @@ import { parseValue } from '../utils/helpers';
 export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) value: string | Array<UniLangItem> = [];
-
-  @Prop({reflect: true}) selectedIndex: number = 0;
 
   @Prop({ reflect: true }) linear: boolean = false;
 
@@ -41,13 +39,6 @@ export class UniLangMenuComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) only: boolean = false;
 
-  @State() indexMode: string = 'init';
-
-  @Watch('selectedIndex')
-  onSelectedIndex(): void {
-    this.indexMode = 'set';
-  }
-
   render(): VNode {
     if (this.only) {
       const classes = {
@@ -58,11 +49,10 @@ export class UniLangMenuComponent implements ComponentInterface {
       return <Host class={classes} />;
     } else {
       const {
-        selectedIndex, linear, mini, round,  mode, top, shadow, frame, type, feature, separator,
-        activePath, translatePath, indexMode
+        linear, mini, round,  mode, top, shadow, frame, type, feature, separator, activePath, translatePath
       } = this;
       const value = parseValue(this.value);
-      const data = { value, selectedIndex, linear, mini, round, mode, activePath, translatePath, indexMode };
+      const data = { value, linear, mini, round, mode, activePath, translatePath };
       const storeData = { top, shadow, frame, type, feature, separator };
 
       return this.linear ? UniLangListTemplate(data, storeData) : UniLangMenuTemplate(data, storeData);

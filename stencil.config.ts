@@ -33,12 +33,11 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
       polyfills: true,
       empty: true,
     },
     {
-      type: 'dist-custom-elements-bundle',
+      type: 'dist-custom-elements',
       empty: true,
     },
     {

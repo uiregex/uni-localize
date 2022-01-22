@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { UniButtonMode, UniLangItem, UniStoreType } from "./lang-menu/models";
 import { UniStoreType as UniStoreType1 } from "./lang-menu";
 export namespace Components {
+    interface UniLangButtonIcon {
+        "name": string;
+        "round": boolean;
+    }
     interface UniLangDefault {
         "activePath": string;
         "feature": string;
@@ -43,7 +47,6 @@ export namespace Components {
         "mode": UniButtonMode;
         "only": boolean;
         "round": boolean;
-        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
@@ -59,7 +62,6 @@ export namespace Components {
         "mini": boolean;
         "mode": UniButtonMode;
         "round": boolean;
-        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
@@ -103,6 +105,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLUniLangButtonIconElement extends Components.UniLangButtonIcon, HTMLStencilElement {
+    }
+    var HTMLUniLangButtonIconElement: {
+        prototype: HTMLUniLangButtonIconElement;
+        new (): HTMLUniLangButtonIconElement;
+    };
     interface HTMLUniLangDefaultElement extends Components.UniLangDefault, HTMLStencilElement {
     }
     var HTMLUniLangDefaultElement: {
@@ -152,6 +160,7 @@ declare global {
         new (): HTMLUniTranslateShadowElement;
     };
     interface HTMLElementTagNameMap {
+        "uni-lang-button-icon": HTMLUniLangButtonIconElement;
         "uni-lang-default": HTMLUniLangDefaultElement;
         "uni-lang-list-button": HTMLUniLangListButtonElement;
         "uni-lang-list-item": HTMLUniLangListItemElement;
@@ -163,6 +172,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface UniLangButtonIcon {
+        "name"?: string;
+        "round"?: boolean;
+    }
     interface UniLangDefault {
         "activePath"?: string;
         "feature"?: string;
@@ -198,7 +211,6 @@ declare namespace LocalJSX {
         "mode"?: UniButtonMode;
         "only"?: boolean;
         "round"?: boolean;
-        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
@@ -214,7 +226,6 @@ declare namespace LocalJSX {
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "round"?: boolean;
-        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
@@ -257,6 +268,7 @@ declare namespace LocalJSX {
         "type"?: UniStoreType;
     }
     interface IntrinsicElements {
+        "uni-lang-button-icon": UniLangButtonIcon;
         "uni-lang-default": UniLangDefault;
         "uni-lang-list-button": UniLangListButton;
         "uni-lang-list-item": UniLangListItem;
@@ -271,6 +283,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "uni-lang-button-icon": LocalJSX.UniLangButtonIcon & JSXBase.HTMLAttributes<HTMLUniLangButtonIconElement>;
             "uni-lang-default": LocalJSX.UniLangDefault & JSXBase.HTMLAttributes<HTMLUniLangDefaultElement>;
             "uni-lang-list-button": LocalJSX.UniLangListButton & JSXBase.HTMLAttributes<HTMLUniLangListButtonElement>;
             "uni-lang-list-item": LocalJSX.UniLangListItem & JSXBase.HTMLAttributes<HTMLUniLangListItemElement>;

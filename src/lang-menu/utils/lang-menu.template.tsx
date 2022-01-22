@@ -1,12 +1,14 @@
 import { Fragment, h, VNode } from '@stencil/core';
 
+import { UniTemplate } from '@uiwebkit/common';
+
 import { UniLangRepeatTemplate } from './lang-repeat.template';
 
 export const UniLangMenuTemplate = function(data, storeData): VNode {
   const { value, selectedIndex, mini, round, mode, activePath, translatePath, indexMode, isShadow } = data;
   const { top, shadow, frame, type, feature, separator } = storeData;
 
-  return (
+  return UniTemplate(
     <Fragment>
       <uni-lang-default
         value={value}
@@ -23,19 +25,16 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
 
       <uni-menu selector={'uni-menu-surface'} class='uni-lang-menu'>
         <uni-button pro={true} mode={mode}>
-          <uni-button-icon only={true}>
-            <uni-event-store-get
-              top={top}
-              type={type}
-              feature={feature}
-              separator={separator}
-              path={`${activePath}.flag`}
-              selector={'uni-flag'}
-              prop={'name'}
-            >
-              <uni-flag round={round} />
-            </uni-event-store-get>
-          </uni-button-icon>
+          <uni-event-store-get
+            top={top}
+            type={type}
+            feature={feature}
+            separator={separator}
+            path={`${activePath}.flag`}
+            prop={'name'}
+          >
+            <uni-lang-button-icon round={round} />
+          </uni-event-store-get>
 
           <uni-display inactive={mini}>
             <uni-button-label>

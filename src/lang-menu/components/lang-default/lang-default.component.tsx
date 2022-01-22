@@ -7,7 +7,7 @@ export class UniLangDefaultComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) value: Array<UniLangItem> = [];
 
-  @Prop({reflect: true}) selectedIndex: number = 0;
+  @Prop({ reflect: true }) selectedIndex: number = 0;
 
   @Prop({ reflect: true }) indexMode: 'init' | 'set' | 'merge' = 'init';
 
@@ -28,16 +28,24 @@ export class UniLangDefaultComponent implements ComponentInterface {
   render(): VNode {
     return (
       <Fragment>
-        <uni-store-set
-          top={this.top}
-          frame={this.frame}
-          shadow={this.isShadow}
-          mode={this.indexMode}
+        <uni-event-store-get
           type={this.type}
           feature={this.feature}
           path={this.activePath}
-          state={this.value[this.selectedIndex]}
-        />
+          prop={'inactive'}
+        >
+          <uni-store-set
+            inactive={true}
+            top={this.top}
+            frame={this.frame}
+            shadow={this.isShadow}
+            mode={'set'}
+            type={this.type}
+            feature={this.feature}
+            path={this.activePath}
+            state={this.value[0]}
+          />
+        </uni-event-store-get>
 
         {this.value[0]?.route ? (
           <Fragment>
@@ -57,8 +65,26 @@ export class UniLangDefaultComponent implements ComponentInterface {
                 <uni-router-link params={this.value[this.selectedIndex].route} />
               </uni-route>
             </uni-store-get>
+
+            <uni-store-get
+              type={this.type}
+              feature={this.feature}
+              path={`${this.activePath}.route`}
+              selector={'uni-router-link'}
+              prop={'activate'}
+            >
+              <uni-store-get
+                type={this.type}
+                feature={this.feature}
+                path={`${this.activePath}.route`}
+                prop={'params'}
+              >
+                <uni-router-link />
+              </uni-store-get>
+            </uni-store-get>
           </Fragment>
         ) : null}
       </Fragment>
-    )};
+    );
+  };
 }
