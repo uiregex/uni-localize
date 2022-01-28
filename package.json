@@ -1,6 +1,6 @@
 {
   "name": "@uiwebkit/loc",
-  "version": "2.0.0-8",
+  "version": "2.0.0-9",
   "license": "MIT",
   "description": "Uni Localize",
   "author": "Vitali Havryliuk",
@@ -27,7 +27,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "pack": "npm pack",
-    "publish": "npm publish uiwebkit-loc-2.0.0-8.tgz --access public"
+    "publish": "npm publish uiwebkit-loc-2.0.0-9.tgz --access public"
   },
   "dependencies": {
     "@stencil/core": "2.12.1",

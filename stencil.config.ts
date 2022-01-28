@@ -30,6 +30,9 @@ export const config: Config = {
     // experimentalDevModules: true,
     // logRequests: true,
   },
+  bundles: [
+    { components: ['uni-lang-button-icon', 'uni-lang-list-item'] },
+  ],
   outputTargets: [
     {
       type: 'dist',
@@ -50,5 +53,5 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
-  ]
+  ],
 };

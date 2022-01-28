@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Fragment, h, Prop, VNode } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, VNode } from '@stencil/core';
 
 import { UniLangItem, UniStoreType } from '../../../models';
 
@@ -27,64 +27,24 @@ export class UniLangDefaultComponent implements ComponentInterface {
 
   render(): VNode {
     return (
-      <Fragment>
-        <uni-event-store-get
+      <uni-event-store-get
+        type={this.type}
+        feature={this.feature}
+        path={this.activePath}
+        prop={'inactive'}
+      >
+        <uni-store-set
+          inactive={true}
+          top={this.top}
+          frame={this.frame}
+          shadow={this.isShadow}
+          mode={'set'}
           type={this.type}
           feature={this.feature}
           path={this.activePath}
-          prop={'inactive'}
-        >
-          <uni-store-set
-            inactive={true}
-            top={this.top}
-            frame={this.frame}
-            shadow={this.isShadow}
-            mode={'set'}
-            type={this.type}
-            feature={this.feature}
-            path={this.activePath}
-            state={this.value[0]}
-          />
-        </uni-event-store-get>
-
-        {this.value[0]?.route ? (
-          <Fragment>
-            <uni-router frame={this.frame} shadow={this.shadow} />
-
-            <uni-store-get
-              type={this.type}
-              feature={this.feature}
-              path={`${this.activePath}.route`}
-              prop={'inactive'}
-            >
-              <uni-route
-                inactive={true}
-                no-params={this.value[0].route.split('=')[0]}
-                prop='activate'
-              >
-                <uni-router-link params={this.value[this.selectedIndex].route} />
-              </uni-route>
-            </uni-store-get>
-
-            <uni-store-get
-              type={this.type}
-              feature={this.feature}
-              path={`${this.activePath}.route`}
-              selector={'uni-router-link'}
-              prop={'activate'}
-            >
-              <uni-store-get
-                type={this.type}
-                feature={this.feature}
-                path={`${this.activePath}.route`}
-                prop={'params'}
-              >
-                <uni-router-link />
-              </uni-store-get>
-            </uni-store-get>
-          </Fragment>
-        ) : null}
-      </Fragment>
+          state={this.value[0]}
+        />
+      </uni-event-store-get>
     );
   };
 }
