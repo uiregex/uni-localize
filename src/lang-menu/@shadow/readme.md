@@ -16,6 +16,7 @@
 | `mini`          | `mini`           |             | `boolean`                          | `false`           |
 | `mode`          | `mode`           |             | `"flat" \| "outlined" \| "raised"` | `undefined`       |
 | `round`         | `round`          |             | `boolean`                          | `false`           |
+| `selectedIndex` | `selected-index` |             | `number`                           | `0`               |
 | `separator`     | `separator`      |             | `string`                           | `'.'`             |
 | `shadow`        | `shadow`         |             | `boolean`                          | `false`           |
 | `top`           | `top`            |             | `boolean`                          | `false`           |

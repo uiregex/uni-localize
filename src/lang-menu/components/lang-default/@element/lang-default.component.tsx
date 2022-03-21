@@ -9,8 +9,6 @@ export class UniLangDefaultComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) selectedIndex: number = 0;
 
-  @Prop({ reflect: true }) indexMode: 'init' | 'set' | 'merge' = 'init';
-
   @Prop({ reflect: true }) isShadow: boolean = false;
 
   @Prop({ reflect: true }) top: boolean = false;
@@ -42,7 +40,7 @@ export class UniLangDefaultComponent implements ComponentInterface {
           type={this.type}
           feature={this.feature}
           path={this.activePath}
-          state={this.value[0]}
+          state={this.value[this.selectedIndex]}
         />
       </uni-event-store-get>
     );

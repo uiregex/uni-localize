@@ -3,7 +3,7 @@ import { Fragment, h, VNode } from '@stencil/core';
 import { UniLangRepeatTemplate } from './lang-repeat.template';
 
 export const UniLangListTemplate = function(data, storeData): VNode {
-  const { value, selectedIndex, activePath, translatePath, indexMode, isShadow } = data;
+  const { value, selectedIndex, activePath, translatePath, isShadow } = data;
   const { top, shadow, frame, type, feature, separator } = storeData;
 
   return (
@@ -11,7 +11,6 @@ export const UniLangListTemplate = function(data, storeData): VNode {
       <uni-lang-default
         value={value}
         selectedIndex={selectedIndex}
-        indexMode={indexMode}
         isShadow={isShadow}
         top={top}
         shadow={shadow}

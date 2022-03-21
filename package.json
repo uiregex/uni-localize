@@ -1,6 +1,6 @@
 {
   "name": "@uiwebkit/loc",
-  "version": "2.0.0-9",
+  "version": "2.0.0-10",
   "license": "MIT",
   "description": "Uni Localize",
   "author": "Vitali Havryliuk",
@@ -14,10 +14,7 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/localize/localize.esm.js",
   "jsdelivr": "dist/localize/localize.esm.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
+  "files": ["dist/"],
   "scripts": {
     "build:dev": "stencil build --dev --watch",
     "build:prod": "stencil build",
@@ -27,16 +24,17 @@
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "pack": "npm pack",
-    "publish": "npm publish uiwebkit-loc-2.0.0-9.tgz --access public"
+    "publish": "npm publish uiwebkit-loc-2.0.0-10.tgz --access public"
   },
   "dependencies": {
-    "@stencil/core": "2.12.1",
-    "@uiwebkit/common": "0.1.1"
+    "@stencil/core": "2.14.2",
+    "@uiwebkit/common": "0.2.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.24",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
+    "prettier": "2.6.0",
     "puppeteer": "10.4.0"
   },
   "repository": {

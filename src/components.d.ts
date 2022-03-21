@@ -16,7 +16,6 @@ export namespace Components {
         "activePath": string;
         "feature": string;
         "frame": boolean;
-        "indexMode": 'init' | 'set' | 'merge';
         "isShadow": boolean;
         "selectedIndex": number;
         "shadow": boolean;
@@ -47,6 +46,7 @@ export namespace Components {
         "mode": UniButtonMode;
         "only": boolean;
         "round": boolean;
+        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
@@ -62,6 +62,7 @@ export namespace Components {
         "mini": boolean;
         "mode": UniButtonMode;
         "round": boolean;
+        "selectedIndex": number;
         "separator": string;
         "shadow": boolean;
         "top": boolean;
@@ -73,6 +74,9 @@ export namespace Components {
         "activate": boolean;
         "bindend": string;
         "bindstart": string;
+        "clean": boolean;
+        "empty": boolean;
+        "excludes": string;
         "feature": string;
         "inactive": boolean;
         "path": string;
@@ -95,6 +99,9 @@ export namespace Components {
         "activate": boolean;
         "bindend": string;
         "bindstart": string;
+        "clean": boolean;
+        "empty": boolean;
+        "excludes": string;
         "feature": string;
         "inactive": boolean;
         "path": string;
@@ -180,7 +187,6 @@ declare namespace LocalJSX {
         "activePath"?: string;
         "feature"?: string;
         "frame"?: boolean;
-        "indexMode"?: 'init' | 'set' | 'merge';
         "isShadow"?: boolean;
         "selectedIndex"?: number;
         "shadow"?: boolean;
@@ -211,6 +217,7 @@ declare namespace LocalJSX {
         "mode"?: UniButtonMode;
         "only"?: boolean;
         "round"?: boolean;
+        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
@@ -226,6 +233,7 @@ declare namespace LocalJSX {
         "mini"?: boolean;
         "mode"?: UniButtonMode;
         "round"?: boolean;
+        "selectedIndex"?: number;
         "separator"?: string;
         "shadow"?: boolean;
         "top"?: boolean;
@@ -237,6 +245,9 @@ declare namespace LocalJSX {
         "activate"?: boolean;
         "bindend"?: string;
         "bindstart"?: string;
+        "clean"?: boolean;
+        "empty"?: boolean;
+        "excludes"?: string;
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;
@@ -259,6 +270,9 @@ declare namespace LocalJSX {
         "activate"?: boolean;
         "bindend"?: string;
         "bindstart"?: string;
+        "clean"?: boolean;
+        "empty"?: boolean;
+        "excludes"?: string;
         "feature"?: string;
         "inactive"?: boolean;
         "path"?: string;

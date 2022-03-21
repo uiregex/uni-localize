@@ -12,7 +12,6 @@
 | `activePath`    | `active-path`    |             | `string`                           | `'loc.active'` |
 | `feature`       | `feature`        |             | `string`                           | `'uni.store'`  |
 | `frame`         | `frame`          |             | `boolean`                          | `false`        |
-| `indexMode`     | `index-mode`     |             | `"init" \| "merge" \| "set"`       | `'init'`       |
 | `isShadow`      | `is-shadow`      |             | `boolean`                          | `false`        |
 | `selectedIndex` | `selected-index` |             | `number`                           | `0`            |
 | `shadow`        | `shadow`         |             | `boolean`                          | `false`        |

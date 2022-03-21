@@ -12,6 +12,9 @@
 | `activate`  | `activate`  |             | `boolean`                          | `false`           |
 | `bindend`   | `bindend`   |             | `string`                           | `'))'`            |
 | `bindstart` | `bindstart` |             | `string`                           | `'(('`            |
+| `clean`     | `clean`     |             | `boolean`                          | `false`           |
+| `empty`     | `empty`     |             | `boolean`                          | `false`           |
+| `excludes`  | `excludes`  |             | `string`                           | `''`              |
 | `feature`   | `feature`   |             | `string`                           | `'uni.store'`     |
 | `inactive`  | `inactive`  |             | `boolean`                          | `false`           |
 | `path`      | `path`      |             | `string`                           | `'loc.translate'` |

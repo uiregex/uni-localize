@@ -14,6 +14,8 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) value: string | Array<UniLangItem> = [];
 
+  @Prop({ reflect: true }) selectedIndex: number = 0;
+
   @Prop({ reflect: true }) linear: boolean = false;
 
   @Prop({ reflect: true }) mini: boolean = false;
@@ -40,10 +42,11 @@ export class UniLangMenuShadowComponent implements ComponentInterface {
 
   render(): VNode {
     const {
-      linear, mini, round, mode, top, shadow, frame, type, feature, separator, activePath, translatePath
+      selectedIndex, linear, mini, round, mode, top, shadow, frame,
+      type, feature, separator, activePath, translatePath
     } = this;
     const value = parseValue(this.value);
-    const data = { value, linear, mini, round, mode, activePath, translatePath, isShadow: true };
+    const data = { value, selectedIndex, linear, mini, round, mode, activePath, translatePath, isShadow: true };
     const storeData = { top, shadow, frame, type, feature, separator };
 
     return this.linear ? UniLangListTemplate(data, storeData) : UniLangMenuTemplate(data, storeData);

@@ -1,7 +1,7 @@
 import { h, VNode } from '@stencil/core';
 
 export const UniTranslateTemplate = function({ props }, template: VNode): VNode {
-  const { inactive, activate, top, feature, type, path, separator, bindstart, bindend } = props;
+  const { inactive, activate, clean, empty, top, feature, type, path, separator, excludes, bindstart, bindend } = props;
 
   return (
     <uni-event-store-get
@@ -15,6 +15,9 @@ export const UniTranslateTemplate = function({ props }, template: VNode): VNode 
       <uni-replace
         activate={activate}
         inactive={inactive}
+        clean={clean}
+        empty={empty}
+        excludes={excludes}
         bindstart={bindstart}
         bindend={bindend}
       >

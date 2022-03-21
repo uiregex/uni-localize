@@ -13,6 +13,10 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) rendered: boolean = false;
 
+  @Prop({ reflect: true }) clean: boolean = false;
+
+  @Prop({ reflect: true }) empty: boolean = false;
+
   @Prop({ reflect: true }) top: boolean = false;
 
   @Prop({ reflect: true }) type: UniStoreType = 'memory';
@@ -23,13 +27,15 @@ export class UniTranslateComponent implements ComponentInterface {
 
   @Prop({ reflect: true }) path = 'loc.translate';
 
+  @Prop({ reflect: true }) excludes: string = '';
+
   @Prop({ reflect: true }) bindstart: string = '((';
 
   @Prop({ reflect: true }) bindend: string = '))';
 
   render(): VNode {
-    const { inactive, activate, top, feature, separator, type, path, bindstart, bindend } = this;
-    const props = { inactive, activate, top, feature, separator, type, path, bindstart, bindend };
+    const { inactive, activate, clean, empty, top, feature, separator, type, path, excludes, bindstart, bindend } = this;
+    const props = { inactive, activate, clean, empty, top, feature, separator, type, path, excludes, bindstart, bindend };
 
     return this.rendered
       ? UniTranslateRenderedTemplate({ props }, <slot />)

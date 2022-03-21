@@ -5,7 +5,7 @@ import { UniTemplate } from '@uiwebkit/common';
 import { UniLangRepeatTemplate } from './lang-repeat.template';
 
 export const UniLangMenuTemplate = function(data, storeData): VNode {
-  const { value, selectedIndex, mini, round, mode, activePath, translatePath, indexMode, isShadow } = data;
+  const { value, selectedIndex, mini, round, mode, activePath, translatePath, isShadow } = data;
   const { top, shadow, frame, type, feature, separator } = storeData;
 
   return UniTemplate(
@@ -13,7 +13,6 @@ export const UniLangMenuTemplate = function(data, storeData): VNode {
       <uni-lang-default
         value={value}
         selectedIndex={selectedIndex}
-        indexMode={indexMode}
         isShadow={isShadow}
         top={top}
         shadow={shadow}
