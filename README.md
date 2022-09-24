@@ -6,9 +6,9 @@
 <custom-element-demo>
   <template>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/icn@1.2.2/dist/icn/icn.esm.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/mat@2.0.0-9/dist/mat.esm.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/udk@2.0.0-22/dist/udk.esm.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/loc@2.0.0-7/dist/loc/loc.esm.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/mat@2.0.0-10/dist/mat.esm.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/udk@2.0.0-26/dist/udk.esm.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@uiwebkit/loc@2.0.0-10/dist/localize/localize.esm.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
